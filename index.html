@@ -7,6 +7,77 @@
   <link rel="manifest" href="manifest.json" />
   <title>Dripped Out Apparel</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .hamburger {
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      margin-left: auto;
+      padding: 10px;
+    }
+
+    .hamburger span {
+      background: #fff;
+      height: 3px;
+      width: 25px;
+      margin: 4px 0;
+    }
+
+    .nav-section {
+      display: none;
+      flex-direction: column;
+      background-color: #000;
+      width: 100%;
+    }
+
+    .nav-section.show {
+      display: flex;
+    }
+
+    .nav-links, .account-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .nav-links li, .account-links li {
+      position: relative;
+    }
+
+    .nav-links a, .account-links a {
+      color: #fff;
+      text-decoration: none;
+      padding: 10px;
+      display: block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background: #111;
+      z-index: 999;
+      min-width: 150px;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown-content a {
+      padding: 10px;
+      display: block;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .dropdown-content a:hover {
+      background: #222;
+    }
+
+    .arrow {
+      font-size: 0.7em;
+    }
+  </style>
 </head>
 <body>
   <!-- NAVBAR -->
@@ -27,9 +98,13 @@
           <li><a href="about.html">About</a></li>
         </ul>
         <ul class="account-links">
-          <li class="dropdown" id="accountDropdown">
+          <li class="dropdown">
             <a href="#" class="dropbtn">Account <span class="arrow">▼</span></a>
-            <ul class="dropdown-content" id="accountMenu"></ul>
+            <ul class="dropdown-content">
+              <li><a href="signup.html">Sign Up</a></li>
+              <li><a href="login.html">Login</a></li>
+              <li><a href="dashboard.html">Dashboard</a></li>
+            </ul>
           </li>
         </ul>
       </div>
@@ -98,6 +173,14 @@
   </footer>
 
   <!-- SCRIPTS -->
-  <script src="script.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const hamburger = document.getElementById("hamburger");
+      const navSection = document.getElementById("navSection");
+      hamburger.addEventListener("click", () => {
+        navSection.classList.toggle("show");
+      });
+    });
+  </script>
 </body>
 </html>
