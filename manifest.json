@@ -1,20 +1,130 @@
-{
-  "name": "Dripped Out Apparel",
-  "short_name": "DrippedOut",
-  "start_url": "index.html",
-  "display": "standalone",
-  "background_color": "#000000",
-  "theme_color": "#FFD700",
-  "icons": [
-    {
-      "src": "images/icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "images/icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png"
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#FFD700">
+  <link rel="manifest" href="manifest.json">
+  <title>Shop - Dripped Out Apparel</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .hamburger {
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      margin-left: auto;
+      padding: 10px;
     }
-  ]
-}
+    .hamburger span {
+      background: #fff;
+      height: 3px;
+      width: 25px;
+      margin: 4px 0;
+    }
+    .nav-section {
+      display: none;
+      flex-direction: column;
+      background-color: #000;
+      width: 100%;
+    }
+    .nav-section.show {
+      display: flex;
+    }
+    .nav-links, .account-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .nav-links li, .account-links li {
+      position: relative;
+    }
+    .nav-links a, .account-links a {
+      color: #fff;
+      text-decoration: none;
+      padding: 10px;
+      display: block;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background: #111;
+      z-index: 999;
+      min-width: 150px;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    .dropdown-content a {
+      padding: 10px;
+      display: block;
+      color: #fff;
+      text-decoration: none;
+    }
+    .dropdown-content a:hover {
+      background: #222;
+    }
+    .arrow {
+      font-size: 0.7em;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <a href="index.html" class="logo">Dripped Out</a>
+      <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+      <div class="nav-section" id="navSection">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li class="dropdown">
+            <a href="products.html" class="dropbtn">Shop <span class="arrow">▼</span></a>
+            <ul class="dropdown-content">
+              <li><a href="products.html">All Products</a></li>
+              <li><a href="cart.html">Cart</a></li>
+              <li><a href="checkout.html">Checkout</a></li>
+            </ul>
+          </li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+        <ul class="account-links">
+          <li class="dropdown">
+            <a href="#" class="dropbtn">Account <span class="arrow">▼</span></a>
+            <ul class="dropdown-content">
+              <li><a href="signup.html">Sign Up</a></li>
+              <li><a href="login.html">Login</a></li>
+              <li><a href="dashboard.html">Dashboard</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main style="padding: 40px;">
+    <h1>Shop Our Drops</h1>
+    <!-- Category filter and products grid go here -->
+  </main>
+
+  <footer class="site-footer">
+    <p style="text-align:center;">&copy; 2025 Dripped Out Apparel. All rights reserved.</p>
+    <div style="text-align:center;">
+      <a href="index.html">Home</a> |
+      <a href="products.html">Shop</a> |
+      <a href="about.html">About</a> |
+      <a href="cart.html">Cart</a> |
+      <a href="checkout.html">Checkout</a>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const hamburger = document.getElementById("hamburger");
+      const navSection = document.getElementById("navSection");
+      hamburger.addEventListener("click", () => {
+        navSection.classList.toggle("show");
+      });
+    });
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
