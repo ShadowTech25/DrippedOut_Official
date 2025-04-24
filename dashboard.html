@@ -1,0 +1,68 @@
+<!-- dashboard.html --><!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#FFD700">
+  <link rel="manifest" href="manifest.json">
+  <title>Dashboard - Dripped Out Apparel</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">Dripped Out</div>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="nav-section">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li>
+            <a href="products.html">Shop</a>
+            <ul class="dropdown">
+              <li><a href="products.html">All Products</a></li>
+              <li><a href="cart.html">Cart</a></li>
+              <li><a href="checkout.html">Checkout</a></li>
+            </ul>
+          </li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+        <ul class="account-links" id="accountMenu"></ul>
+      </div>
+    </nav>
+  </header>  <main>
+    <h2 style="text-align:center;">Welcome, <span id="userName">User</span></h2>
+    <div class="dashboard-card">
+      <h3>Your Rewards</h3>
+      <p>Points earned: <strong id="points">0</strong></p>
+    </div>
+    <div class="dashboard-card">
+      <h3>Your Cart Preview</h3>
+      <div id="cartItems" class="cart-preview"></div>
+      <p id="cartTotal" style="text-align:center; margin-top: 10px;"></p>
+    </div>
+    <button class="logout-btn" onclick="logout()">Logout</button>
+  </main>  <footer class="site-footer">
+    <p style="text-align:center;">&copy; 2025 Dripped Out Apparel. All rights reserved.</p>
+    <div style="text-align:center;">
+      <a href="index.html">Home</a> |
+      <a href="products.html">Shop</a> |
+      <a href="about.html">About</a> |
+      <a href="cart.html">Cart</a> |
+      <a href="checkout.html">Checkout</a>
+    </div>
+  </footer>  <script src="script.js"></script>  <script>
+    updateCartCount();
+    const user = JSON.parse(localStorage.getItem("drip_user"));
+    if (!user) {
+      alert("You must be logged in to access the dashboard.");
+      window.location.href = "login.html";
+    } else {
+      document.getElementById("userName").textContent = user.username || "User";
+      document.getElementById("points").textContent = user.points || 0;
+    }
+    renderCart("cartItems", "cartTotal", false);
+  </script></body>
+</html>

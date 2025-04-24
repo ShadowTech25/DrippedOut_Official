@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#FFD700" />
+  <link rel="manifest" href="manifest.json" />
+  <title>Dripped Out Apparel</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- NAVBAR -->
+  <header>
+    <nav class="navbar">
+      <a href="index.html" class="logo">Dripped Out</a>
+      <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+      <div class="nav-section" id="navSection">
+        <ul class="nav-links">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropbtn">Shop <span class="arrow">▼</span></a>
+            <ul class="dropdown-content">
+              <li><a href="cart.html">Cart</a></li>
+              <li><a href="checkout.html">Checkout</a></li>
+            </ul>
+          </li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+        <ul class="account-links">
+          <li class="dropdown" id="accountDropdown">
+            <a href="#" class="dropbtn">Account <span class="arrow">▼</span></a>
+            <ul class="dropdown-content" id="accountMenu"></ul>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <section class="hero">
+      <h1>Welcome to Dripped Out Apparel</h1>
+      <p>Luxury streetwear built for legends. Shop exclusive drops now.</p>
+    </section>
+
+    <section class="hero-banner" style="text-align:center; margin:20px 0;">
+      <img src="images/drip-ad.jpg" alt="Drip Ad"
+           style="max-width:100%; border:2px solid gold; border-radius:8px;" />
+    </section>
+
+    <section class="certified-banner">
+      CERTIFIED<br />DRIP DEALER
+    </section>
+
+    <h2 class="featured-title" style="text-align:center; color:gold; margin-top:40px;">
+      Featured Tracksuits
+    </h2>
+
+    <section class="product-slider">
+      <div class="product-card">
+        <img src="images/CarbonBlack.jpg" alt="Carbon Black">
+        <h3>Carbon Black</h3>
+        <button class="buy-button">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="images/GreyDrip.jpg" alt="Grey Drip">
+        <h3>Grey Drip</h3>
+        <button class="buy-button">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="images/MoltenCurrent.jpg" alt="Molten Current">
+        <h3>Molten Current</h3>
+        <button class="buy-button">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="images/PurpleTurpuoiseRetro.jpg" alt="Purple Turquoise Retro">
+        <h3>Purple Turquoise Retro</h3>
+        <button class="buy-button">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="images/DuneBeige.jpg" alt="Dune Beige">
+        <h3>Dune Beige</h3>
+        <button class="buy-button">Add to Cart</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <p>&copy; 2025 Dripped Out Apparel. All rights reserved.</p>
+    <div>
+      <a href="index.html">Home</a> |
+      <a href="products.html">Shop</a> |
+      <a href="about.html">About</a> |
+      <a href="cart.html">Cart</a> |
+      <a href="checkout.html">Checkout</a>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="script.js"></script>
+</body>
+</html>

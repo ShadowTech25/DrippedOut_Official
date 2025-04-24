@@ -1,0 +1,84 @@
+<!-- account.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <meta name="theme-color" content="#FFD700"/>
+  <link rel="stylesheet" href="style.css"/>
+  <title>My Account – Dripped Out Apparel</title>
+  <style>
+    /* Mobile nav hiding/showing (same as about.html) */
+    @media (max-width:768px){
+      .nav-section { display:none; flex-direction:column; width:100%; background:#000; position:absolute; top:60px; left:0; padding:1rem; gap:1rem; }
+      .nav-section.active { display:flex }
+      .nav-links, .account-links { flex-direction:column; gap:0.5rem }
+    }
+  </style>
+</head>
+<body style="background:#000;color:#FFF;">
+
+  <!-- NAVBAR (copy‐pasted exactly from about.html) -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">Dripped Out</div>
+      <div class="hamburger"><span></span><span></span><span></span></div>
+
+      <div class="nav-section">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Shop</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+        <ul class="account-links" id="accountMenu">
+          <!-- script.js will inject the dropdown here -->
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ACCOUNT CONTENT -->
+  <main style="padding:40px;">
+    <section id="accountContent">
+      <!-- Populated by inline script below -->
+    </section>
+  </main>
+
+  <!-- FOOTER (same style as other pages) -->
+  <footer class="site-footer" style="text-align:center; color:#FFF;">
+    <p>&copy; 2025 Dripped Out Apparel. All rights reserved.</p>
+    <div>
+      <a href="index.html">Home</a> |
+      <a href="products.html">Shop</a> |
+      <a href="about.html">About</a> |
+      <a href="cart.html">Cart</a> |
+      <a href="checkout.html">Checkout</a>
+    </div>
+  </footer>
+
+  <!-- your existing global script -->
+  <script src="script.js"></script>
+
+  <!-- inline logic to render account page -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const container = document.getElementById('accountContent');
+      const user = JSON.parse(localStorage.getItem('drip_user'));
+      if (user) {
+        container.innerHTML = `
+          <h1>Welcome, ${user.name || 'Member'}!</h1>
+          <p>Email: ${user.email || '–'}</p>
+          <a href="dashboard.html" class="buy-button">Go to Dashboard</a>
+        `;
+      } else {
+        container.innerHTML = `
+          <h1>Please Log In or Sign Up</h1>
+          <a href="login.html" class="buy-button">Log In</a>
+          <a href="signup.html" class="buy-button">Sign Up</a>
+        `;
+      }
+    });
+  </script>
+
+</body>
+</html>

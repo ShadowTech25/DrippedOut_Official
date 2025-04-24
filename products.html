@@ -1,0 +1,136 @@
+<!-- products.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#FFD700" />
+  <link rel="manifest" href="manifest.json" />
+  <title>Shop - Dripped Out Apparel</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">Dripped Out</div>
+      <div class="hamburger"><span></span><span></span><span></span></div>
+      <div class="nav-section">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li>
+            <a href="products.html" class="active">Shop</a>
+            <ul class="dropdown">
+              <li><a href="products.html">All Products</a></li>
+              <li><a href="cart.html">Cart</a></li>
+              <li><a href="checkout.html">Checkout</a></li>
+            </ul>
+          </li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+        <ul class="account-links" id="accountMenu"></ul>
+      </div>
+    </nav>
+  </header>
+
+  <main style="padding:40px;">
+    <h1>Shop Our Drops</h1>
+
+    <!-- Category Filter -->
+    <div class="filter-container" style="text-align:center; margin:20px 0;">
+      <label for="categorySelect" style="color:gold; font-weight:bold;">Category:</label>
+      <select id="categorySelect" style="padding:10px; border-radius:4px;">
+        <option value="All">All Products</option>
+        <option value="Tank Tops">Tank Tops</option>
+        <option value="Tracksuits">Tracksuits</option>
+        <option value="Hoodies">Hoodies</option>
+        <option value="Pants">Pants</option>
+        <option value="Coats">Coats</option>
+        <option value="Shorts">Shorts</option>
+        <option value="Shirts">Shirts</option>
+        <option value="Buy-The-Fit">Buy-The-Fit</option>
+      </select>
+    </div>
+
+    <!-- Products Grid -->
+    <div class="product-grid">
+      <!-- Tank Tops -->
+      <div class="product-card" data-category="Tank Tops">
+        <img src="images/yellow-tank-set.jpg" alt="Yellow Tank Set" />
+        <h3>Yellow Tank Set</h3>
+        <p class="price">$64.99</p>
+        <button class="buy-button">Add to Cart</button>
+      </div>
+      <div class="product-card" data-category="Tank Tops">
+        <img src="images/summer-heat-set.jpg" alt="Summer Heat Tank Set" />
+        <h3>Summer Heat Set</h3>
+        <p class="price">$64.99</p>
+        <button class="buy-button">Add to Cart</button>
+      </div>
+
+      <!-- Tracksuits -->
+      <div class="product-card" data-category="Tracksuits">
+        <img src="images/BlueWhiteRetro.jpg" alt="90's Blue & White Retro-Tracksuit" />
+        <h3>90's Blue & White Retro-Tracksuit</h3>
+        <p class="price">$89.99</p>
+        <button class="buy-button">Add to Cart</button>
+      </div>
+      <div class="product-card" data-category="Tracksuits">
+        <img src="images/PurpleTurpuoiseRetro.jpg" alt="90's Purple & Turquoise Retro-Tracksuit" />
+        <h3>90's Purple & Turquoise Retro-Tracksuit</h3>
+        <p class="price">$89.99</p>
+        <button class="buy-button">Add to Cart</button>
+      </div>
+      <div class="product-card" data-category="Tracksuits">
+        <img src="images/CarbonBlack.jpg" alt="Carbon Black Tracksuit" />
+        <h3>Carbon Black Tracksuit</h3>
+        <p class="price">$89.99</p>
+        <button class="buy-button">Add to Cart</button>
+      </div>
+      <div class="product-card" data-category="Tracksuits">
+        <img src="images/DuneBeige.jpg" alt="Dessert Beige Tracksuit" />
+        <h3>Dessert Beige Tracksuit</h3>
+        <p class="price">$89.99</p>
+        <button class="buy-button">Add to Cart</button>
+      </div>
+      <div class="product-card" data-category="Tracksuits">
+        <img src="images/GreyDrip.jpg" alt="Classic Grey Tracksuit" />
+        <h3>Classic Grey Tracksuit</h3>
+        <p class="price">$89.99</p>
+        <button class="buy-button">Add to Cart</button>
+      </div>
+      <div class="product-card" data-category="Tracksuits">
+        <img src="images/MoltenCurrent.jpg" alt="Molten Current Tracksuit" />
+        <h3>Molten Current Tracksuit</h3>
+        <p class="price">$89.99</p>
+        <button class="buy-button">Add to Cart</button>
+      </div>
+      <div class="product-card" data-category="Tracksuits">
+        <img src="images/NeopStatic.jpg" alt="Neon Static Tracksuit" />
+        <h3>Neon Static Tracksuit</h3>
+        <p class="price">$89.99</p>
+        <button class="buy-button">Add to Cart</button>
+      </div>
+
+      <!-- Placeholder for other categories (add when you have assets) -->
+      <!-- 
+      <div class="product-card" data-category="Hoodies">…</div>
+      <div class="product-card" data-category="Pants">…</div>
+      etc.
+      -->
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2025 Dripped Out Apparel. All rights reserved.</p>
+    <div style="text-align:center;">
+      <a href="index.html">Home</a> |
+      <a href="products.html">Shop</a> |
+      <a href="about.html">About</a> |
+      <a href="cart.html">Cart</a> |
+      <a href="checkout.html">Checkout</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

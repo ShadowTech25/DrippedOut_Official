@@ -1,0 +1,64 @@
+<!-- cart.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#FFD700">
+  <link rel="manifest" href="manifest.json">
+  <title>Your Cart - Dripped Out Apparel</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">Dripped Out</div>
+      <div class="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+      <div class="nav-section">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li>
+            <a href="products.html">Shop</a>
+            <ul class="dropdown">
+              <li><a href="products.html">All Products</a></li>
+              <li><a href="cart.html" class="active">Cart</a></li>
+              <li><a href="checkout.html">Checkout</a></li>
+            </ul>
+          </li>
+          <li><a href="about.html">About</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropbtn">Info <span class="arrow">▼</span></a>
+            <ul class="dropdown-content">
+              <li><a href="#faq">FAQ</a></li>
+              <li><a href="#articles">Articles</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="account-links" id="accountMenu"></ul>
+      </div>
+    </nav>
+  </header>
+
+  <main style="padding: 40px;">
+    <h1 style="color: gold;">Your Cart</h1>
+    <div id="cart-items" class="cart-grid"></div>
+    <p id="cart-total" class="cart-total"></p>
+    <a href="checkout.html" class="checkout-btn">Proceed to Checkout</a>
+  </main>
+
+  <footer class="site-footer">
+    <p style="text-align:center;">&copy; 2025 Dripped Out Apparel. All rights reserved.</p>
+    <div style="text-align:center;">
+      <a href="index.html">Home</a> |
+      <a href="products.html">Shop</a> |
+      <a href="about.html">About</a> |
+      <a href="cart.html">Cart</a> |
+      <a href="checkout.html">Checkout</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

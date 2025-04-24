@@ -1,0 +1,69 @@
+<!-- signup.html --><!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#FFD700">
+  <link rel="manifest" href="manifest.json">
+  <title>Sign Up - Dripped Out Apparel</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">Dripped Out</div>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="nav-section">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li>
+            <a href="products.html">Shop</a>
+            <ul class="dropdown">
+              <li><a href="products.html">All Products</a></li>
+              <li><a href="cart.html">Cart</a></li>
+              <li><a href="checkout.html">Checkout</a></li>
+            </ul>
+          </li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+        <ul class="account-links" id="accountMenu"></ul>
+      </div>
+    </nav>
+  </header>  <main style="padding: 40px;">
+    <h1>Create Your Account</h1>
+    <form id="signup-form">
+      <input type="text" id="signup-username" placeholder="Username" required>
+      <input type="email" id="signup-email" placeholder="Email" required>
+      <input type="text" id="signup-shipping" placeholder="Shipping Address" required>
+      <input type="password" id="signup-password" placeholder="Password" required>
+      <button type="submit">Sign Up</button>
+    </form>
+  </main>  <footer class="site-footer">
+    <p style="text-align:center;">&copy; 2025 Dripped Out Apparel. All rights reserved.</p>
+    <div style="text-align:center;">
+      <a href="index.html">Home</a> |
+      <a href="products.html">Shop</a> |
+      <a href="about.html">About</a> |
+      <a href="cart.html">Cart</a> |
+      <a href="checkout.html">Checkout</a>
+    </div>
+  </footer>  <script src="script.js"></script>  <script>
+    updateCartCount();
+    document.getElementById("signup-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const newUser = {
+        username: document.getElementById("signup-username").value,
+        email: document.getElementById("signup-email").value,
+        shipping: document.getElementById("signup-shipping").value,
+        password: document.getElementById("signup-password").value,
+        points: 0
+      };
+      localStorage.setItem("drip_user", JSON.stringify(newUser));
+      alert("Signup successful. Redirecting to dashboard...");
+      window.location.href = "dashboard.html";
+    });
+  </script></body>
+</html>

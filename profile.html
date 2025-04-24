@@ -1,0 +1,80 @@
+<!-- profile.html --><!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#FFD700">
+  <link rel="manifest" href="manifest.json">
+  <title>User Profile - Dripped Out Apparel</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">Dripped Out</div>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="nav-section">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li>
+            <a href="products.html">Shop</a>
+            <ul class="dropdown">
+              <li><a href="products.html">All Products</a></li>
+              <li><a href="cart.html">Cart</a></li>
+              <li><a href="checkout.html">Checkout</a></li>
+            </ul>
+          </li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+        <ul class="account-links" id="accountMenu"></ul>
+      </div>
+    </nav>
+  </header>  <main>
+    <div class="profile-container">
+      <h1>Your Profile</h1>
+      <input type="text" id="username" placeholder="Username" />
+      <input type="email" id="email" placeholder="Email" />
+      <input type="text" id="shipping" placeholder="Shipping Address" />
+      <button class="save-button" onclick="saveProfile()">Save Changes</button>
+    </div><div class="purchases-container" id="purchases">
+  <h2>Past Purchases</h2>
+</div>
+
+  </main>  <footer class="site-footer">
+    <p style="text-align:center;">&copy; 2025 Dripped Out Apparel. All rights reserved.</p>
+    <div style="text-align:center;">
+      <a href="index.html">Home</a> |
+      <a href="products.html">Shop</a> |
+      <a href="about.html">About</a> |
+      <a href="cart.html">Cart</a> |
+      <a href="checkout.html">Checkout</a>
+    </div>
+  </footer>  <script src="script.js"></script>  <script>
+    updateCartCount();
+    const user = JSON.parse(localStorage.getItem("drip_user"));
+    if (!user) {
+      alert("You must be logged in to view your profile.");
+      window.location.href = "login.html";
+    } else {
+      document.getElementById("username").value = user.username || "";
+      document.getElementById("email").value = user.email || "";
+      document.getElementById("shipping").value = user.shipping || "";
+    }
+
+    function saveProfile() {
+      const updated = {
+        ...user,
+        username: document.getElementById("username").value,
+        email: document.getElementById("email").value,
+        shipping: document.getElementById("shipping").value
+      };
+      localStorage.setItem("drip_user", JSON.stringify(updated));
+      alert("Profile updated successfully!");
+    }
+
+    loadPastOrders("purchases");
+  </script></body>
+</html>
