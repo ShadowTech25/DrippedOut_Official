@@ -1,4 +1,5 @@
-<!-- signup.html --><!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -6,22 +7,89 @@
   <link rel="manifest" href="manifest.json">
   <title>Sign Up - Dripped Out Apparel</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    .hamburger {
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      margin-left: auto;
+      padding: 10px;
+    }
+
+    .hamburger span {
+      background: #fff;
+      height: 3px;
+      width: 25px;
+      margin: 4px 0;
+    }
+
+    .nav-section {
+      display: none;
+      flex-direction: column;
+      background-color: #000;
+      width: 100%;
+    }
+
+    .nav-section.show {
+      display: flex;
+    }
+
+    .nav-links, .account-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .nav-links li, .account-links li {
+      position: relative;
+    }
+
+    .nav-links a, .account-links a {
+      color: #fff;
+      text-decoration: none;
+      padding: 10px;
+      display: block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background: #111;
+      z-index: 999;
+      min-width: 150px;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown-content a {
+      padding: 10px;
+      display: block;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .dropdown-content a:hover {
+      background: #222;
+    }
+
+    .arrow {
+      font-size: 0.7em;
+    }
+  </style>
 </head>
 <body>
   <header>
     <nav class="navbar">
-      <div class="logo">Dripped Out</div>
-      <div class="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <div class="nav-section">
+      <a href="index.html" class="logo">Dripped Out</a>
+      <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+      <div class="nav-section" id="navSection">
         <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
-          <li>
-            <a href="products.html">Shop</a>
-            <ul class="dropdown">
+          <li class="dropdown">
+            <a href="products.html" class="dropbtn">Shop <span class="arrow">▼</span></a>
+            <ul class="dropdown-content">
               <li><a href="products.html">All Products</a></li>
               <li><a href="cart.html">Cart</a></li>
               <li><a href="checkout.html">Checkout</a></li>
@@ -29,10 +97,21 @@
           </li>
           <li><a href="about.html">About</a></li>
         </ul>
-        <ul class="account-links" id="accountMenu"></ul>
+        <ul class="account-links">
+          <li class="dropdown">
+            <a href="#" class="dropbtn">Account <span class="arrow">▼</span></a>
+            <ul class="dropdown-content">
+              <li><a href="signup.html">Sign Up</a></li>
+              <li><a href="login.html">Login</a></li>
+              <li><a href="dashboard.html">Dashboard</a></li>
+            </ul>
+          </li>
+        </ul>
       </div>
     </nav>
-  </header>  <main style="padding: 40px;">
+  </header>
+
+  <main style="padding: 40px;">
     <h1>Create Your Account</h1>
     <form id="signup-form">
       <input type="text" id="signup-username" placeholder="Username" required>
@@ -41,7 +120,9 @@
       <input type="password" id="signup-password" placeholder="Password" required>
       <button type="submit">Sign Up</button>
     </form>
-  </main>  <footer class="site-footer">
+  </main>
+
+  <footer class="site-footer">
     <p style="text-align:center;">&copy; 2025 Dripped Out Apparel. All rights reserved.</p>
     <div style="text-align:center;">
       <a href="index.html">Home</a> |
@@ -50,7 +131,17 @@
       <a href="cart.html">Cart</a> |
       <a href="checkout.html">Checkout</a>
     </div>
-  </footer>  <script src="script.js"></script>  <script>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const hamburger = document.getElementById("hamburger");
+      const navSection = document.getElementById("navSection");
+      hamburger.addEventListener("click", () => {
+        navSection.classList.toggle("show");
+      });
+    });
+
     updateCartCount();
     document.getElementById("signup-form").addEventListener("submit", function(e) {
       e.preventDefault();
@@ -65,5 +156,8 @@
       alert("Signup successful. Redirecting to dashboard...");
       window.location.href = "dashboard.html";
     });
-  </script></body>
+  </script>
+
+  <script src="script.js"></script>
+</body>
 </html>
