@@ -8,19 +8,72 @@
   <title>Sign Up - Dripped Out Apparel</title>
   <link rel="stylesheet" href="style.css">
   <style>
+    .navbar {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #000;
+      padding: 10px;
+      position: relative;
+    }
+
+    .logo {
+      color: #FFD700;
+      font-weight: bold;
+      font-size: 24px;
+      text-align: center;
+    }
+
     .hamburger {
       display: flex;
       flex-direction: column;
       cursor: pointer;
-      margin-left: auto;
-      padding: 10px;
+      position: absolute;
+      right: 15px;
+      top: 22px;
+      gap: 3px;
     }
 
     .hamburger span {
       background: #fff;
-      height: 3px;
-      width: 25px;
-      margin: 4px 0;
+      height: 2px;
+      width: 20px;
+    }
+
+    .account-icon {
+      position: absolute;
+      left: 15px;
+      top: 18px;
+      cursor: pointer;
+      font-size: 20px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      height: 24px;
+    }
+
+    .account-dropdown {
+      display: none;
+      position: absolute;
+      top: 50px;
+      left: 15px;
+      background: #111;
+      border: 1px solid #333;
+      border-radius: 4px;
+      z-index: 999;
+      width: 140px;
+    }
+
+    .account-dropdown a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 8px 12px;
+      font-size: 13px;
+    }
+
+    .account-dropdown a:hover {
+      background: #222;
     }
 
     .nav-section {
@@ -34,44 +87,67 @@
       display: flex;
     }
 
-    .nav-links, .account-links {
+    .nav-links {
       list-style: none;
       padding: 0;
       margin: 0;
     }
 
-    .nav-links li, .account-links li {
+    .nav-links li {
       position: relative;
     }
 
-    .nav-links a, .account-links a {
+    .nav-links a {
       color: #fff;
       text-decoration: none;
-      padding: 10px;
+      padding: 6px 10px;
       display: block;
+      font-size: 13px;
     }
 
     .dropdown-content {
       display: none;
-      position: absolute;
+      position: relative;
       background: #111;
       z-index: 999;
-      min-width: 150px;
-    }
-
-    .dropdown:hover .dropdown-content {
-      display: block;
+      min-width: 100%;
+      padding: 0;
+      margin-top: 0;
     }
 
     .dropdown-content a {
-      padding: 10px;
-      display: block;
-      color: #fff;
+      padding: 5px 10px;
+      font-size: 13px;
+      border-top: 1px solid #222;
+      color: white;
       text-decoration: none;
     }
 
     .dropdown-content a:hover {
       background: #222;
+    }
+
+    .dropdown-open .dropdown-content {
+      display: block;
+    }
+
+    @media (min-width: 768px) {
+      .nav-section {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .nav-links {
+        flex-direction: row;
+      }
+
+      .dropdown:hover .dropdown-content {
+        display: block;
+        position: absolute;
+        top: 100%;
+        left: 0;
+      }
     }
 
     .arrow {
@@ -82,8 +158,17 @@
 <body>
   <header>
     <nav class="navbar">
-      <a href="index.html" class="logo">Dripped Out</a>
+      <div class="account-icon" id="accountIcon">&#128100;</div>
+      <div class="account-dropdown" id="accountDropdownMenu">
+        <a href="signup.html" class="active">Sign Up</a>
+        <a href="login.html">Login</a>
+        <a href="#">Sign Out</a>
+        <a href="dashboard.html">Dashboard</a>
+      </div>
+
+      <a href="index.html" class="logo">Dripped Out Apparel</a>
       <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+
       <div class="nav-section" id="navSection">
         <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
@@ -96,16 +181,6 @@
             </ul>
           </li>
           <li><a href="about.html">About</a></li>
-        </ul>
-        <ul class="account-links">
-          <li class="dropdown">
-            <a href="#" class="dropbtn">Account <span class="arrow">▼</span></a>
-            <ul class="dropdown-content">
-              <li><a href="signup.html">Sign Up</a></li>
-              <li><a href="login.html">Login</a></li>
-              <li><a href="dashboard.html">Dashboard</a></li>
-            </ul>
-          </li>
         </ul>
       </div>
     </nav>
@@ -137,24 +212,55 @@
     document.addEventListener("DOMContentLoaded", () => {
       const hamburger = document.getElementById("hamburger");
       const navSection = document.getElementById("navSection");
+
       hamburger.addEventListener("click", () => {
         navSection.classList.toggle("show");
       });
-    });
 
-    updateCartCount();
-    document.getElementById("signup-form").addEventListener("submit", function(e) {
-      e.preventDefault();
-      const newUser = {
-        username: document.getElementById("signup-username").value,
-        email: document.getElementById("signup-email").value,
-        shipping: document.getElementById("signup-shipping").value,
-        password: document.getElementById("signup-password").value,
-        points: 0
-      };
-      localStorage.setItem("drip_user", JSON.stringify(newUser));
-      alert("Signup successful. Redirecting to dashboard...");
-      window.location.href = "dashboard.html";
+      document.querySelectorAll(".dropbtn").forEach(button => {
+        button.addEventListener("click", function (e) {
+          e.preventDefault();
+          const parent = this.parentElement;
+          parent.classList.toggle("dropdown-open");
+
+          document.querySelectorAll(".dropdown").forEach(drop => {
+            if (drop !== parent) drop.classList.remove("dropdown-open");
+          });
+        });
+      });
+
+      const accountIcon = document.getElementById("accountIcon");
+      const accountDropdownMenu = document.getElementById("accountDropdownMenu");
+
+      accountIcon.addEventListener("click", () => {
+        accountDropdownMenu.style.display =
+          accountDropdownMenu.style.display === "block" ? "none" : "block";
+      });
+
+      document.addEventListener("click", function (event) {
+        if (
+          !accountIcon.contains(event.target) &&
+          !accountDropdownMenu.contains(event.target)
+        ) {
+          accountDropdownMenu.style.display = "none";
+        }
+      });
+
+      updateCartCount();
+
+      document.getElementById("signup-form").addEventListener("submit", function(e) {
+        e.preventDefault();
+        const newUser = {
+          username: document.getElementById("signup-username").value,
+          email: document.getElementById("signup-email").value,
+          shipping: document.getElementById("signup-shipping").value,
+          password: document.getElementById("signup-password").value,
+          points: 0
+        };
+        localStorage.setItem("drip_user", JSON.stringify(newUser));
+        alert("Signup successful. Redirecting to dashboard...");
+        window.location.href = "dashboard.html";
+      });
     });
   </script>
 
