@@ -15,6 +15,7 @@
       padding: 10px;
       position: relative;
     }
+
     .logo {
       color: #FFD700;
       font-weight: bold;
@@ -28,7 +29,7 @@
       cursor: pointer;
       position: absolute;
       right: 15px;
-      top: 22px; /* Adjusted from 12px to 22px */
+      top: 22px;
       gap: 3px;
     }
 
@@ -36,6 +37,39 @@
       background: #fff;
       height: 2px;
       width: 20px;
+    }
+
+    .account-icon {
+      position: absolute;
+      left: 15px;
+      top: 22px;
+      cursor: pointer;
+      font-size: 20px;
+      color: #FFD700;
+    }
+
+    .account-dropdown {
+      display: none;
+      position: absolute;
+      top: 50px;
+      left: 15px;
+      background: #111;
+      border: 1px solid #333;
+      border-radius: 4px;
+      z-index: 999;
+      width: 140px;
+    }
+
+    .account-dropdown a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 8px 12px;
+      font-size: 13px;
+    }
+
+    .account-dropdown a:hover {
+      background: #222;
     }
 
     .nav-section {
@@ -124,8 +158,17 @@
   <!-- NAVBAR -->
   <header>
     <nav class="navbar">
+      <div class="account-icon" id="accountIcon">&#128100;</div>
+      <div class="account-dropdown" id="accountDropdownMenu">
+        <a href="signup.html">Sign Up</a>
+        <a href="login.html">Login</a>
+        <a href="#">Sign Out</a>
+        <a href="dashboard.html">Dashboard</a>
+      </div>
+
       <a href="index.html" class="logo">Dripped Out Apparel</a>
       <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+
       <div class="nav-section" id="navSection">
         <ul class="nav-links">
           <li><a href="index.html" class="active">Home</a></li>
@@ -158,11 +201,11 @@
       <h1>WELCOME TO D.O.A</h1>
       <p>Luxury streetwear built for legends.</p>
     </section>
-    
+
     <section class="hero-banner" style="text-align:center; margin:20px 0;">
       <img src="images/drip-ad.jpg" alt="Drip Ad" style="max-width:100%; border:2px solid gold; border-radius:8px;" />
     </section>
-    
+
     <section class="certified-banner">
       OWN THE STYLE. BUY THE DRIP
     </section>
@@ -228,11 +271,27 @@
           const parent = this.parentElement;
           parent.classList.toggle("dropdown-open");
 
-          // Close all other dropdowns
           document.querySelectorAll(".dropdown").forEach(drop => {
             if (drop !== parent) drop.classList.remove("dropdown-open");
           });
         });
+      });
+
+      const accountIcon = document.getElementById("accountIcon");
+      const accountDropdownMenu = document.getElementById("accountDropdownMenu");
+
+      accountIcon.addEventListener("click", () => {
+        accountDropdownMenu.style.display =
+          accountDropdownMenu.style.display === "block" ? "none" : "block";
+      });
+
+      document.addEventListener("click", function (event) {
+        if (
+          !accountIcon.contains(event.target) &&
+          !accountDropdownMenu.contains(event.target)
+        ) {
+          accountDropdownMenu.style.display = "none";
+        }
       });
     });
   </script>
