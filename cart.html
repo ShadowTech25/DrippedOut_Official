@@ -8,6 +8,7 @@
   <title>Your Cart - Dripped Out Apparel</title>
   <link rel="stylesheet" href="style.css">
   <style>
+    /* Navbar Styles */
     .navbar {
       display: flex;
       flex-direction: column;
@@ -153,6 +154,48 @@
     .arrow {
       font-size: 0.7em;
     }
+
+    /* Cart Styles */
+    .cart-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      color: white;
+    }
+
+    .cart-item img {
+      width: 80px;
+      height: auto;
+      border: 1px solid gold;
+      border-radius: 6px;
+      margin-right: 10px;
+    }
+
+    .remove-btn {
+      margin-left: 10px;
+      background: red;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .checkout-btn {
+      display: inline-block;
+      background: gold;
+      color: black;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+
+    .cart-total {
+      margin-top: 20px;
+      font-weight: bold;
+      color: white;
+    }
   </style>
 </head>
 
@@ -190,8 +233,8 @@
   <main style="padding: 40px;">
     <h1 style="color: gold;">Your Cart</h1>
     <div id="cart-items" class="cart-grid"></div>
-    <p id="cart-total" class="cart-total" style="margin-top: 20px; font-weight: bold; color: white;"></p>
-    <a href="checkout.html" class="checkout-btn" style="display: inline-block; background: gold; color: black; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin-top: 20px;">Proceed to Checkout</a>
+    <p id="cart-total" class="cart-total"></p>
+    <a href="checkout.html" class="checkout-btn">Proceed to Checkout</a>
   </main>
 
   <footer class="site-footer">
@@ -209,41 +252,24 @@
     document.addEventListener("DOMContentLoaded", () => {
       const hamburger = document.getElementById("hamburger");
       const navSection = document.getElementById("navSection");
+      const accountIcon = document.getElementById("accountIcon");
+      const accountDropdownMenu = document.getElementById("accountDropdownMenu");
 
       hamburger.addEventListener("click", () => {
         navSection.classList.toggle("show");
       });
 
-      document.querySelectorAll(".dropbtn").forEach(button => {
-        button.addEventListener("click", function (e) {
-          e.preventDefault();
-          const parent = this.parentElement;
-          parent.classList.toggle("dropdown-open");
-
-          document.querySelectorAll(".dropdown").forEach(drop => {
-            if (drop !== parent) drop.classList.remove("dropdown-open");
-          });
-        });
-      });
-
-      const accountIcon = document.getElementById("accountIcon");
-      const accountDropdownMenu = document.getElementById("accountDropdownMenu");
-
       accountIcon.addEventListener("click", () => {
-        accountDropdownMenu.style.display =
-          accountDropdownMenu.style.display === "block" ? "none" : "block";
+        accountDropdownMenu.style.display = accountDropdownMenu.style.display === "block" ? "none" : "block";
       });
 
-      document.addEventListener("click", function (event) {
-        if (
-          !accountIcon.contains(event.target) &&
-          !accountDropdownMenu.contains(event.target)
-        ) {
+      document.addEventListener("click", (e) => {
+        if (!accountIcon.contains(e.target) && !accountDropdownMenu.contains(e.target)) {
           accountDropdownMenu.style.display = "none";
         }
       });
 
-      // CART DISPLAY LOGIC
+      // --- CART LOGIC ---
       const cartItemsContainer = document.getElementById("cart-items");
       const cartTotal = document.getElementById("cart-total");
 
@@ -261,17 +287,14 @@
         cart.forEach((item, index) => {
           const itemDiv = document.createElement("div");
           itemDiv.className = "cart-item";
-          itemDiv.style.display = "flex";
-          itemDiv.style.alignItems = "center";
-          itemDiv.style.marginBottom = "20px";
 
           itemDiv.innerHTML = `
-            <img src="${item.image}" alt="${item.name}" style="width:80px; height:auto; border:1px solid gold; border-radius:6px; margin-right:10px;">
+            <img src="${item.image}" alt="${item.name}">
             <div style="flex-grow:1;">
-              <strong style="color:white;">${item.name}</strong><br>
-              <span style="color:white;">$${item.price.toFixed(2)}</span>
+              <strong>${item.name}</strong><br>
+              $${item.price.toFixed(2)}
             </div>
-            <button class="remove-btn" data-index="${index}" style="margin-left:10px; background:red; color:white; border:none; padding:5px 10px; border-radius:4px; cursor:pointer;">Remove</button>
+            <button class="remove-btn" data-index="${index}">Remove</button>
           `;
 
           cartItemsContainer.appendChild(itemDiv);
@@ -280,7 +303,6 @@
 
         cartTotal.textContent = `Total: $${total.toFixed(2)}`;
 
-        // Hook up remove buttons
         document.querySelectorAll(".remove-btn").forEach(button => {
           button.addEventListener("click", function () {
             removeItem(this.getAttribute("data-index"));
