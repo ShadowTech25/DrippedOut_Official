@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,87 +7,102 @@
   <title>Dripped Out Apparel</title>
   <link rel="stylesheet" href="style.css" />
   <style>
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background: #111;
-      z-index: 999;
-      min-width: 150px;
-    }
-
-    .dropdown-open .dropdown-content {
-      display: block;
-      position: relative;
-    }
-
-    @media (min-width: 768px) {
-      .dropdown:hover .dropdown-content {
-        display: block;
-        position: absolute;
-      }
-
-      .dropdown-open .dropdown-content {
-        position: absolute;
-      }
-    }
-
-    .hamburger {
+    .navbar {
       display: flex;
       flex-direction: column;
-      cursor: pointer;
-      margin-left: auto;
-      padding: 10px;
-    }
-
-    .hamburger span {
-      background: #fff;
-      height: 3px;
-      width: 25px;
-      margin: 4px 0;
-    }
-
-    .nav-section {
-      display: none;
-      flex-direction: column;
+      align-items: center;
       background-color: #000;
-      width: 100%;
-    }
-
-    .nav-section.show {
-      display: flex;
-    }
-
-    .nav-links, .account-links {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .nav-links li, .account-links li {
+      padding: 10px;
       position: relative;
-    }
+    }.logo {
+  color: #FFD700;
+  font-weight: bold;
+  font-size: 24px;
+  text-align: center;
+}
 
-    .nav-links a, .account-links a {
-      color: #fff;
-      text-decoration: none;
-      padding: 10px;
-      display: block;
-    }
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background: #111;
+  z-index: 999;
+  min-width: 130px;
+  padding: 4px 0;
+}
 
-    .dropdown-content a {
-      padding: 10px;
-      display: block;
-      color: #fff;
-      text-decoration: none;
-    }
+.dropdown-open .dropdown-content {
+  display: block;
+  position: relative;
+}
 
-    .dropdown-content a:hover {
-      background: #222;
-    }
+.dropdown-content a {
+  padding: 6px 10px;
+  font-size: 14px;
+}
 
-    .arrow {
-      font-size: 0.7em;
-    }
+@media (min-width: 768px) {
+  .dropdown:hover .dropdown-content {
+    display: block;
+    position: absolute;
+  }
+
+  .dropdown-open .dropdown-content {
+    position: absolute;
+  }
+}
+
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  top: 15px;
+}
+
+.hamburger span {
+  background: #fff;
+  height: 3px;
+  width: 25px;
+  margin: 4px 0;
+}
+
+.nav-section {
+  display: none;
+  flex-direction: column;
+  background-color: #000;
+  width: 100%;
+}
+
+.nav-section.show {
+  display: flex;
+}
+
+.nav-links, .account-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links li, .account-links li {
+  position: relative;
+}
+
+.nav-links a, .account-links a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background: #222;
+}
+
+.arrow {
+  font-size: 0.7em;
+}
+
   </style>
 </head>
 <body>
@@ -121,58 +135,51 @@
         </ul>
       </div>
     </nav>
-  </header>
-
-  <!-- MAIN CONTENT -->
-  <main>
+  </header>  <!-- MAIN CONTENT -->  <main>
     <section class="hero" style="text-align: center;">
       <h1>WELCOME TO D.O.A</h1>
       <p>Luxury streetwear built for legends.</p>
-    </section>
+    </section><section class="hero-banner" style="text-align:center; margin:20px 0;">
+  <img src="images/drip-ad.jpg" alt="Drip Ad"
+       style="max-width:100%; border:2px solid gold; border-radius:8px;" />
+</section>
+<section class="certified-banner">
+  OWN THE STYLE. BUY THE DRIP
+</section>
 
-    <section class="hero-banner" style="text-align:center; margin:20px 0;">
-      <img src="images/drip-ad.jpg" alt="Drip Ad"
-           style="max-width:100%; border:2px solid gold; border-radius:8px;" />
-    </section>
-    <section class="certified-banner">
-      OWN THE STYLE. BUY THE DRIP
-    </section>
+<h2 class="featured-title" style="text-align:center; color:gold; margin-top:40px;">
+  Featured Products
+</h2>
 
-    <h2 class="featured-title" style="text-align:center; color:gold; margin-top:40px;">
-      Featured Products
-    </h2>
+<section class="product-slider">
+  <div class="product-card">
+    <img src="images/CarbonBlack.jpg" alt="Carbon Black">
+    <h3>Carbon Black</h3>
+    <button class="buy-button">Add to Cart</button>
+  </div>
+  <div class="product-card">
+    <img src="images/GreyDrip.jpg" alt="Grey Drip">
+    <h3>Grey Drip</h3>
+    <button class="buy-button">Add to Cart</button>
+  </div>
+  <div class="product-card">
+    <img src="images/MoltenCurrent.jpg" alt="Molten Current">
+    <h3>Molten Current</h3>
+    <button class="buy-button">Add to Cart</button>
+  </div>
+  <div class="product-card">
+    <img src="images/PurpleTurpuoiseRetro.jpg" alt="Purple Turquoise Retro">
+    <h3>Purple Turquoise Retro</h3>
+    <button class="buy-button">Add to Cart</button>
+  </div>
+  <div class="product-card">
+    <img src="images/DuneBeige.jpg" alt="Dune Beige">
+    <h3>Dune Beige</h3>
+    <button class="buy-button">Add to Cart</button>
+  </div>
+</section>
 
-    <section class="product-slider">
-      <div class="product-card">
-        <img src="images/CarbonBlack.jpg" alt="Carbon Black">
-        <h3>Carbon Black</h3>
-        <button class="buy-button">Add to Cart</button>
-      </div>
-      <div class="product-card">
-        <img src="images/GreyDrip.jpg" alt="Grey Drip">
-        <h3>Grey Drip</h3>
-        <button class="buy-button">Add to Cart</button>
-      </div>
-      <div class="product-card">
-        <img src="images/MoltenCurrent.jpg" alt="Molten Current">
-        <h3>Molten Current</h3>
-        <button class="buy-button">Add to Cart</button>
-      </div>
-      <div class="product-card">
-        <img src="images/PurpleTurpuoiseRetro.jpg" alt="Purple Turquoise Retro">
-        <h3>Purple Turquoise Retro</h3>
-        <button class="buy-button">Add to Cart</button>
-      </div>
-      <div class="product-card">
-        <img src="images/DuneBeige.jpg" alt="Dune Beige">
-        <h3>Dune Beige</h3>
-        <button class="buy-button">Add to Cart</button>
-      </div>
-    </section>
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="site-footer">
+  </main>  <!-- FOOTER -->  <footer class="site-footer">
     <p>&copy; 2025 Dripped Out Apparel. All rights reserved.</p>
     <div>
       <a href="index.html">Home</a> |
@@ -181,10 +188,7 @@
       <a href="cart.html">Cart</a> |
       <a href="checkout.html">Checkout</a>
     </div>
-  </footer>
-
-  <!-- SCRIPTS -->
-  <script>
+  </footer>  <!-- SCRIPTS -->  <script>
     document.addEventListener("DOMContentLoaded", () => {
       const hamburger = document.getElementById("hamburger");
       const navSection = document.getElementById("navSection");
@@ -206,6 +210,5 @@
         });
       });
     });
-  </script>
-</body>
+  </script></body>
 </html>
