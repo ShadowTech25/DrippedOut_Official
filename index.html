@@ -86,17 +86,17 @@
       display: flex;
     }
 
-    .nav-links, .account-links {
+    .nav-links {
       list-style: none;
       padding: 0;
       margin: 0;
     }
 
-    .nav-links li, .account-links li {
+    .nav-links li {
       position: relative;
     }
 
-    .nav-links a, .account-links a {
+    .nav-links a {
       color: #fff;
       text-decoration: none;
       padding: 6px 10px;
@@ -139,11 +139,6 @@
         flex-direction: row;
       }
 
-      .account-links {
-        flex-direction: row;
-        margin-left: auto;
-      }
-
       .dropdown:hover .dropdown-content {
         display: block;
         position: absolute;
@@ -183,16 +178,6 @@
             </ul>
           </li>
           <li><a href="about.html">About</a></li>
-        </ul>
-        <ul class="account-links">
-          <li class="dropdown" id="accountDropdown">
-            <a href="#" class="dropbtn">Account <span class="arrow">▼</span></a>
-            <ul class="dropdown-content" id="accountMenu">
-              <li><a href="signup.html">Sign Up</a></li>
-              <li><a href="login.html">Login</a></li>
-              <li><a href="dashboard.html">Dashboard</a></li>
-            </ul>
-          </li>
         </ul>
       </div>
     </nav>
