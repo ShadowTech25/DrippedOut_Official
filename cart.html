@@ -190,8 +190,8 @@
   <main style="padding: 40px;">
     <h1 style="color: gold;">Your Cart</h1>
     <div id="cart-items" class="cart-grid"></div>
-    <p id="cart-total" class="cart-total"></p>
-    <a href="checkout.html" class="checkout-btn">Proceed to Checkout</a>
+    <p id="cart-total" class="cart-total" style="margin-top: 20px; font-weight: bold; color: white;"></p>
+    <a href="checkout.html" class="checkout-btn" style="display: inline-block; background: gold; color: black; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin-top: 20px;">Proceed to Checkout</a>
   </main>
 
   <footer class="site-footer">
@@ -242,9 +242,61 @@
           accountDropdownMenu.style.display = "none";
         }
       });
+
+      // CART DISPLAY LOGIC
+      const cartItemsContainer = document.getElementById("cart-items");
+      const cartTotal = document.getElementById("cart-total");
+
+      function loadCart() {
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        cartItemsContainer.innerHTML = "";
+        let total = 0;
+
+        if (cart.length === 0) {
+          cartItemsContainer.innerHTML = "<p style='color:white;'>Your cart is empty.</p>";
+          cartTotal.textContent = "";
+          return;
+        }
+
+        cart.forEach((item, index) => {
+          const itemDiv = document.createElement("div");
+          itemDiv.className = "cart-item";
+          itemDiv.style.display = "flex";
+          itemDiv.style.alignItems = "center";
+          itemDiv.style.marginBottom = "20px";
+
+          itemDiv.innerHTML = `
+            <img src="${item.image}" alt="${item.name}" style="width:80px; height:auto; border:1px solid gold; border-radius:6px; margin-right:10px;">
+            <div style="flex-grow:1;">
+              <strong style="color:white;">${item.name}</strong><br>
+              <span style="color:white;">$${item.price.toFixed(2)}</span>
+            </div>
+            <button class="remove-btn" data-index="${index}" style="margin-left:10px; background:red; color:white; border:none; padding:5px 10px; border-radius:4px; cursor:pointer;">Remove</button>
+          `;
+
+          cartItemsContainer.appendChild(itemDiv);
+          total += item.price;
+        });
+
+        cartTotal.textContent = `Total: $${total.toFixed(2)}`;
+
+        // Hook up remove buttons
+        document.querySelectorAll(".remove-btn").forEach(button => {
+          button.addEventListener("click", function () {
+            removeItem(this.getAttribute("data-index"));
+          });
+        });
+      }
+
+      function removeItem(index) {
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        cart.splice(index, 1);
+        localStorage.setItem("cart", JSON.stringify(cart));
+        loadCart();
+      }
+
+      loadCart();
     });
   </script>
-
-  <script src="script.js"></script>
 </body>
 </html>
