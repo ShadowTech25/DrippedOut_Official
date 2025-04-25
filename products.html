@@ -153,6 +153,34 @@
     .arrow {
       font-size: 0.7em;
     }
+
+    /* RESTORED PRODUCT CARD STYLING */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .product-card {
+      background-color: #111;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+      color: #fff;
+    }
+
+    .product-card img {
+      max-width: 100%;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+
+    .price {
+      color: #FFD700;
+      font-weight: bold;
+      margin: 10px 0;
+    }
   </style>
 </head>
 
@@ -190,7 +218,6 @@
   <main style="padding:40px;">
     <h1>Shop Our Drops</h1>
 
-    <!-- Category Filter -->
     <div class="filter-container" style="text-align:center; margin:20px 0;">
       <label for="categorySelect" style="color:gold; font-weight:bold;">Category:</label>
       <select id="categorySelect" style="padding:10px; border-radius:4px;">
@@ -206,10 +233,63 @@
       </select>
     </div>
 
-    <!-- Products Grid -->
+    <!-- PRODUCTS GRID -->
     <div class="product-grid">
-      <!-- Product cards here (untouched) -->
-      <!-- You already know how loaded this section is, so I’m skipping repeating it again -->
+      <div class="product-card" data-category="Tank Tops">
+        <img src="images/yellow-tank-set.jpg" alt="Yellow Tank Set" />
+        <h3>Yellow Tank Set</h3>
+        <p class="price">$64.99</p>
+        <button class="buy-button">Add to Cart</button>
+      </div>
+      <div class="product-card" data-category="Tank Tops">
+        <img src="images/summer-heat-set.jpg" alt="Summer Heat Tank Set" />
+        <h3>Summer Heat Set</h3>
+        <p class="price">$64.99</p>
+        <button class="buy-button">Add to Cart</button>
+      </div>
+
+      <div class="product-card" data-category="Tracksuits">
+        <img src="images/BlueWhiteRetro.jpg" alt="90's Blue & White Retro-Tracksuit" />
+        <h3>90's Blue & White Retro-Tracksuit</h3>
+        <p class="price">$89.99</p>
+        <button class="buy-button">Add to Cart</button>
+      </div>
+      <div class="product-card" data-category="Tracksuits">
+        <img src="images/PurpleTurpuoiseRetro.jpg" alt="90's Purple & Turquoise Retro-Tracksuit" />
+        <h3>90's Purple & Turquoise Retro-Tracksuit</h3>
+        <p class="price">$89.99</p>
+        <button class="buy-button">Add to Cart</button>
+      </div>
+      <div class="product-card" data-category="Tracksuits">
+        <img src="images/CarbonBlack.jpg" alt="Carbon Black Tracksuit" />
+        <h3>Carbon Black Tracksuit</h3>
+        <p class="price">$89.99</p>
+        <button class="buy-button">Add to Cart</button>
+      </div>
+      <div class="product-card" data-category="Tracksuits">
+        <img src="images/DuneBeige.jpg" alt="Dessert Beige Tracksuit" />
+        <h3>Dessert Beige Tracksuit</h3>
+        <p class="price">$89.99</p>
+        <button class="buy-button">Add to Cart</button>
+      </div>
+      <div class="product-card" data-category="Tracksuits">
+        <img src="images/GreyDrip.jpg" alt="Classic Grey Tracksuit" />
+        <h3>Classic Grey Tracksuit</h3>
+        <p class="price">$89.99</p>
+        <button class="buy-button">Add to Cart</button>
+      </div>
+      <div class="product-card" data-category="Tracksuits">
+        <img src="images/MoltenCurrent.jpg" alt="Molten Current Tracksuit" />
+        <h3>Molten Current Tracksuit</h3>
+        <p class="price">$89.99</p>
+        <button class="buy-button">Add to Cart</button>
+      </div>
+      <div class="product-card" data-category="Tracksuits">
+        <img src="images/NeopStatic.jpg" alt="Neon Static Tracksuit" />
+        <h3>Neon Static Tracksuit</h3>
+        <p class="price">$89.99</p>
+        <button class="buy-button">Add to Cart</button>
+      </div>
     </div>
   </main>
 
