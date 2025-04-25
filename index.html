@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,180 +6,162 @@
   <link rel="manifest" href="manifest.json" />
   <title>Dripped Out Apparel</title>
   <link rel="stylesheet" href="style.css" />
-  <style>
-    .hamburger {
-      display: flex;
-      flex-direction: column;
-      cursor: pointer;
-      margin-left: auto;
-      padding: 10px;
-    }
-
-    .hamburger span {
-      background: #fff;
-      height: 3px;
-      width: 25px;
-      margin: 4px 0;
-    }
-
-    .nav-section {
-      display: none;
-      flex-direction: column;
-      background-color: #000;
-      width: 100%;
-    }
-
-    .nav-section.show {
-      display: flex;
-    }
-
-    .nav-links, .account-links {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .nav-links li, .account-links li {
-      position: relative;
-    }
-
-    .nav-links a, .account-links a {
-      color: #fff;
-      text-decoration: none;
-      padding: 10px;
-      display: block;
-    }
-
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background: #111;
-      z-index: 999;
-      min-width: 150px;
-    }
-
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-
-    .dropdown-content a {
-      padding: 10px;
-      display: block;
-      color: #fff;
-      text-decoration: none;
-    }
-
-    .dropdown-content a:hover {
-      background: #222;
-    }
-
-    .arrow {
-      font-size: 0.7em;
-    }
-  </style>
 </head>
-<body>
-  <!-- NAVBAR -->
-  <header>
-    <nav class="navbar">
-      <a href="index.html" class="logo">Dripped Out</a>
-      <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
-      <div class="nav-section" id="navSection">
-        <ul class="nav-links">
-          <li><a href="index.html" class="active">Home</a></li>
-          <li class="dropdown">
-            <a href="#" class="dropbtn">Shop <span class="arrow">▼</span></a>
-            <ul class="dropdown-content">
-              <li><a href="cart.html">Cart</a></li>
-              <li><a href="checkout.html">Checkout</a></li>
-            </ul>
-          </li>
-          <li><a href="about.html">About</a></li>
-        </ul>
-        <ul class="account-links">
-          <li class="dropdown">
-            <a href="#" class="dropbtn">Account <span class="arrow">▼</span></a>
-            <ul class="dropdown-content">
-              <li><a href="signup.html">Sign Up</a></li>
-              <li><a href="login.html">Login</a></li>
-              <li><a href="dashboard.html">Dashboard</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  </header>
-
-  <!-- MAIN CONTENT -->
-  <main>
-    <section class="hero">
-      <h1>Welcome to Dripped Out Apparel</h1>
-      <p>Luxury streetwear built for legends. Shop exclusive drops now.</p>
-    </section>
-
-    <section class="hero-banner" style="text-align:center; margin:20px 0;">
-      <img src="images/drip-ad.jpg" alt="Drip Ad"
-           style="max-width:100%; border:2px solid gold; border-radius:8px;" />
-    </section>
-
-    <section class="certified-banner">
-      CERTIFIED<br />DRIP DEALER
-    </section>
-
-    <h2 class="featured-title" style="text-align:center; color:gold; margin-top:40px;">
-      Featured Tracksuits
-    </h2>
-
-    <section class="product-slider">
-      <div class="product-card">
-        <img src="images/CarbonBlack.jpg" alt="Carbon Black">
-        <h3>Carbon Black</h3>
-        <button class="buy-button">Add to Cart</button>
-      </div>
-      <div class="product-card">
-        <img src="images/GreyDrip.jpg" alt="Grey Drip">
-        <h3>Grey Drip</h3>
-        <button class="buy-button">Add to Cart</button>
-      </div>
-      <div class="product-card">
-        <img src="images/MoltenCurrent.jpg" alt="Molten Current">
-        <h3>Molten Current</h3>
-        <button class="buy-button">Add to Cart</button>
-      </div>
-      <div class="product-card">
-        <img src="images/PurpleTurpuoiseRetro.jpg" alt="Purple Turquoise Retro">
-        <h3>Purple Turquoise Retro</h3>
-        <button class="buy-button">Add to Cart</button>
-      </div>
-      <div class="product-card">
-        <img src="images/DuneBeige.jpg" alt="Dune Beige">
-        <h3>Dune Beige</h3>
-        <button class="buy-button">Add to Cart</button>
-      </div>
-    </section>
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="site-footer">
-    <p>&copy; 2025 Dripped Out Apparel. All rights reserved.</p>
-    <div>
-      <a href="index.html">Home</a> |
-      <a href="products.html">Shop</a> |
-      <a href="about.html">About</a> |
-      <a href="cart.html">Cart</a> |
-      <a href="checkout.html">Checkout</a>
+<body><!-- Unified Navbar Injected --><header>
+  <nav class="navbar">
+    <div class="logo"><a href="index.html">Dripped Out</a></div>
+    <div class="hamburger" onclick="toggleHamburger()">
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
-  </footer>
+    <ul class="nav-links" id="nav-links">
+      <li class="dropdown">
+        <a href="#" onclick="toggleDropdown('home-dropdown')">Home</a>
+        <ul class="dropdown-menu" id="home-dropdown">
+          <li><a href="index.html">Home</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#" onclick="toggleDropdown('shop-dropdown')">Shop</a>
+        <ul class="dropdown-menu" id="shop-dropdown">
+          <li><a href="products.html">Products</a></li>
+          <li><a href="cart.html">Cart</a></li>
+          <li><a href="checkout.html">Checkout</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#" onclick="toggleDropdown('about-dropdown')">About</a>
+        <ul class="dropdown-menu" id="about-dropdown">
+          <li><a href="about.html">About Us</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#" onclick="toggleDropdown('account-dropdown')">Account</a>
+        <ul class="dropdown-menu" id="account-dropdown">
+          <li><a href="signup.html">Sign Up</a></li>
+          <li><a href="login.html">Sign In</a></li>
+          <li><a href="dashboard.html">Dashboard</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</header><!-- Homepage content goes here --><main>
+  <section class="hero">
+    <img src="images/drip-ad.jpg" alt="Dripped Out Ad" style="width: 100%; max-height: 400px; object-fit: cover;" />
+  </section>
+  <section class="featured-collections">
+    <h2>Featured Collections</h2>
+    <div class="collection-grid">
+      <img src="images/collection1.jpg" alt="Collection 1" />
+      <img src="images/collection2.jpg" alt="Collection 2" />
+      <img src="images/collection3.jpg" alt="Collection 3" />
+      <img src="images/collection4.jpg" alt="Collection 4" />
+      <img src="images/collection5.jpg" alt="Collection 5" />
+    </div>
+  </section>
+</main><script>
+function toggleDropdown(id) {
+  const dropdown = document.getElementById(id);
+  dropdown.classList.toggle('show');
+  document.querySelectorAll('.dropdown-menu').forEach(menu => {
+    if (menu.id !== id) menu.classList.remove('show');
+  });
+}
 
-  <!-- SCRIPTS -->
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const hamburger = document.getElementById("hamburger");
-      const navSection = document.getElementById("navSection");
-      hamburger.addEventListener("click", () => {
-        navSection.classList.toggle("show");
-      });
-    });
-  </script>
-</body>
+function toggleHamburger() {
+  document.getElementById("nav-links").classList.toggle("show");
+}
+
+window.onclick = function(event) {
+  if (!event.target.matches('.dropdown > a')) {
+    document.querySelectorAll('.dropdown-menu').forEach(menu => menu.classList.remove('show'));
+  }
+};
+</script><style>
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
+  padding: 10px 20px;
+  color: gold;
+}
+.navbar a {
+  color: gold;
+  text-decoration: none;
+  padding: 10px;
+  display: block;
+}
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+.dropdown {
+  position: relative;
+}
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: black;
+  top: 100%;
+  left: 0;
+  min-width: 150px;
+  z-index: 1000;
+  border: 1px solid gold;
+}
+.dropdown-menu li a {
+  padding: 10px;
+  border-bottom: 1px solid #333;
+}
+.dropdown-menu li:last-child a {
+  border-bottom: none;
+}
+.dropdown-menu.show {
+  display: block;
+}
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+.hamburger span {
+  height: 3px;
+  width: 25px;
+  background-color: gold;
+  margin: 4px 0;
+}
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: black;
+  }
+  .nav-links.show {
+    display: flex;
+  }
+  .hamburger {
+    display: flex;
+  }
+}
+
+.featured-collections {
+  padding: 20px;
+  text-align: center;
+}
+.collection-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  padding-top: 10px;
+}
+.collection-grid img {
+  width: 100%;
+  height: auto;
+  border: 1px solid gold;
+  border-radius: 8px;
+}
+</style></body>
 </html>
