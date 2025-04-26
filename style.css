@@ -48,17 +48,18 @@ body {
 }
 
 /* Account Icon */
-.account-icon {
+.account-wrapper {
   position: absolute;
   left: 15px;
   top: 18px;
-  cursor: pointer;
+}
+
+.account-icon {
   font-size: 22px;
   color: #fff;
   display: flex;
   align-items: center;
-  height: 24px;
-  z-index: 1001;
+  cursor: pointer;
 }
 
 /* Account Dropdown */
@@ -66,7 +67,7 @@ body {
   display: none;
   position: absolute;
   top: 50px;
-  left: 15px;
+  left: 0;
   background: #111;
   border: 1px solid #333;
   border-radius: 6px;
@@ -281,6 +282,7 @@ body {
   text-decoration: none;
   font-weight: bold;
   margin-top: 20px;
+  display: inline-block;
 }
 
 /* Footer */
@@ -302,7 +304,50 @@ body {
   text-decoration: underline;
 }
 
-/* FAQ Section (optional if needed later) */
+/* FAQ and Articles Toggles */
+.faq-toggle, .article-toggle {
+  cursor: pointer;
+  padding: 10px;
+  background: #111;
+  border: 1px solid #222;
+  margin-bottom: 5px;
+  border-radius: 5px;
+}
+
+.faq-content, .article-content {
+  display: none;
+  padding: 10px;
+  background: #111;
+  margin-bottom: 10px;
+  border-left: 2px solid gold;
+  border-radius: 5px;
+}
+
+/* Contact Form Styling */
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  background: black;
+  border: 1px solid gold;
+  border-radius: 6px;
+  color: white;
+  font-size: 14px;
+}
+
+.contact-form button {
+  background: gold;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* FAQ Section (optional fallback) */
 .faq {
   cursor: pointer;
   padding: 10px;
@@ -313,7 +358,7 @@ body {
   background: #111;
 }
 
-/* Slider Buttons (prev/next) */
+/* Slider Buttons (Prev/Next Arrows) */
 .slider-btn {
   position: absolute;
   top: 50%;
