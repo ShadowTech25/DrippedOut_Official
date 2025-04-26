@@ -7,155 +7,9 @@
   <link rel="manifest" href="manifest.json">
   <title>Checkout - Dripped Out Apparel</title>
   <link rel="stylesheet" href="style.css">
-  <style>
-    .navbar {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      background-color: #000;
-      padding: 10px;
-      position: relative;
-    }
-
-    .logo {
-      color: #FFD700;
-      font-weight: bold;
-      font-size: 24px;
-      text-align: center;
-    }
-
-    .hamburger {
-      display: flex;
-      flex-direction: column;
-      cursor: pointer;
-      position: absolute;
-      right: 15px;
-      top: 22px;
-      gap: 3px;
-    }
-
-    .hamburger span {
-      background: #fff;
-      height: 2px;
-      width: 20px;
-    }
-
-    .account-icon {
-      position: absolute;
-      left: 15px;
-      top: 18px;
-      cursor: pointer;
-      font-size: 20px;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      height: 24px;
-    }
-
-    .account-dropdown {
-      display: none;
-      position: absolute;
-      top: 50px;
-      left: 15px;
-      background: #111;
-      border: 1px solid #333;
-      border-radius: 4px;
-      z-index: 999;
-      width: 140px;
-    }
-
-    .account-dropdown a {
-      display: block;
-      color: white;
-      text-decoration: none;
-      padding: 8px 12px;
-      font-size: 13px;
-    }
-
-    .account-dropdown a:hover {
-      background: #222;
-    }
-
-    .nav-section {
-      display: none;
-      flex-direction: column;
-      background-color: #000;
-      width: 100%;
-    }
-
-    .nav-section.show {
-      display: flex;
-    }
-
-    .nav-links {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .nav-links li {
-      position: relative;
-    }
-
-    .nav-links a {
-      color: #fff;
-      text-decoration: none;
-      padding: 6px 10px;
-      display: block;
-      font-size: 13px;
-    }
-
-    .dropdown-content {
-      display: none;
-      position: relative;
-      background: #111;
-      z-index: 999;
-      min-width: 100%;
-      padding: 0;
-      margin-top: 0;
-    }
-
-    .dropdown-content a {
-      padding: 5px 10px;
-      font-size: 13px;
-      border-top: 1px solid #222;
-      color: white;
-      text-decoration: none;
-    }
-
-    .dropdown-content a:hover {
-      background: #222;
-    }
-
-    .dropdown-open .dropdown-content {
-      display: block;
-    }
-
-    @media (min-width: 768px) {
-      .nav-section {
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-      }
-
-      .nav-links {
-        flex-direction: row;
-      }
-
-      .dropdown:hover .dropdown-content {
-        display: block;
-        position: absolute;
-        top: 100%;
-        left: 0;
-      }
-    }
-
-    .arrow {
-      font-size: 0.7em;
-    }
-  </style>
 </head>
 <body>
+  <!-- NAVBAR -->
   <header>
     <nav class="navbar">
       <div class="account-icon" id="accountIcon">&#128100;</div>
@@ -167,17 +21,18 @@
       </div>
 
       <a href="index.html" class="logo">Dripped Out Apparel</a>
+
       <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
 
       <div class="nav-section" id="navSection">
         <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
           <li class="dropdown">
-            <a href="products.html" class="dropbtn">Shop <span class="arrow">▼</span></a>
+            <a href="#" class="dropbtn">Shop <span class="arrow">▼</span></a>
             <ul class="dropdown-content">
               <li><a href="products.html">All Products</a></li>
               <li><a href="cart.html">Cart</a></li>
-              <li><a href="checkout.html" class="active">Checkout</a></li>
+              <li><a href="checkout.html">Checkout</a></li>
             </ul>
           </li>
           <li><a href="about.html">About</a></li>
@@ -186,22 +41,32 @@
     </nav>
   </header>
 
+  <!-- MAIN CONTENT -->
   <main>
-    <div class="checkout-container">
-      <h1>Checkout</h1>
-      <form id="checkout-form">
-        <input type="text" placeholder="Full Name" required>
-        <input type="email" placeholder="Email" required>
-        <input type="text" placeholder="Shipping Address" required>
-        <textarea placeholder="Order Notes (optional)" rows="4"></textarea>
-        <button type="submit">Place Order</button>
+    <h1 style="text-align:center; margin:20px;">Checkout</h1>
+
+    <!-- Checkout Cart Summary -->
+    <section id="checkoutList" style="max-width:800px; margin:0 auto; padding:20px;">
+      <!-- Cart summary will auto-inject here -->
+    </section>
+
+    <!-- Checkout Form -->
+    <section style="max-width:500px; margin:40px auto; padding:20px; background:#111; border-radius:10px;">
+      <h2 style="color:gold; text-align:center;">Shipping Information</h2>
+      <form id="checkoutForm" style="display:flex; flex-direction:column; gap:15px; margin-top:20px;">
+        <input type="text" placeholder="Full Name" required style="padding:10px; border-radius:8px; border:1px solid #FFD700; background:#000; color:white;">
+        <input type="text" placeholder="Address" required style="padding:10px; border-radius:8px; border:1px solid #FFD700; background:#000; color:white;">
+        <input type="email" placeholder="Email" required style="padding:10px; border-radius:8px; border:1px solid #FFD700; background:#000; color:white;">
+        <input type="tel" placeholder="Phone Number" required style="padding:10px; border-radius:8px; border:1px solid #FFD700; background:#000; color:white;">
+        <button type="submit" style="padding:10px; background:gold; color:black; font-weight:bold; border:none; border-radius:8px; cursor:pointer;">Place Order</button>
       </form>
-    </div>
+    </section>
   </main>
 
-  <footer class="site-footer">
-    <p style="text-align:center;">&copy; 2025 Dripped Out Apparel. All rights reserved.</p>
-    <div style="text-align:center;">
+  <!-- FOOTER -->
+  <footer class="site-footer" style="text-align:center; margin-top:40px;">
+    <p>&copy; 2025 Dripped Out Apparel. All rights reserved.</p>
+    <div>
       <a href="index.html">Home</a> |
       <a href="products.html">Shop</a> |
       <a href="about.html">About</a> |
@@ -210,67 +75,15 @@
     </div>
   </footer>
 
+  <script src="script.js"></script>
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const hamburger = document.getElementById("hamburger");
-      const navSection = document.getElementById("navSection");
-
-      hamburger.addEventListener("click", () => {
-        navSection.classList.toggle("show");
-      });
-
-      document.querySelectorAll(".dropbtn").forEach(button => {
-        button.addEventListener("click", function (e) {
-          e.preventDefault();
-          const parent = this.parentElement;
-          parent.classList.toggle("dropdown-open");
-
-          document.querySelectorAll(".dropdown").forEach(drop => {
-            if (drop !== parent) drop.classList.remove("dropdown-open");
-          });
-        });
-      });
-
-      const accountIcon = document.getElementById("accountIcon");
-      const accountDropdownMenu = document.getElementById("accountDropdownMenu");
-
-      accountIcon.addEventListener("click", () => {
-        accountDropdownMenu.style.display =
-          accountDropdownMenu.style.display === "block" ? "none" : "block";
-      });
-
-      document.addEventListener("click", function (event) {
-        if (
-          !accountIcon.contains(event.target) &&
-          !accountDropdownMenu.contains(event.target)
-        ) {
-          accountDropdownMenu.style.display = "none";
-        }
-      });
-
-      updateCartCount();
-      document.getElementById("checkout-form").addEventListener("submit", (e) => {
-        e.preventDefault();
-        const cart = JSON.parse(localStorage.getItem("cart")) || [];
-        if (cart.length === 0) {
-          alert("Your cart is empty.");
-          return;
-        }
-        const pastOrders = JSON.parse(localStorage.getItem("pastOrders")) || [];
-        const newOrder = {
-          items: cart,
-          date: new Date().toLocaleString()
-        };
-        pastOrders.push(newOrder);
-        localStorage.setItem("pastOrders", JSON.stringify(pastOrders));
-        awardPoints();
-        localStorage.removeItem("cart");
-        alert("Order placed! Thanks for shopping with Dripped Out.");
-        window.location.href = "index.html";
-      });
+    // Dummy Submit Handler
+    document.getElementById('checkoutForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Order placed successfully!');
+      localStorage.removeItem('cart');
+      window.location.href = 'index.html';
     });
   </script>
-
-  <script src="script.js"></script>
 </body>
 </html>
