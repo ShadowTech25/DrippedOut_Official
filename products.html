@@ -12,7 +12,10 @@
   <!-- NAVBAR -->
   <header>
     <nav class="navbar">
-      <a href="index.html" class="logo">Dripped Out</a>
+      <a href="index.html" class="logo">
+        <img src="images/logo-placeholder.png" alt="Logo" class="logo-icon" style="height:30px; vertical-align:middle; margin-right:8px;">
+        Dripped Out
+      </a>
       <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
       <div class="nav-section" id="navSection">
         <ul class="nav-links">
@@ -43,29 +46,44 @@
 
   <!-- MAIN CONTENT -->
   <main>
-    <h1 style="text-align:center; margin: 40px 0;">Our Products</h1>
-    <section class="product-grid">
-      <div class="product-card">
+    <h1 style="text-align:center; margin: 20px 0;">Our Products</h1>
+
+    <!-- CATEGORY SELECTOR -->
+    <div style="text-align:center; margin-bottom: 20px;">
+      <select id="categorySelect" onchange="filterCategory()" style="padding:8px; border-radius:8px; background:#000; color:gold; border:1px solid gold;">
+        <option value="all">All Categories</option>
+        <option value="Tracksuits">Tracksuits</option>
+        <option value="Sweaters">Sweaters</option>
+        <option value="Pants">Pants</option>
+        <option value="Shirts">Shirts</option>
+        <option value="Shorts">Shorts</option>
+        <option value="Accessories">Accessories</option>
+        <option value="Buy The Fit">Buy The Fit</option>
+      </select>
+    </div>
+
+    <section class="product-grid" id="productGrid">
+      <div class="product-card" data-category="Tracksuits">
         <img src="images/CarbonBlack.jpg" alt="Carbon Black">
         <h3>Carbon Black</h3>
         <button class="buy-button" onclick="addToCart('Carbon Black', 59.99)">Add to Cart</button>
       </div>
-      <div class="product-card">
+      <div class="product-card" data-category="Tracksuits">
         <img src="images/GreyDrip.jpg" alt="Grey Drip">
         <h3>Grey Drip</h3>
         <button class="buy-button" onclick="addToCart('Grey Drip', 59.99)">Add to Cart</button>
       </div>
-      <div class="product-card">
+      <div class="product-card" data-category="Sweaters">
         <img src="images/MoltenCurrent.jpg" alt="Molten Current">
         <h3>Molten Current</h3>
         <button class="buy-button" onclick="addToCart('Molten Current', 59.99)">Add to Cart</button>
       </div>
-      <div class="product-card">
+      <div class="product-card" data-category="Shirts">
         <img src="images/PurpleTurpuoiseRetro.jpg" alt="Purple Turquoise Retro">
         <h3>Purple Turquoise Retro</h3>
         <button class="buy-button" onclick="addToCart('Purple Turquoise Retro', 59.99)">Add to Cart</button>
       </div>
-      <div class="product-card">
+      <div class="product-card" data-category="Shorts">
         <img src="images/DuneBeige.jpg" alt="Dune Beige">
         <h3>Dune Beige</h3>
         <button class="buy-button" onclick="addToCart('Dune Beige', 59.99)">Add to Cart</button>
@@ -85,6 +103,42 @@
     </div>
   </footer>
 
+  <!-- SCRIPTS -->
   <script src="script.js"></script>
+  <script>
+    // Filter products by category
+    function filterCategory() {
+      const selected = document.getElementById('categorySelect').value;
+      const cards = document.querySelectorAll('.product-card');
+      cards.forEach(card => {
+        if (selected === "all" || card.dataset.category === selected) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    }
+
+    // Navbar hamburger toggle
+    document.addEventListener("DOMContentLoaded", () => {
+      const hamburger = document.getElementById("hamburger");
+      const navSection = document.getElementById("navSection");
+      hamburger.addEventListener("click", () => {
+        navSection.classList.toggle("show");
+      });
+
+      document.querySelectorAll(".dropbtn").forEach(button => {
+        button.addEventListener("click", function (e) {
+          e.preventDefault();
+          const parent = this.parentElement;
+          parent.classList.toggle("dropdown-open");
+
+          document.querySelectorAll(".dropdown").forEach(drop => {
+            if (drop !== parent) drop.classList.remove("dropdown-open");
+          });
+        });
+      });
+    });
+  </script>
 </body>
 </html>
