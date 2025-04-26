@@ -35,8 +35,14 @@ img {
   top: 0;
   z-index: 1000;
 }
+
+/* Center Logo */
 .logo {
-  font-size: 1.5rem;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 22px; /* Perfectly centered */
+  font-size: 24px;
   font-weight: bold;
   color: #FFD700;
   text-decoration: none;
@@ -44,10 +50,18 @@ img {
 
 /* Nav Sections */
 .nav-section {
-  display: flex;
-  gap: 2rem;
-  align-items: center;
+  display: none;
+  flex-direction: column;
+  background-color: #000;
+  width: 100%;
+  margin-top: 60px; /* Smooth after hamburger expand */
 }
+.nav-section.show {
+  display: flex;
+  padding-top: 10px;
+}
+
+/* Nav Links */
 .nav-links,
 .account-links {
   list-style: none;
@@ -105,17 +119,64 @@ img {
   display: block;
 }
 
+/* Account Icon and Dropdown */
+.account-wrapper {
+  position: relative;
+}
+.account-icon {
+  position: absolute;
+  left: 15px;
+  top: 14px; /* Correct raised alignment */
+  cursor: pointer;
+  font-size: 22px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  height: 24px;
+}
+.account-dropdown {
+  display: none;
+  position: absolute;
+  top: 35px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #111;
+  border: 1px solid #FFD700;
+  border-radius: 8px;
+  padding: 8px 0;
+  min-width: 140px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+  z-index: 999;
+  text-align: center;
+}
+.account-dropdown.show {
+  display: block;
+}
+.account-dropdown a {
+  display: block;
+  padding: 8px 10px;
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+}
+.account-dropdown a:hover {
+  background: #222;
+}
+
 /* Hamburger (Mobile) */
 .hamburger {
-  display: none;
+  display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 2px;
   cursor: pointer;
+  position: absolute;
+  top: 18px;
+  right: 15px;
 }
 .hamburger span {
-  height: 3px;
-  width: 25px;
-  background: #FFF;
+  background: #fff;
+  height: 2px;
+  width: 20px;
   border-radius: 2px;
 }
 
@@ -151,35 +212,6 @@ img {
   }
 }
 
-/* <details> FAQ & Articles */
-details {
-  background: #111;
-  border: 1px solid #FFD700;
-  border-radius: 4px;
-  margin: 1em 0;
-  padding: 0.5em 1em;
-}
-summary {
-  cursor: pointer;
-  color: #FFD700;
-  font-size: 1.1rem;
-  list-style: none;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-summary::after {
-  content: '▼';
-  transition: transform 0.2s;
-}
-details[open] summary::after {
-  transform: rotate(-180deg);
-}
-details p {
-  margin-top: 0.75em;
-  color: #FFF;
-}
-
 /* Certified Drip Dealer Banner */
 .certified-banner {
   text-align: center;
@@ -189,7 +221,7 @@ details p {
   font-weight: bold;
 }
 
-/* Slider on Index (Supports Centering + Multiple Items) */
+/* Slider on Index */
 .product-slider {
   display: flex;
   justify-content: center;
@@ -207,7 +239,7 @@ details p {
   box-sizing: border-box;
 }
 
-/* Shop/Product Listing (Styled Cards) */
+/* Product Cards */
 .product-card {
   flex: 0 0 300px;
   scroll-snap-align: start;
@@ -217,6 +249,14 @@ details p {
   padding: 1rem;
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.product-card img {
+  width: 100%;
+  border-radius: 8px;
+}
+.product-card h3 {
+  margin: 10px 0;
+  color: gold;
 }
 
 /* Buy Button */
@@ -250,9 +290,7 @@ details p {
   color: #FFF;
 }
 
-/* --- BELOW THIS LINE ARE NEW ADDITIONS FOR ABOUT PAGE ONLY --- */
-
-/* FAQ and Article Toggles (collapsed initially) */
+/* FAQ and Article Toggles */
 .faq-toggle, .article-toggle {
   cursor: pointer;
   padding: 10px;
@@ -270,7 +308,7 @@ details p {
   border-radius: 5px;
 }
 
-/* About Page - Contact Form */
+/* Contact Form */
 .contact-form input,
 .contact-form textarea {
   width: 100%;
@@ -291,45 +329,4 @@ details p {
   border-radius: 6px;
   cursor: pointer;
   font-weight: bold;
-}
-.account-wrapper {
-  position: relative;
-}
-
-.account-icon {
-  cursor: pointer;
-  font-size: 22px;
-  color: white;
-}
-
-.account-dropdown {
-  display: none;
-  position: absolute;
-  top: 35px; /* Push the dropdown right below icon */
-  left: 50%;
-  transform: translateX(-50%);
-  background: #111;
-  border: 1px solid #FFD700;
-  border-radius: 8px;
-  padding: 8px 0;
-  min-width: 140px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.5);
-  z-index: 999;
-  text-align: center;
-}
-
-.account-dropdown.show {
-  display: block;
-}
-
-.account-dropdown a {
-  display: block;
-  padding: 8px 10px;
-  color: white;
-  text-decoration: none;
-  font-size: 14px;
-}
-
-.account-dropdown a:hover {
-  background: #222;
 }
