@@ -333,3 +333,48 @@ details p {
 .account-dropdown a:hover {
   background: #222;
 }
+/* --- Fine Tuning Fixes for Navbar Consistency --- */
+
+/* Compact Hamburger */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 3px;
+  position: absolute;
+  top: 18px; /* Raised slightly to align properly */
+  right: 15px;
+}
+
+.hamburger span {
+  background: #fff;
+  height: 2px;
+  width: 20px;
+  border-radius: 2px;
+}
+
+/* Raise Account Icon Slightly */
+.account-icon {
+  position: absolute;
+  left: 15px;
+  top: 14px; /* Was 18px — now raised a bit to match index */
+  cursor: pointer;
+  font-size: 22px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  height: 24px;
+}
+
+/* Fix Nav Section for Mobile */
+.nav-section {
+  display: none;
+  flex-direction: column;
+  background: #000;
+  width: 100%;
+  margin-top: 50px; /* So when hamburger clicked, space appears */
+}
+
+.nav-section.show {
+  display: flex;
+}
