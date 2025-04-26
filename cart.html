@@ -47,7 +47,7 @@
   <!-- MAIN CONTENT -->
   <main>
     <h1 style="text-align:center; margin: 20px 0;">Your Cart</h1>
-    <section id="cartItems" class="cart-items" style="max-width:800px; margin:0 auto; padding:20px;">
+    <section id="cartItems" class="cart-items" style="max-width:900px; margin:0 auto; padding:20px;">
       <!-- Cart items will be dynamically inserted here -->
     </section>
 
@@ -73,24 +73,46 @@
     // Display cart items dynamically
     document.addEventListener("DOMContentLoaded", () => {
       const cartItemsContainer = document.getElementById("cartItems");
-      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-      if (cart.length === 0) {
-        cartItemsContainer.innerHTML = "<p style='text-align:center;'>Your cart is empty.</p>";
-        return;
+      function renderCart() {
+        cartItemsContainer.innerHTML = "";
+
+        if (cart.length === 0) {
+          cartItemsContainer.innerHTML = "<p style='text-align:center;'>Your cart is empty.</p>";
+          return;
+        }
+
+        cart.forEach((item, index) => {
+          const itemDiv = document.createElement("div");
+          itemDiv.style.display = "flex";
+          itemDiv.style.alignItems = "center";
+          itemDiv.style.justifyContent = "space-between";
+          itemDiv.style.borderBottom = "1px solid #ccc";
+          itemDiv.style.padding = "15px 0";
+
+          itemDiv.innerHTML = `
+            <div style="flex: 1;">
+              <h3 style="color:gold; margin-bottom:5px;">${item.name}</h3>
+              <p>Quantity: ${item.quantity}</p>
+              <p>Price: $${(item.price * item.quantity).toFixed(2)}</p>
+              <button onclick="removeItem(${index})" style="margin-top:8px; background:black; color:gold; border:none; padding:5px 10px; border-radius:5px; cursor:pointer;">Remove</button>
+            </div>
+            <div style="flex: 0 0 80px; text-align:right;">
+              <img src="${item.image}" alt="${item.name}" style="width:80px; height:auto; border-radius:8px;">
+            </div>
+          `;
+          cartItemsContainer.appendChild(itemDiv);
+        });
       }
 
-      cart.forEach(item => {
-        const itemDiv = document.createElement("div");
-        itemDiv.style.borderBottom = "1px solid #ccc";
-        itemDiv.style.padding = "10px 0";
-        itemDiv.innerHTML = `
-          <h3 style="color:gold;">${item.name}</h3>
-          <p>Quantity: ${item.quantity}</p>
-          <p>Price: $${(item.price * item.quantity).toFixed(2)}</p>
-        `;
-        cartItemsContainer.appendChild(itemDiv);
-      });
+      renderCart();
+
+      window.removeItem = function(index) {
+        cart.splice(index, 1);
+        localStorage.setItem("cart", JSON.stringify(cart));
+        renderCart();
+      };
     });
 
     // Navbar hamburger toggle
