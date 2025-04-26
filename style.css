@@ -292,3 +292,44 @@ details p {
   cursor: pointer;
   font-weight: bold;
 }
+.account-wrapper {
+  position: relative;
+}
+
+.account-icon {
+  cursor: pointer;
+  font-size: 22px;
+  color: white;
+}
+
+.account-dropdown {
+  display: none;
+  position: absolute;
+  top: 35px; /* Push the dropdown right below icon */
+  left: 50%;
+  transform: translateX(-50%);
+  background: #111;
+  border: 1px solid #FFD700;
+  border-radius: 8px;
+  padding: 8px 0;
+  min-width: 140px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+  z-index: 999;
+  text-align: center;
+}
+
+.account-dropdown.show {
+  display: block;
+}
+
+.account-dropdown a {
+  display: block;
+  padding: 8px 10px;
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.account-dropdown a:hover {
+  background: #222;
+}
