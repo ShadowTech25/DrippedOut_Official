@@ -1,212 +1,129 @@
-// script.js — Full site logic: nav, cart, profile, slider & shop filtering
+// Add product to cart (saves name, price (number), quantity, and image)
+function addToCart(name, price, image) {
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  const existingItem = cart.find(item => item.name === name);
 
+  if (existingItem) {
+    existingItem.quantity++;
+  } else {
+    cart.push({ name, price, quantity: 1, image });
+  }
+
+  localStorage.setItem('cart', JSON.stringify(cart));
+  alert('Item added to cart!');
+  updateCartCount();
+}
+
+// Display cart items (for cart.html page)
+function displayCartItems() {
+  const cartItemsContainer = document.getElementById("cartItems");
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  if (!cartItemsContainer) return; // If not on cart page, skip
+
+  if (cart.length === 0) {
+    cartItemsContainer.innerHTML = "<p style='text-align:center;'>Your cart is empty.</p>";
+    return;
+  }
+
+  cartItemsContainer.innerHTML = "";
+
+  cart.forEach((item, index) => {
+    const itemDiv = document.createElement("div");
+    itemDiv.style.display = "flex";
+    itemDiv.style.alignItems = "center";
+    itemDiv.style.justifyContent = "space-between";
+    itemDiv.style.borderBottom = "1px solid #ccc";
+    itemDiv.style.padding = "15px 0";
+
+    itemDiv.innerHTML = `
+      <div style="flex: 1;">
+        <h3 style="color:gold; margin-bottom:5px;">${item.name}</h3>
+        <p>Quantity: ${item.quantity}</p>
+        <p>Price: $${(item.price * item.quantity).toFixed(2)}</p>
+        <button onclick="removeItem(${index})" style="margin-top:8px; background:black; color:gold; border:none; padding:5px 10px; border-radius:5px; cursor:pointer;">Remove</button>
+      </div>
+      <div style="flex: 0 0 80px; text-align:right;">
+        <img src="${item.image}" alt="${item.name}" style="width:80px; height:auto; border-radius:8px;">
+      </div>
+    `;
+    cartItemsContainer.appendChild(itemDiv);
+  });
+}
+
+// Remove item from cart
+function removeItem(index) {
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  cart.splice(index, 1);
+  localStorage.setItem('cart', JSON.stringify(cart));
+  displayCartItems();
+  updateCartCount();
+}
+
+// Display checkout cart summary (for checkout.html page)
+function displayCheckoutItems() {
+  const checkoutList = document.getElementById("checkoutList");
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  if (!checkoutList) return; // If not on checkout page, skip
+
+  if (cart.length === 0) {
+    checkoutList.innerHTML = "<p style='text-align:center;'>Your cart is empty.</p>";
+    return;
+  }
+
+  let total = 0;
+  checkoutList.innerHTML = "";
+
+  cart.forEach(item => {
+    const itemDiv = document.createElement("div");
+    itemDiv.style.marginBottom = "10px";
+    itemDiv.innerHTML = `
+      <strong style="color:gold;">${item.name}</strong> x ${item.quantity} — $${(item.price * item.quantity).toFixed(2)}
+    `;
+    checkoutList.appendChild(itemDiv);
+    total += item.price * item.quantity;
+  });
+
+  const totalDiv = document.createElement("div");
+  totalDiv.style.marginTop = "20px";
+  totalDiv.innerHTML = `<strong style="color:gold;">Total: $${total.toFixed(2)}</strong>`;
+  checkoutList.appendChild(totalDiv);
+}
+
+// Update cart item count in the nav
+function updateCartCount() {
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  document.querySelectorAll("a[href='cart.html']").forEach(link => {
+    link.textContent = `Cart (${cart.length})`;
+  });
+}
+
+// Navbar hamburger toggle
 document.addEventListener("DOMContentLoaded", () => {
-  // Hamburger Menu Toggle
-  const hamburger = document.querySelector(".hamburger");
-  const navLinks = document.querySelector(".nav-links");
-  if (hamburger && navLinks) {
+  const hamburger = document.getElementById("hamburger");
+  const navSection = document.getElementById("navSection");
+  
+  if (hamburger && navSection) {
     hamburger.addEventListener("click", () => {
-      navLinks.classList.toggle("active");
+      navSection.classList.toggle("show");
     });
   }
 
-  // Dropdown Menus
-  document.querySelectorAll(".dropdown").forEach((dropdown) => {
-    const dropdownToggle = dropdown.querySelector(".dropbtn");
-    const dropdownContent = dropdown.querySelector(".dropdown-content");
+  document.querySelectorAll(".dropbtn").forEach(button => {
+    button.addEventListener("click", function (e) {
+      e.preventDefault();
+      const parent = this.parentElement;
+      parent.classList.toggle("dropdown-open");
 
-    if (dropdownToggle && dropdownContent) {
-      dropdownToggle.addEventListener("click", (e) => {
-        e.preventDefault();
-        dropdown.classList.toggle("open");
-
-        // Close other open dropdowns (optional for better UX)
-        document.querySelectorAll(".dropdown").forEach((otherDropdown) => {
-          if (otherDropdown !== dropdown) {
-            otherDropdown.classList.remove("open");
-          }
-        });
+      document.querySelectorAll(".dropdown").forEach(drop => {
+        if (drop !== parent) drop.classList.remove("dropdown-open");
       });
-    }
+    });
   });
 
-  // Close Dropdowns on Outside Click
-  document.addEventListener("click", (e) => {
-    const isDropdown = e.target.closest(".dropdown");
-    if (!isDropdown) {
-      document.querySelectorAll(".dropdown").forEach((dropdown) => {
-        dropdown.classList.remove("open");
-      });
-    }
-  });
-
-  // Inject Account Menu
-  const accountMenuMobile = document.getElementById("accountMenuMobile");
-  const user = JSON.parse(localStorage.getItem("drip_user"));
-  if (accountMenuMobile) {
-    accountMenuMobile.innerHTML = user
-      ? `<li><a href="dashboard.html">Dashboard</a></li>
-         <li><a href="profile.html">Profile</a></li>
-         <li><a href="#" onclick="logout()">Logout</a></li>`
-      : `<li><a href="login.html">Login</a></li>
-         <li><a href="signup.html">Sign Up</a></li>`;
-  }
-
-  // Cart & Product Buttons
+  // Run cart/checkout displays automatically
+  displayCartItems();
+  displayCheckoutItems();
   updateCartCount();
-  if (document.querySelector(".buy-button")) setupCartButtons();
-
-  // FAQ Toggle
-  document.querySelectorAll(".faq").forEach((faq) =>
-    faq.addEventListener("click", () => faq.classList.toggle("active"))
-  );
-
-  // Shop filter
-  const categorySelect = document.getElementById("categorySelect");
-  if (categorySelect) {
-    categorySelect.addEventListener("change", filterProducts);
-    filterProducts();
-  }
-
-  // Slider setup
-  fitSliderCards();
-  initSliderControls();
-  enableDragScroll();
 });
-
-// Global Functions
-
-function logout() {
-  localStorage.removeItem("drip_user");
-  window.location.href = "index.html";
-}
-
-function updateCartCount() {
-  const cart = JSON.parse(localStorage.getItem("cart")) || [];
-  document
-    .querySelectorAll("a[href='cart.html']")
-    .forEach((link) => (link.textContent = `Cart (${cart.length})`));
-}
-
-function addToCartFromCard(card) {
-  const name = card.querySelector("h3")?.textContent;
-  const price = card.querySelector(".price")?.textContent;
-  const image = card.querySelector("img")?.src;
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-  if (!cart.find((item) => item.name === name)) {
-    cart.push({ name, price, image });
-    localStorage.setItem("cart", JSON.stringify(cart));
-    updateCartCount();
-    updateProductButtons();
-  }
-}
-
-function removeFromCartByName(name) {
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-  cart = cart.filter((item) => item.name !== name);
-  localStorage.setItem("cart", JSON.stringify(cart));
-  updateCartCount();
-  updateProductButtons();
-}
-
-function updateProductButtons() {
-  const cart = JSON.parse(localStorage.getItem("cart")) || [];
-  document.querySelectorAll(".product-card").forEach((card) => {
-    const name = card.querySelector("h3")?.textContent;
-    const btn = card.querySelector("button");
-    const inCart = cart.find((item) => item.name === name);
-    if (btn) {
-      btn.textContent = inCart ? "Remove from Cart" : "Add to Cart";
-      btn.onclick = () =>
-        inCart ? removeFromCartByName(name) : addToCartFromCard(card);
-    }
-  });
-}
-
-function setupCartButtons() {
-  updateProductButtons();
-}
-
-function filterProducts() {
-  const sel = document.getElementById("categorySelect").value;
-  document.querySelectorAll(".product-card").forEach((card) => {
-    card.style.display =
-      sel === "All" || card.dataset.category === sel ? "" : "none";
-  });
-}
-
-function fitSliderCards() {
-  const s = document.querySelector(".product-slider");
-  if (!s) return;
-  const w = s.clientWidth;
-  s.querySelectorAll(".product-card").forEach((c) => {
-    c.style.minWidth = `${w}px`;
-  });
-}
-
-function initSliderControls() {
-  const slider = document.querySelector(".product-slider");
-  if (!slider) return;
-  const slides = slider.querySelectorAll(".product-card");
-  let idx = 0;
-
-  const prev = document.createElement("button");
-  prev.className = "slider-btn prev";
-  prev.innerHTML = "❮";
-  const next = document.createElement("button");
-  next.className = "slider-btn next";
-  next.innerHTML = "❯";
-
-  slider.style.position = "relative";
-  slider.appendChild(prev);
-  slider.appendChild(next);
-
-  function go(i) {
-    slider.scrollTo({ left: i * slider.clientWidth, behavior: "smooth" });
-    idx = i;
-  }
-  prev.addEventListener("click", () =>
-    go((idx - 1 + slides.length) % slides.length)
-  );
-  next.addEventListener("click", () => go((idx + 1) % slides.length));
-
-  setInterval(() => go((idx + 1) % slides.length), 5000);
-}
-
-function enableDragScroll() {
-  const slider = document.querySelector(".product-slider");
-  if (!slider) return;
-  let down = false,
-    startX,
-    scr;
-  slider.style.cursor = "grab";
-  slider.addEventListener("mousedown", (e) => {
-    down = true;
-    slider.classList.add("dragging");
-    startX = e.pageX - slider.offsetLeft;
-    scr = slider.scrollLeft;
-  });
-  slider.addEventListener("mouseleave", () => {
-    down = false;
-    slider.classList.remove("dragging");
-  });
-  slider.addEventListener("mouseup", () => {
-    down = false;
-    slider.classList.remove("dragging");
-  });
-  slider.addEventListener("mousemove", (e) => {
-    if (!down) return;
-    e.preventDefault();
-    const x = e.pageX - slider.offsetLeft;
-    const walk = (x - startX) * 2;
-    slider.scrollLeft = scr - walk;
-  });
-}
-
-window.addEventListener("resize", fitSliderCards);
-
-if ("serviceWorker" in navigator) {
-  navigator.serviceWorker
-    .register("service-worker.js")
-    .catch((e) => console.error(e));
-}
