@@ -26,112 +26,34 @@ img {
 /* Navbar */
 .navbar {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  position: relative;
+  padding: 1rem;
   background: #000;
-  padding: 0 1rem;
   border-bottom: 2px solid #FFD700;
-  height: 70px; /* lock navbar height */
-  overflow: hidden; /* prevent logo overflow */
-  z-index: 999;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
-
-/* Logo */
 .logo {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: bold;
   color: #FFD700;
   text-decoration: none;
-  white-space: nowrap;
-  pointer-events: auto;
 }
 
-/* Account Icon */
-.account-wrapper {
-  position: absolute;
-  left: 15px;
-  top: 18px;
-  cursor: pointer;
-}
-.account-icon {
-  font-size: 22px;
-  color: #fff;
-}
-
-/* Account Dropdown */
-.account-dropdown {
-  display: none;
-  position: absolute;
-  top: 55px;
-  left: 15px;
-  background: #111;
-  border: 1px solid #FFD700;
-  border-radius: 8px;
-  padding: 8px 0;
-  width: 140px;
-  text-align: center;
-  z-index: 1001;
-}
-.account-dropdown.show {
-  display: block;
-}
-.account-dropdown a {
-  display: block;
-  padding: 8px 10px;
-  color: white;
-  text-decoration: none;
-  font-size: 14px;
-}
-.account-dropdown a:hover {
-  background: #222;
-}
-
-/* Hamburger */
-.hamburger {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  cursor: pointer;
-  position: absolute;
-  top: 20px;
-  right: 15px;
-}
-.hamburger span {
-  background: #fff;
-  height: 2px;
-  width: 20px;
-  border-radius: 2px;
-}
-
-/* Nav Section */
+/* Nav Sections */
 .nav-section {
-  display: none;
-  flex-direction: column;
-  background-color: #000;
-  width: 100%;
-  position: absolute;
-  top: 70px; /* start below navbar */
-  left: 0;
-  z-index: 998;
-}
-.nav-section.show {
   display: flex;
-  padding: 1rem;
+  gap: 2rem;
+  align-items: center;
 }
-
-/* Nav Links */
 .nav-links,
 .account-links {
   list-style: none;
   display: flex;
   gap: 1rem;
   align-items: center;
-  flex-direction: column;
 }
 .nav-links li a,
 .account-links li a {
@@ -139,7 +61,6 @@ img {
   text-decoration: none;
   padding: 0.5rem 0.75rem;
   border-radius: 4px;
-  font-size: 14px;
 }
 .nav-links li a.active,
 .nav-links li a:hover,
@@ -184,33 +105,82 @@ img {
   display: block;
 }
 
-/* Desktop Behavior */
-@media (min-width: 768px) {
+/* Hamburger (Mobile) */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+.hamburger span {
+  height: 3px;
+  width: 25px;
+  background: #FFF;
+  border-radius: 2px;
+}
+
+/* Mobile Nav Behavior */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
   .nav-section {
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    position: static;
-    background: none;
-    padding: 0;
-    margin-top: 0;
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background: #000;
+    width: 100%;
+    padding: 1rem;
+    gap: 1rem;
+  }
+  .nav-section.active {
+    display: flex;
   }
   .nav-links,
   .account-links {
-    flex-direction: row;
-    gap: 1rem;
+    flex-direction: column;
+    gap: 0.5rem;
   }
   .dropdown-content {
-    position: absolute;
-    top: 100%;
-    left: 0;
-  }
-  .dropdown:hover .dropdown-content {
-    display: block;
+    position: relative;
+    border: none;
+    box-shadow: none;
+    width: 100%;
   }
 }
 
-/* Certified Banner */
+/* <details> FAQ & Articles */
+details {
+  background: #111;
+  border: 1px solid #FFD700;
+  border-radius: 4px;
+  margin: 1em 0;
+  padding: 0.5em 1em;
+}
+summary {
+  cursor: pointer;
+  color: #FFD700;
+  font-size: 1.1rem;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+summary::after {
+  content: '▼';
+  transition: transform 0.2s;
+}
+details[open] summary::after {
+  transform: rotate(-180deg);
+}
+details p {
+  margin-top: 0.75em;
+  color: #FFF;
+}
+
+/* Certified Drip Dealer Banner */
 .certified-banner {
   text-align: center;
   margin: 40px auto;
@@ -219,7 +189,7 @@ img {
   font-weight: bold;
 }
 
-/* Product Slider */
+/* Slider on Index (Supports Centering + Multiple Items) */
 .product-slider {
   display: flex;
   justify-content: center;
@@ -237,7 +207,7 @@ img {
   box-sizing: border-box;
 }
 
-/* Product Cards */
+/* Shop/Product Listing (Styled Cards) */
 .product-card {
   flex: 0 0 300px;
   scroll-snap-align: start;
@@ -247,14 +217,6 @@ img {
   padding: 1rem;
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-.product-card img {
-  width: 100%;
-  border-radius: 8px;
-}
-.product-card h3 {
-  margin: 10px 0;
-  color: gold;
 }
 
 /* Buy Button */
@@ -288,33 +250,27 @@ img {
   color: #FFF;
 }
 
-/* FAQ and Articles */
-details {
+/* --- BELOW THIS LINE ARE NEW ADDITIONS FOR ABOUT PAGE ONLY --- */
+
+/* FAQ and Article Toggles (collapsed initially) */
+.faq-toggle, .article-toggle {
+  cursor: pointer;
+  padding: 10px;
   background: #111;
   border: 1px solid #FFD700;
-  border-radius: 4px;
-  margin: 1em 0;
-  padding: 0.5em 1em;
+  margin-bottom: 10px;
+  border-radius: 5px;
 }
-summary {
-  cursor: pointer;
-  color: #FFD700;
-  font-size: 1.1rem;
-}
-summary::after {
-  content: '▼';
-  float: right;
-  transition: transform 0.2s;
-}
-details[open] summary::after {
-  transform: rotate(180deg);
-}
-details p {
-  margin-top: 0.75em;
-  color: #FFF;
+.faq-content, .article-content {
+  display: none;
+  padding: 10px;
+  background: #111;
+  margin-top: 5px;
+  border-left: 2px solid #FFD700;
+  border-radius: 5px;
 }
 
-/* Contact Form */
+/* About Page - Contact Form */
 .contact-form input,
 .contact-form textarea {
   width: 100%;
@@ -335,4 +291,90 @@ details p {
   border-radius: 6px;
   cursor: pointer;
   font-weight: bold;
+}
+.account-wrapper {
+  position: relative;
+}
+
+.account-icon {
+  cursor: pointer;
+  font-size: 22px;
+  color: white;
+}
+
+.account-dropdown {
+  display: none;
+  position: absolute;
+  top: 35px; /* Push the dropdown right below icon */
+  left: 50%;
+  transform: translateX(-50%);
+  background: #111;
+  border: 1px solid #FFD700;
+  border-radius: 8px;
+  padding: 8px 0;
+  min-width: 140px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+  z-index: 999;
+  text-align: center;
+}
+
+.account-dropdown.show {
+  display: block;
+}
+
+.account-dropdown a {
+  display: block;
+  padding: 8px 10px;
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.account-dropdown a:hover {
+  background: #222;
+}
+/* --- Fine Tuning Fixes for Navbar Consistency --- */
+
+/* Compact Hamburger */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 3px;
+  position: absolute;
+  top: 18px; /* Raised slightly to align properly */
+  right: 15px;
+}
+
+.hamburger span {
+  background: #fff;
+  height: 2px;
+  width: 20px;
+  border-radius: 2px;
+}
+
+/* Raise Account Icon Slightly */
+.account-icon {
+  position: absolute;
+  left: 15px;
+  top: 14px; /* Was 18px — now raised a bit to match index */
+  cursor: pointer;
+  font-size: 22px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  height: 24px;
+}
+
+/* Fix Nav Section for Mobile */
+.nav-section {
+  display: none;
+  flex-direction: column;
+  background: #000;
+  width: 100%;
+  margin-top: 50px; /* So when hamburger clicked, space appears */
+}
+
+.nav-section.show {
+  display: flex;
 }
