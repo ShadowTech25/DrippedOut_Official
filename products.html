@@ -1,157 +1,90 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#FFD700">
   <link rel="manifest" href="manifest.json">
-  <title>Shop - Dripped Out Apparel</title>
+  <title>Shop Products - Dripped Out Apparel</title>
   <link rel="stylesheet" href="style.css">
-  <style>
-    /* Same Navbar and Layout Styles as before */
-  </style>
-</head><body>
-<header>
-  <nav class="navbar">
-    <div class="account-icon" id="accountIcon">&#128100;</div>
-    <div class="account-dropdown" id="accountDropdownMenu">
-      <a href="signup.html">Sign Up</a>
-      <a href="login.html">Login</a>
-      <a href="#">Sign Out</a>
-      <a href="dashboard.html">Dashboard</a>
-    </div><a href="index.html" class="logo">Dripped Out Apparel</a>
-<div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <header>
+    <nav class="navbar">
+      <a href="index.html" class="logo">Dripped Out</a>
+      <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+      <div class="nav-section" id="navSection">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropbtn">Shop <span class="arrow">▼</span></a>
+            <ul class="dropdown-content">
+              <li><a href="products.html">All Products</a></li>
+              <li><a href="cart.html">Cart</a></li>
+              <li><a href="checkout.html">Checkout</a></li>
+            </ul>
+          </li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+        <ul class="account-links">
+          <li class="dropdown">
+            <a href="#" class="dropbtn">Account <span class="arrow">▼</span></a>
+            <ul class="dropdown-content">
+              <li><a href="signup.html">Sign Up</a></li>
+              <li><a href="login.html">Login</a></li>
+              <li><a href="dashboard.html">Dashboard</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
 
-<div class="nav-section" id="navSection">
-  <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li class="dropdown">
-      <a href="products.html" class="dropbtn">Shop <span class="arrow">▼</span></a>
-      <ul class="dropdown-content">
-        <li><a href="products.html">All Products</a></li>
-        <li><a href="cart.html">Cart</a></li>
-        <li><a href="checkout.html">Checkout</a></li>
-      </ul>
-    </li>
-    <li><a href="about.html">About</a></li>
-  </ul>
-</div>
+  <!-- MAIN CONTENT -->
+  <main>
+    <h1 style="text-align:center; margin: 40px 0;">Our Products</h1>
+    <section class="product-grid">
+      <div class="product-card">
+        <img src="images/CarbonBlack.jpg" alt="Carbon Black">
+        <h3>Carbon Black</h3>
+        <button class="buy-button" onclick="addToCart('Carbon Black', 59.99)">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="images/GreyDrip.jpg" alt="Grey Drip">
+        <h3>Grey Drip</h3>
+        <button class="buy-button" onclick="addToCart('Grey Drip', 59.99)">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="images/MoltenCurrent.jpg" alt="Molten Current">
+        <h3>Molten Current</h3>
+        <button class="buy-button" onclick="addToCart('Molten Current', 59.99)">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="images/PurpleTurpuoiseRetro.jpg" alt="Purple Turquoise Retro">
+        <h3>Purple Turquoise Retro</h3>
+        <button class="buy-button" onclick="addToCart('Purple Turquoise Retro', 59.99)">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="images/DuneBeige.jpg" alt="Dune Beige">
+        <h3>Dune Beige</h3>
+        <button class="buy-button" onclick="addToCart('Dune Beige', 59.99)">Add to Cart</button>
+      </div>
+    </section>
+  </main>
 
-  </nav>
-</header><main>
-  <h1 style="color: gold; text-align: center; margin: 20px;">Shop Our Drops</h1>  <div class="filter-container" style="text-align:center; margin:20px 0;">
-    <label for="categorySelect" style="color:gold; font-weight:bold;">Category:</label>
-    <select id="categorySelect" style="padding:10px; border-radius:4px;">
-      <option value="All">All Products</option>
-      <option value="Tank Tops">Tank Tops</option>
-      <option value="Tracksuits">Tracksuits</option>
-      <option value="Hoodies">Hoodies</option>
-      <option value="Pants">Pants</option>
-      <option value="Coats">Coats</option>
-      <option value="Shorts">Shorts</option>
-      <option value="Shirts">Shirts</option>
-      <option value="Buy-The-Fit">Buy-The-Fit</option>
-    </select>
-  </div>  <div class="product-grid">
-    <!-- Tank Tops -->
-    <div class="product-card" data-category="Tank Tops">
-      <img src="images/yellow-tank-set.jpg" alt="Yellow Tank Set" />
-      <h3>Yellow Tank Set</h3>
-      <p class="price">$64.99</p>
-      <button class="buy-button">Add to Cart</button>
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <p>&copy; 2025 Dripped Out Apparel. All rights reserved.</p>
+    <div>
+      <a href="index.html">Home</a> |
+      <a href="products.html">Shop</a> |
+      <a href="about.html">About</a> |
+      <a href="cart.html">Cart</a> |
+      <a href="checkout.html">Checkout</a>
     </div>
-    <div class="product-card" data-category="Tank Tops">
-      <img src="images/summer-heat-set.jpg" alt="Summer Heat Tank Set" />
-      <h3>Summer Heat Set</h3>
-      <p class="price">$64.99</p>
-      <button class="buy-button">Add to Cart</button>
-    </div><!-- Tracksuits -->
-<div class="product-card" data-category="Tracksuits">
-  <img src="images/BlueWhiteRetro.jpg" alt="90's Blue & White Retro-Tracksuit" />
-  <h3>90's Blue & White Retro-Tracksuit</h3>
-  <p class="price">$89.99</p>
-  <button class="buy-button">Add to Cart</button>
-</div>
-<div class="product-card" data-category="Tracksuits">
-  <img src="images/PurpleTurpuoiseRetro.jpg" alt="90's Purple & Turquoise Retro-Tracksuit" />
-  <h3>90's Purple & Turquoise Retro-Tracksuit</h3>
-  <p class="price">$89.99</p>
-  <button class="buy-button">Add to Cart</button>
-</div>
-<div class="product-card" data-category="Tracksuits">
-  <img src="images/CarbonBlack.jpg" alt="Carbon Black Tracksuit" />
-  <h3>Carbon Black Tracksuit</h3>
-  <p class="price">$89.99</p>
-  <button class="buy-button">Add to Cart</button>
-</div>
-<div class="product-card" data-category="Tracksuits">
-  <img src="images/DuneBeige.jpg" alt="Desert Beige Tracksuit" />
-  <h3>Desert Beige Tracksuit</h3>
-  <p class="price">$89.99</p>
-  <button class="buy-button">Add to Cart</button>
-</div>
-<div class="product-card" data-category="Tracksuits">
-  <img src="images/GreyDrip.jpg" alt="Classic Grey Tracksuit" />
-  <h3>Classic Grey Tracksuit</h3>
-  <p class="price">$89.99</p>
-  <button class="buy-button">Add to Cart</button>
-</div>
-<div class="product-card" data-category="Tracksuits">
-  <img src="images/MoltenCurrent.jpg" alt="Molten Current Tracksuit" />
-  <h3>Molten Current Tracksuit</h3>
-  <p class="price">$89.99</p>
-  <button class="buy-button">Add to Cart</button>
-</div>
+  </footer>
 
-  </div>
-</main><footer class="site-footer">
-  <p style="text-align:center;">&copy; 2025 Dripped Out Apparel. All rights reserved.</p>
-  <div style="text-align:center;">
-    <a href="index.html">Home</a> |
-    <a href="products.html">Shop</a> |
-    <a href="about.html">About</a> |
-    <a href="cart.html">Cart</a> |
-    <a href="checkout.html">Checkout</a>
-  </div>
-</footer><script>
-document.addEventListener("DOMContentLoaded", () => {
-  const hamburger = document.getElementById("hamburger");
-  const navSection = document.getElementById("navSection");
-  const accountIcon = document.getElementById("accountIcon");
-  const accountDropdownMenu = document.getElementById("accountDropdownMenu");
-
-  hamburger.addEventListener("click", () => {
-    navSection.classList.toggle("show");
-  });
-
-  accountIcon.addEventListener("click", () => {
-    accountDropdownMenu.style.display = accountDropdownMenu.style.display === "block" ? "none" : "block";
-  });
-
-  document.addEventListener("click", (e) => {
-    if (!accountIcon.contains(e.target) && !accountDropdownMenu.contains(e.target)) {
-      accountDropdownMenu.style.display = "none";
-    }
-  });
-
-  const addToCartButtons = document.querySelectorAll(".buy-button");
-
-  addToCartButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      const productCard = button.closest(".product-card");
-      const name = productCard.querySelector("h3").textContent;
-      const priceText = productCard.querySelector(".price")?.textContent || "$0";
-      const price = parseFloat(priceText.replace("$", ""));
-      const image = productCard.querySelector("img").getAttribute("src");
-
-      const cartItem = { name, price, image };
-
-      let cart = JSON.parse(localStorage.getItem("cart")) || [];
-      cart.push(cartItem);
-      localStorage.setItem("cart", JSON.stringify(cart));
-
-      alert(`${name} added to cart!`);
-    });
-  });
-});
-</script></body>
+  <script src="script.js"></script>
+</body>
 </html>
