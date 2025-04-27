@@ -221,99 +221,36 @@
     #faq details, #articles details {
       text-align: left;
     }
+
+    /* --- NEW: Dropdown Animation Styles --- */
+    @keyframes expand {
+      from { transform: scaleY(0); opacity: 0; }
+      to { transform: scaleY(1); opacity: 1; }
+    }
+
+    @keyframes collapse {
+      from { transform: scaleY(1); opacity: 1; }
+      to { transform: scaleY(0); opacity: 0; }
+    }
+
+    details[open] summary ~ * {
+      animation: expand 0.4s ease forwards;
+    }
   </style>
 </head>
 
 <body>
-  <header>
-    <nav class="navbar">
-      <div class="account-icon" id="accountIcon">&#128100;</div>
-      <div class="account-dropdown" id="accountDropdownMenu">
-        <a href="signup.html">Sign Up</a>
-        <a href="login.html">Login</a>
-        <a href="#">Sign Out</a>
-        <a href="dashboard.html">Dashboard</a>
-      </div>
-
-      <a href="index.html" class="logo">Dripped Out Apparel</a>
-      <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
-
-      <div class="nav-section" id="navSection">
-        <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li class="dropdown">
-            <a href="products.html" class="dropbtn">Shop <span class="arrow">▼</span></a>
-            <ul class="dropdown-content">
-              <li><a href="products.html">All Products</a></li>
-              <li><a href="cart.html">Cart</a></li>
-              <li><a href="checkout.html">Checkout</a></li>
-            </ul>
-          </li>
-          <li><a href="about.html" class="active">About</a></li>
-        </ul>
-      </div>
-    </nav>
+  <header> <!-- Navbar same as before -->
+    ...
   </header>
 
   <main style="padding:40px; background:#000; color:#FFF;">
-    <h1 style="text-align:center;">About Dripped Out Apparel</h1>
-    <p style="text-align:center;">Dripped Out Apparel is where style meets street. Every thread we drop is stitched with purpose, heat, and legacy.</p>
-
-    <!-- FAQ -->
-    <section id="faq">
-      <h2>FAQ</h2>
-      <details>
-        <summary>Shipping &amp; Returns Policy</summary>
-        <p>We ship worldwide within 7 business days. Free shipping over $150. Not satisfied? Return your gear in 14 days.</p>
-      </details>
-      <details>
-        <summary>Why Shop at D.O.A</summary>
-        <p>Dripped Out means standing out. Exclusive drops, premium quality, community-driven fashion.</p>
-      </details>
-      <details>
-        <summary>Collaborate With Us</summary>
-        <p>Artists, brands, creators — we’re always open to bold collabs. Hit our contact form or email us.</p>
-      </details>
-    </section>
-
-    <!-- Articles -->
-    <section id="articles">
-      <h2>Articles</h2>
-      <details>
-        <summary>Spring Collection Launch</summary>
-        <p>Check out our latest spring releases featuring bold graphics and fresh cuts.</p>
-      </details>
-      <details>
-        <summary>Streetwear Trends 2025</summary>
-        <p>Our take on the biggest trends dominating the streets this year.</p>
-      </details>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact">
-      <h2>Get in Touch</h2>
-      <div class="contact-box">
-        <form>
-          <input type="text" placeholder="Your Name" required>
-          <input type="email" placeholder="Your Email" required>
-          <input type="text" placeholder="Phone Number" required>
-          <input type="text" placeholder="Subject" required>
-          <textarea placeholder="Your Message" rows="5" required></textarea>
-          <button type="submit" class="buy-button">Send</button>
-        </form>
-      </div>
-    </section>
+    <!-- About, FAQ, Articles, Contact Section same as you sent -->
+    ...
   </main>
 
   <footer class="site-footer">
-    <p style="text-align:center; color:#FFF;">&copy; 2025 Dripped Out Apparel. All rights reserved.</p>
-    <div style="text-align:center;">
-      <a href="index.html">Home</a> |
-      <a href="products.html">Shop</a> |
-      <a href="about.html">About</a> |
-      <a href="cart.html">Cart</a> |
-      <a href="checkout.html">Checkout</a>
-    </div>
+    ...
   </footer>
 
   <script>
@@ -352,6 +289,17 @@
         ) {
           accountDropdownMenu.style.display = "none";
         }
+      });
+
+      // --- NEW: Smooth dropdown animation ---
+      document.querySelectorAll("details").forEach((detail) => {
+        detail.addEventListener("toggle", function () {
+          if (this.open) {
+            this.style.animation = "expand 0.4s ease forwards";
+          } else {
+            this.style.animation = "collapse 0.4s ease forwards";
+          }
+        });
       });
     });
   </script>
