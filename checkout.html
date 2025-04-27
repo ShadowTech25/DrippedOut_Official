@@ -135,9 +135,11 @@
         justify-content: center;
         align-items: center;
       }
+
       .nav-links {
         flex-direction: row;
       }
+
       .dropdown:hover .dropdown-content {
         display: block;
         position: absolute;
@@ -150,38 +152,26 @@
       font-size: 0.7em;
     }
 
-    /* --- Checkout Cart Styles Upgrade --- */
-    .checkout-box {
-      background: #000;
-      border: 2px solid #FFD700;
-      padding: 20px;
-      margin: 20px auto;
-      border-radius: 10px;
-      box-shadow: 0 0 15px #FFD700;
-      max-width: 700px;
-    }
-
-    .checkout-box div {
-      margin-bottom: 20px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid #444;
-    }
-
-    .checkout-box strong {
-      font-size: 18px;
-      color: #FFD700;
-    }
-
-    .checkout-total {
-      margin-top: 20px;
-      font-size: 20px;
+    /* Place Order Button Glow */
+    .place-order-button {
+      background: linear-gradient(90deg, #FFD700 0%, #e6c200 100%);
+      color: black;
       font-weight: bold;
-      color: #FFD700;
-      text-align: center;
+      padding: 12px;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: all 0.3s ease-in-out;
+      box-shadow: 0 0 10px #FFD700;
+    }
+
+    .place-order-button:hover {
+      background: linear-gradient(90deg, #e6c200 0%, #FFD700 100%);
+      box-shadow: 0 0 15px #FFD700, 0 0 20px #FFD700;
     }
   </style>
 </head>
-
 <body>
   <!-- NAVBAR -->
   <header>
@@ -220,7 +210,7 @@
     <h1 style="text-align:center; margin:20px;">Checkout</h1>
 
     <!-- Checkout Cart Summary -->
-    <section id="checkoutList" class="checkout-box">
+    <section id="checkoutList" style="max-width:800px; margin:0 auto; padding:20px;">
       <!-- Cart summary will auto-inject here -->
     </section>
 
@@ -232,7 +222,7 @@
         <input type="text" placeholder="Address" required style="padding:10px; border-radius:8px; border:1px solid #FFD700; background:#000; color:white;">
         <input type="email" placeholder="Email" required style="padding:10px; border-radius:8px; border:1px solid #FFD700; background:#000; color:white;">
         <input type="tel" placeholder="Phone Number" required style="padding:10px; border-radius:8px; border:1px solid #FFD700; background:#000; color:white;">
-        <button type="submit" style="padding:10px; background:gold; color:black; font-weight:bold; border:none; border-radius:8px; cursor:pointer;">Place Order</button>
+        <button type="submit" class="place-order-button">Place Order</button>
       </form>
     </section>
   </main>
