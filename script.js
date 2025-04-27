@@ -20,7 +20,6 @@ document.addEventListener("DOMContentLoaded", () => {
         e.preventDefault();
         dropdown.classList.toggle("open");
 
-        // Close other open dropdowns (for better UX)
         document.querySelectorAll(".dropdown").forEach((otherDropdown) => {
           if (otherDropdown !== dropdown) {
             otherDropdown.classList.remove("open");
@@ -40,7 +39,6 @@ document.addEventListener("DOMContentLoaded", () => {
       accountDropdownMenu.classList.toggle("show");
     });
 
-    // Close Account dropdown if clicking outside
     document.addEventListener("click", (e) => {
       if (!e.target.closest("#accountDropdownMenu") && !e.target.closest("#accountIcon")) {
         accountDropdownMenu.classList.remove("show");
@@ -159,8 +157,17 @@ function updateProductButtons() {
     const inCart = cart.find((item) => item.name === name);
     if (btn) {
       btn.textContent = inCart ? "Remove from Cart" : "Add to Cart";
-      btn.onclick = () =>
-        inCart ? removeFromCartByName(name) : addToCartFromCard(card);
+
+      // Clear old classes first
+      btn.classList.remove("buy-button", "remove-button");
+
+      if (inCart) {
+        btn.classList.add("remove-button");
+        btn.onclick = () => removeFromCartByName(name);
+      } else {
+        btn.classList.add("buy-button");
+        btn.onclick = () => addToCartFromCard(card);
+      }
     }
   });
 }
