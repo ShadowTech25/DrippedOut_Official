@@ -135,11 +135,9 @@
         justify-content: center;
         align-items: center;
       }
-
       .nav-links {
         flex-direction: row;
       }
-
       .dropdown:hover .dropdown-content {
         display: block;
         position: absolute;
@@ -151,8 +149,44 @@
     .arrow {
       font-size: 0.7em;
     }
+
+    /* Cart Item Cleaner Design */
+    .cart-items div {
+      background: #111;
+      border: 1px solid #222;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      padding: 15px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.3s ease;
+    }
+
+    .cart-items div:hover {
+      box-shadow: 0 0 10px #FFD700;
+      transform: scale(1.01);
+    }
+
+    .cart-items h3 {
+      color: #FFD700;
+      margin-bottom: 10px;
+    }
+
+    .cart-items p {
+      color: #ccc;
+      margin-bottom: 5px;
+    }
+
+    .cart-items img {
+      width: 80px;
+      height: auto;
+      border-radius: 8px;
+    }
 </style>
 </head>
+
 <body>
   <!-- NAVBAR -->
   <header>
@@ -189,17 +223,18 @@
   <!-- MAIN CONTENT -->
   <main>
     <h1 style="text-align:center; margin: 20px;">Your Cart</h1>
+
     <section id="cartItems" class="cart-items" style="max-width:900px; margin:0 auto; padding:20px;">
       <!-- Cart items auto-inserted here -->
     </section>
 
     <div style="text-align:center; margin-top:20px;">
-      <a href="checkout.html" class="checkout-button" style="background:gold; padding:10px 20px; color:black; border-radius:8px; text-decoration:none;">Proceed to Checkout</a>
+      <a href="checkout.html" class="checkout-button" style="background:gold; padding:10px 20px; color:black; font-weight:bold; text-decoration:none; border-radius:8px;">Proceed to Checkout</a>
     </div>
   </main>
 
   <!-- FOOTER -->
-  <footer class="site-footer">
+  <footer class="site-footer" style="text-align:center; margin-top:40px;">
     <p>&copy; 2025 Dripped Out Apparel. All rights reserved.</p>
     <div>
       <a href="index.html">Home</a> |
