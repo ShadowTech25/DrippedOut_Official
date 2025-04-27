@@ -151,56 +151,75 @@
     .arrow {
       font-size: 0.7em;
     }
-   .contact-box {
-  border: 2px solid #FFD700;
-  padding: 20px;
-  margin: 20px auto;
-  border-radius: 8px;
-  background-color: #000;
-  max-width: 400px;
-  width: 90%;
-  box-shadow: 0 0 10px #FFD700;
-}
 
-.contact-box form {
-  display: flex;
-  flex-direction: column;
-}
+    .contact-box {
+      border: 2px solid #FFD700;
+      padding: 20px;
+      margin: 20px auto;
+      border-radius: 8px;
+      background-color: #000;
+      max-width: 400px;
+      width: 90%;
+      box-shadow: 0 0 10px #FFD700;
+    }
 
-.contact-box input,
-.contact-box textarea {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #FFD700;
-  background: #111;
-  color: white;
-  border-radius: 4px;
-  transition: box-shadow 0.3s ease-in-out;
-}
+    .contact-box form {
+      display: flex;
+      flex-direction: column;
+    }
 
-.contact-box input:focus,
-.contact-box textarea:focus {
-  outline: none;
-  box-shadow: 0 0 8px 2px #FFD700;
-  border-color: #FFD700;
-}
+    .contact-box input,
+    .contact-box textarea {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 8px;
+      border: 1px solid #FFD700;
+      background: #111;
+      color: white;
+      border-radius: 4px;
+      transition: box-shadow 0.3s ease-in-out;
+      font-size: 14px;
+    }
 
-.contact-box button {
-  background-color: #FFD700;
-  color: black;
-  font-weight: bold;
-  padding: 10px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background 0.3s, box-shadow 0.3s;
-}
+    .contact-box input:focus,
+    .contact-box textarea:focus {
+      outline: none;
+      box-shadow: 0 0 8px 2px #FFD700;
+      border-color: #FFD700;
+    }
 
-.contact-box button:hover {
-  background-color: #e6c200;
-  box-shadow: 0 0 8px 2px #FFD700;
-} 
+    .contact-box button {
+      background-color: #FFD700;
+      color: black;
+      font-weight: bold;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s, box-shadow 0.3s;
+      font-size: 15px;
+    }
+
+    .contact-box button:hover {
+      background-color: #e6c200;
+      box-shadow: 0 0 8px 2px #FFD700;
+    }
+
+    main h2 {
+      color: #FFD700;
+      margin-top: 2em;
+      text-align: center;
+    }
+
+    #faq, #articles, #contact {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    #faq details, #articles details {
+      text-align: left;
+    }
   </style>
 </head>
 
@@ -236,12 +255,12 @@
   </header>
 
   <main style="padding:40px; background:#000; color:#FFF;">
-    <h1>About Dripped Out Apparel</h1>
-    <p>Dripped Out Apparel is where style meets street. Every thread we drop is stitched with purpose, heat, and legacy.</p>
+    <h1 style="text-align:center;">About Dripped Out Apparel</h1>
+    <p style="text-align:center;">Dripped Out Apparel is where style meets street. Every thread we drop is stitched with purpose, heat, and legacy.</p>
 
     <!-- FAQ -->
     <section id="faq">
-      <h2 style="color:#FFD700; margin-top:1.5em;">FAQ</h2>
+      <h2>FAQ</h2>
       <details>
         <summary>Shipping &amp; Returns Policy</summary>
         <p>We ship worldwide within 7 business days. Free shipping over $150. Not satisfied? Return your gear in 14 days.</p>
@@ -258,7 +277,7 @@
 
     <!-- Articles -->
     <section id="articles">
-      <h2 style="color:#FFD700; margin-top:2em;">Articles</h2>
+      <h2>Articles</h2>
       <details>
         <summary>Spring Collection Launch</summary>
         <p>Check out our latest spring releases featuring bold graphics and fresh cuts.</p>
@@ -268,19 +287,20 @@
         <p>Our take on the biggest trends dominating the streets this year.</p>
       </details>
     </section>
-    
+
     <!-- Contact -->
     <section id="contact">
-    <section id="contact">
-  <h2 style="color:#FFD700; margin-top:2em;">Get in Touch</h2>
-  <div class="contact-box">
-    <form>
-      <input type="text" placeholder="Your Name" required><br><br>
-      <input type="email" placeholder="Your Email" required><br><br>
-      <textarea placeholder="Your Message" rows="5" required></textarea><br><br>
-      <button type="submit" class="buy-button">Send</button>
-    </form>
-  </div>
+      <h2>Get in Touch</h2>
+      <div class="contact-box">
+        <form>
+          <input type="text" placeholder="Your Name" required>
+          <input type="email" placeholder="Your Email" required>
+          <input type="text" placeholder="Phone Number" required>
+          <input type="text" placeholder="Subject" required>
+          <textarea placeholder="Your Message" rows="5" required></textarea>
+          <button type="submit" class="buy-button">Send</button>
+        </form>
+      </div>
     </section>
   </main>
 
