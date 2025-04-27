@@ -1,13 +1,13 @@
 <!DOCTYPE html><html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#FFD700" />
-  <link rel="manifest" href="manifest.json" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#FFD700">
+  <link rel="manifest" href="manifest.json">
   <title>Dripped Out Apparel</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
   <style>
-    /* Navbar and Basic Styles */
+    /* Navbar */
     .navbar {
       display: flex;
       flex-direction: column;
@@ -127,8 +127,7 @@
         top: 100%;
         left: 0;
       }
-    }/* Promo Box */
-.promo-box {
+    }.promo-box {
   border: 3px solid #FFD700;
   padding: 25px;
   margin: 30px auto;
@@ -138,53 +137,55 @@
   box-shadow: 0 0 15px #FFD700;
   transition: all 0.3s ease;
 }
+.promo-box h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #FFFFFF;
+  margin: 0;
+}
 .promo-box:hover {
   transform: scale(1.02);
   box-shadow: 0 0 25px #FFD700;
 }
 
-/* Product Slider and Cards */
-.featured-slider-box {
+/* Featured Product Section */
+.featured-wrapper {
   border: 3px solid #FFD700;
-  padding: 20px;
+  padding: 15px;
   margin: 40px auto;
-  border-radius: 10px;
-  box-shadow: 0 0 15px #FFD700;
-  width: 95%;
-  max-width: 1200px;
-  background-color: #000;
+  border-radius: 12px;
+  box-shadow: 0 0 20px #FFD700;
+  background: none;
+  max-width: 400px;
 }
 .product-slider {
-  display: flex;
   overflow-x: auto;
-  gap: 20px;
-  scroll-snap-type: x mandatory;
-  padding: 10px 0;
+  white-space: nowrap;
+  padding: 10px;
 }
 .product-card {
-  min-width: 250px;
-  background: #111;
-  border-radius: 12px;
+  display: inline-block;
+  background: transparent;
   padding: 15px;
-  box-shadow: 0 0 8px #FFD700;
-  flex-shrink: 0;
-  scroll-snap-align: start;
+  margin: 10px;
   text-align: center;
-  transition: transform 0.3s;
+  border-radius: 10px;
+  box-shadow: 0 0 8px #FFD700;
 }
-.product-card:hover {
-  transform: scale(1.05);
+.product-card img {
+  width: 100%;
+  border-radius: 8px;
 }
 .buy-button {
   background: linear-gradient(90deg, #FFD700 0%, #e6c200 100%);
   color: black;
   font-weight: bold;
-  padding: 12px 20px;
+  padding: 10px 20px;
   border: none;
   border-radius: 50px;
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
   font-size: 16px;
+  margin-top: 10px;
   box-shadow: 0 0 10px #FFD700;
 }
 .buy-button:hover {
@@ -202,26 +203,27 @@
         <a href="login.html">Login</a>
         <a href="#">Sign Out</a>
         <a href="dashboard.html">Dashboard</a>
-      </div>
-      <a href="index.html" class="logo">Dripped Out Apparel</a>
-      <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
-      <div class="nav-section" id="navSection">
-        <ul class="nav-links">
-          <li><a href="index.html" class="active">Home</a></li>
-          <li class="dropdown">
-            <a href="products.html" class="dropbtn">Shop <span class="arrow">▼</span></a>
-            <ul class="dropdown-content">
-              <li><a href="products.html">All Products</a></li>
-              <li><a href="cart.html">Cart</a></li>
-              <li><a href="checkout.html">Checkout</a></li>
-            </ul>
-          </li>
-          <li><a href="about.html">About</a></li>
+      </div><a href="index.html" class="logo">Dripped Out Apparel</a>
+  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+
+  <div class="nav-section" id="navSection">
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li class="dropdown">
+        <a href="products.html" class="dropbtn">Shop <span class="arrow">▼</span></a>
+        <ul class="dropdown-content">
+          <li><a href="products.html">All Products</a></li>
+          <li><a href="cart.html">Cart</a></li>
+          <li><a href="checkout.html">Checkout</a></li>
         </ul>
-      </div>
-    </nav>
+      </li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </div>
+</nav>
+
   </header>  <main>
-    <section class="hero" style="text-align: center;">
+    <section class="hero" style="text-align:center;">
       <h1>WELCOME TO D.O.A</h1>
       <p>Luxury streetwear built for legends.</p>
     </section><section class="hero-banner" style="text-align:center; margin:20px 0;">
@@ -236,7 +238,7 @@
 
 <h2 class="featured-title" style="text-align:center; color:gold; margin-top:40px;">Featured Products</h2>
 
-<section class="featured-slider-box">
+<section class="featured-wrapper">
   <div class="product-slider">
     <div class="product-card">
       <img src="images/CarbonBlack.jpg" alt="Carbon Black">
@@ -266,7 +268,7 @@
   </div>
 </section>
 
-  </main>  <footer class="site-footer" style="text-align:center; margin-top:40px;">
+  </main>  <footer class="site-footer">
     <p>&copy; 2025 Dripped Out Apparel. All rights reserved.</p>
     <div>
       <a href="index.html">Home</a> |
@@ -275,35 +277,5 @@
       <a href="cart.html">Cart</a> |
       <a href="checkout.html">Checkout</a>
     </div>
-  </footer>  <script src="script.js"></script>  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const hamburger = document.getElementById("hamburger");
-      const navSection = document.getElementById("navSection");
-      hamburger.addEventListener("click", () => {
-        navSection.classList.toggle("show");
-      });
-
-      document.querySelectorAll(".dropbtn").forEach(button => {
-        button.addEventListener("click", function (e) {
-          e.preventDefault();
-          const parent = this.parentElement;
-          parent.classList.toggle("dropdown-open");
-          document.querySelectorAll(".dropdown").forEach(drop => {
-            if (drop !== parent) drop.classList.remove("dropdown-open");
-          });
-        });
-      });
-
-      const accountIcon = document.getElementById("accountIcon");
-      const accountDropdownMenu = document.getElementById("accountDropdownMenu");
-      accountIcon.addEventListener("click", () => {
-        accountDropdownMenu.style.display = accountDropdownMenu.style.display === "block" ? "none" : "block";
-      });
-      document.addEventListener("click", function (event) {
-        if (!accountIcon.contains(event.target) && !accountDropdownMenu.contains(event.target)) {
-          accountDropdownMenu.style.display = "none";
-        }
-      });
-    });
-  </script></body>
+  </footer>  <script src="script.js"></script></body>
 </html>
