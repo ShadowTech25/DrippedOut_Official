@@ -135,11 +135,9 @@
         justify-content: center;
         align-items: center;
       }
-
       .nav-links {
         flex-direction: row;
       }
-
       .dropdown:hover .dropdown-content {
         display: block;
         position: absolute;
@@ -152,26 +150,66 @@
       font-size: 0.7em;
     }
 
-    /* Place Order Button Glow */
-    .place-order-button {
+    /* Checkout List Glow */
+    #checkoutList {
+      background: #000;
+      border: 2px solid #FFD700;
+      border-radius: 12px;
+      padding: 30px;
+      margin: 30px auto;
+      max-width: 800px;
+      box-shadow: 0 0 15px #FFD700;
+      transition: all 0.3s ease;
+    }
+
+    #checkoutList strong {
+      color: #FFD700;
+    }
+
+    /* Checkout Form Container */
+    .checkout-form-container {
+      background: #111;
+      border: 1px solid #FFD700;
+      border-radius: 12px;
+      padding: 30px;
+      margin: 30px auto;
+      max-width: 500px;
+      box-shadow: 0 0 10px #FFD700;
+    }
+
+    /* Checkout Form Fields */
+    .checkout-form-container input {
+      background: #000;
+      color: #fff;
+      border: 1px solid #FFD700;
+      padding: 12px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      width: 100%;
+    }
+
+    /* Place Order Button */
+    .place-order-btn {
       background: linear-gradient(90deg, #FFD700 0%, #e6c200 100%);
       color: black;
       font-weight: bold;
       padding: 12px;
       border: none;
       border-radius: 50px;
-      cursor: pointer;
       font-size: 16px;
-      transition: all 0.3s ease-in-out;
+      width: 100%;
       box-shadow: 0 0 10px #FFD700;
+      transition: all 0.3s ease;
+      cursor: pointer;
     }
 
-    .place-order-button:hover {
+    .place-order-btn:hover {
       background: linear-gradient(90deg, #e6c200 0%, #FFD700 100%);
-      box-shadow: 0 0 15px #FFD700, 0 0 20px #FFD700;
+      box-shadow: 0 0 15px #FFD700, 0 0 25px #FFD700;
     }
   </style>
 </head>
+
 <body>
   <!-- NAVBAR -->
   <header>
@@ -210,19 +248,19 @@
     <h1 style="text-align:center; margin:20px;">Checkout</h1>
 
     <!-- Checkout Cart Summary -->
-    <section id="checkoutList" style="max-width:800px; margin:0 auto; padding:20px;">
-      <!-- Cart summary will auto-inject here -->
+    <section id="checkoutList">
+      <!-- Cart items injected dynamically -->
     </section>
 
     <!-- Checkout Form -->
-    <section style="max-width:500px; margin:40px auto; padding:20px; background:#111; border-radius:10px;">
+    <section class="checkout-form-container">
       <h2 style="color:gold; text-align:center;">Shipping Information</h2>
-      <form id="checkoutForm" style="display:flex; flex-direction:column; gap:15px; margin-top:20px;">
-        <input type="text" placeholder="Full Name" required style="padding:10px; border-radius:8px; border:1px solid #FFD700; background:#000; color:white;">
-        <input type="text" placeholder="Address" required style="padding:10px; border-radius:8px; border:1px solid #FFD700; background:#000; color:white;">
-        <input type="email" placeholder="Email" required style="padding:10px; border-radius:8px; border:1px solid #FFD700; background:#000; color:white;">
-        <input type="tel" placeholder="Phone Number" required style="padding:10px; border-radius:8px; border:1px solid #FFD700; background:#000; color:white;">
-        <button type="submit" class="place-order-button">Place Order</button>
+      <form id="checkoutForm" style="margin-top:20px;">
+        <input type="text" placeholder="Full Name" required>
+        <input type="text" placeholder="Address" required>
+        <input type="email" placeholder="Email" required>
+        <input type="tel" placeholder="Phone Number" required>
+        <button type="submit" class="place-order-btn">Place Order</button>
       </form>
     </section>
   </main>
