@@ -158,7 +158,7 @@ function updateProductButtons() {
     if (btn) {
       btn.textContent = inCart ? "Remove from Cart" : "Add to Cart";
 
-      // Clear old classes
+      // Clear old classes first
       btn.classList.remove("buy-button", "remove-button");
 
       if (inCart) {
@@ -199,21 +199,16 @@ function displayCartItems() {
 
   cart.forEach((item, index) => {
     const itemDiv = document.createElement("div");
-    itemDiv.style.display = "flex";
-    itemDiv.style.alignItems = "center";
-    itemDiv.style.justifyContent = "space-between";
-    itemDiv.style.borderBottom = "1px solid #ccc";
-    itemDiv.style.padding = "15px 0";
-
+    itemDiv.className = "cart-item";
     itemDiv.innerHTML = `
-      <div style="flex: 1;">
-        <h3 style="color:gold; margin-bottom:5px;">${item.name}</h3>
+      <div class="cart-details">
+        <h3 class="cart-title">${item.name}</h3>
         <p>Quantity: ${item.quantity}</p>
         <p>Price: $${(item.price * item.quantity).toFixed(2)}</p>
-        <button onclick="removeItem(${index})" class="remove-button" style="margin-top:8px;">Remove</button>
+        <button onclick="removeItem(${index})" class="remove-button">Remove</button>
       </div>
-      <div style="flex: 0 0 80px; text-align:right;">
-        <img src="${item.image}" alt="${item.name}" style="width:80px; height:auto; border-radius:8px;">
+      <div class="cart-image">
+        <img src="${item.image}" alt="${item.name}">
       </div>
     `;
     cartItemsContainer.appendChild(itemDiv);
@@ -236,17 +231,17 @@ function displayCheckoutItems() {
 
   cart.forEach(item => {
     const itemDiv = document.createElement("div");
-    itemDiv.style.marginBottom = "10px";
+    itemDiv.className = "checkout-item";
     itemDiv.innerHTML = `
-      <strong style="color:gold;">${item.name}</strong> x ${item.quantity} — $${(item.price * item.quantity).toFixed(2)}
+      <strong>${item.name}</strong> x ${item.quantity} — $${(item.price * item.quantity).toFixed(2)}
     `;
     checkoutList.appendChild(itemDiv);
     total += item.price * item.quantity;
   });
 
   const totalDiv = document.createElement("div");
-  totalDiv.style.marginTop = "20px";
-  totalDiv.innerHTML = `<strong style="color:gold;">Total: $${total.toFixed(2)}</strong>`;
+  totalDiv.className = "checkout-total";
+  totalDiv.innerHTML = `<strong>Total: $${total.toFixed(2)}</strong>`;
   checkoutList.appendChild(totalDiv);
 }
 
