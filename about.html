@@ -16,14 +16,12 @@
       padding: 10px;
       position: relative;
     }
-
     .logo {
       color: #FFD700;
       font-weight: bold;
       font-size: 24px;
       text-align: center;
     }
-
     .hamburger {
       display: flex;
       flex-direction: column;
@@ -33,13 +31,11 @@
       top: 22px;
       gap: 3px;
     }
-
     .hamburger span {
       background: #fff;
       height: 2px;
       width: 20px;
     }
-
     .account-icon {
       position: absolute;
       left: 15px;
@@ -51,7 +47,6 @@
       align-items: center;
       height: 24px;
     }
-
     .account-dropdown {
       display: none;
       position: absolute;
@@ -63,7 +58,6 @@
       z-index: 999;
       width: 140px;
     }
-
     .account-dropdown a {
       display: block;
       color: white;
@@ -71,32 +65,26 @@
       padding: 8px 12px;
       font-size: 13px;
     }
-
     .account-dropdown a:hover {
       background: #222;
     }
-
     .nav-section {
       display: none;
       flex-direction: column;
       background-color: #000;
       width: 100%;
     }
-
     .nav-section.show {
       display: flex;
     }
-
     .nav-links {
       list-style: none;
       padding: 0;
       margin: 0;
     }
-
     .nav-links li {
       position: relative;
     }
-
     .nav-links a {
       color: #fff;
       text-decoration: none;
@@ -104,7 +92,6 @@
       display: block;
       font-size: 13px;
     }
-
     .dropdown-content {
       display: none;
       position: relative;
@@ -114,32 +101,26 @@
       padding: 0;
       margin-top: 0;
     }
-
     .dropdown-content a {
       padding: 5px 10px;
       font-size: 13px;
       border-top: 1px solid #222;
     }
-
     .dropdown-content a:hover {
       background: #222;
     }
-
     .dropdown-open .dropdown-content {
       display: block;
     }
-
     @media (min-width: 768px) {
       .nav-section {
         flex-direction: row;
         justify-content: center;
         align-items: center;
       }
-
       .nav-links {
         flex-direction: row;
       }
-
       .dropdown:hover .dropdown-content {
         display: block;
         position: absolute;
@@ -147,11 +128,9 @@
         left: 0;
       }
     }
-
     .arrow {
       font-size: 0.7em;
     }
-
     .contact-box {
       border: 2px solid #FFD700;
       padding: 20px;
@@ -162,12 +141,10 @@
       width: 90%;
       box-shadow: 0 0 10px #FFD700;
     }
-
     .contact-box form {
       display: flex;
       flex-direction: column;
     }
-
     .contact-box input,
     .contact-box textarea {
       width: 100%;
@@ -180,14 +157,12 @@
       transition: box-shadow 0.3s ease-in-out;
       font-size: 14px;
     }
-
     .contact-box input:focus,
     .contact-box textarea:focus {
       outline: none;
       box-shadow: 0 0 8px 2px #FFD700;
       border-color: #FFD700;
     }
-
     .contact-box button {
       background: linear-gradient(90deg, #FFD700 0%, #e6c200 100%);
       color: black;
@@ -200,57 +175,140 @@
       font-size: 16px;
       box-shadow: 0 0 10px #FFD700;
     }
-
     .contact-box button:hover {
       background: linear-gradient(90deg, #e6c200 0%, #FFD700 100%);
       box-shadow: 0 0 15px #FFD700, 0 0 25px #FFD700;
     }
-
     main h2 {
       color: #FFD700;
       margin-top: 2em;
       text-align: center;
     }
-
     #faq, #articles, #contact {
       max-width: 700px;
       margin: 0 auto;
       text-align: center;
     }
-
     #faq details, #articles details {
       text-align: left;
     }
 
-    /* --- NEW: Dropdown Animation Styles --- */
-    @keyframes expand {
-      from { transform: scaleY(0); opacity: 0; }
-      to { transform: scaleY(1); opacity: 1; }
+    /* Smooth Dropdown Animation Fix */
+    details summary {
+      cursor: pointer;
+      transition: color 0.3s;
     }
-
-    @keyframes collapse {
-      from { transform: scaleY(1); opacity: 1; }
-      to { transform: scaleY(0); opacity: 0; }
+    details[open] summary {
+      color: #FFD700;
     }
-
-    details[open] summary ~ * {
-      animation: expand 0.4s ease forwards;
+    details summary::after {
+      content: " ▼";
+      font-size: 0.8em;
+    }
+    details[open] summary::after {
+      content: " ▲";
+    }
+    details p {
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      transition: max-height 0.5s ease, opacity 0.5s ease;
+    }
+    details[open] p {
+      max-height: 500px;
+      opacity: 1;
     }
   </style>
 </head>
 
 <body>
-  <header> <!-- Navbar same as before -->
-    ...
+  <header>
+    <nav class="navbar">
+      <div class="account-icon" id="accountIcon">&#128100;</div>
+      <div class="account-dropdown" id="accountDropdownMenu">
+        <a href="signup.html">Sign Up</a>
+        <a href="login.html">Login</a>
+        <a href="#">Sign Out</a>
+        <a href="dashboard.html">Dashboard</a>
+      </div>
+      <a href="index.html" class="logo">Dripped Out Apparel</a>
+      <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+      <div class="nav-section" id="navSection">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li class="dropdown">
+            <a href="products.html" class="dropbtn">Shop <span class="arrow">▼</span></a>
+            <ul class="dropdown-content">
+              <li><a href="products.html">All Products</a></li>
+              <li><a href="cart.html">Cart</a></li>
+              <li><a href="checkout.html">Checkout</a></li>
+            </ul>
+          </li>
+          <li><a href="about.html" class="active">About</a></li>
+        </ul>
+      </div>
+    </nav>
   </header>
 
   <main style="padding:40px; background:#000; color:#FFF;">
-    <!-- About, FAQ, Articles, Contact Section same as you sent -->
-    ...
+    <h1 style="text-align:center;">About Dripped Out Apparel</h1>
+    <p style="text-align:center;">Dripped Out Apparel is where style meets street. Every thread we drop is stitched with purpose, heat, and legacy.</p>
+
+    <!-- FAQ Section -->
+    <section id="faq">
+      <h2>FAQ</h2>
+      <details>
+        <summary>Shipping &amp; Returns Policy</summary>
+        <p>We ship worldwide within 7 business days. Free shipping over $150. Not satisfied? Return your gear in 14 days.</p>
+      </details>
+      <details>
+        <summary>Why Shop at D.O.A</summary>
+        <p>Dripped Out means standing out. Exclusive drops, premium quality, community-driven fashion.</p>
+      </details>
+      <details>
+        <summary>Collaborate With Us</summary>
+        <p>Artists, brands, creators — we’re always open to bold collabs. Hit our contact form or email us.</p>
+      </details>
+    </section>
+
+    <!-- Articles Section -->
+    <section id="articles">
+      <h2>Articles</h2>
+      <details>
+        <summary>Spring Collection Launch</summary>
+        <p>Check out our latest spring releases featuring bold graphics and fresh cuts.</p>
+      </details>
+      <details>
+        <summary>Streetwear Trends 2025</summary>
+        <p>Our take on the biggest trends dominating the streets this year.</p>
+      </details>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <h2>Get in Touch</h2>
+      <div class="contact-box">
+        <form>
+          <input type="text" placeholder="Your Name" required>
+          <input type="email" placeholder="Your Email" required>
+          <input type="text" placeholder="Phone Number" required>
+          <input type="text" placeholder="Subject" required>
+          <textarea placeholder="Your Message" rows="5" required></textarea>
+          <button type="submit" class="buy-button">Send</button>
+        </form>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">
-    ...
+    <p style="text-align:center; color:#FFF;">&copy; 2025 Dripped Out Apparel. All rights reserved.</p>
+    <div style="text-align:center;">
+      <a href="index.html">Home</a> |
+      <a href="products.html">Shop</a> |
+      <a href="about.html">About</a> |
+      <a href="cart.html">Cart</a> |
+      <a href="checkout.html">Checkout</a>
+    </div>
   </footer>
 
   <script>
@@ -289,17 +347,6 @@
         ) {
           accountDropdownMenu.style.display = "none";
         }
-      });
-
-      // --- NEW: Smooth dropdown animation ---
-      document.querySelectorAll("details").forEach((detail) => {
-        detail.addEventListener("toggle", function () {
-          if (this.open) {
-            this.style.animation = "expand 0.4s ease forwards";
-          } else {
-            this.style.animation = "collapse 0.4s ease forwards";
-          }
-        });
       });
     });
   </script>
