@@ -7,7 +7,7 @@
   <link rel="manifest" href="manifest.json">
   <title>Your Cart - Dripped Out Apparel</title>
   <link rel="stylesheet" href="style.css">
-<style>
+  <style>
     .navbar {
       display: flex;
       flex-direction: column;
@@ -150,23 +150,23 @@
       font-size: 0.7em;
     }
 
-    /* Cart Item Cleaner Design */
-    .cart-items div {
-      background: #111;
-      border: 1px solid #222;
+    /* Cart Item Clean Glow */
+    .cart-items .cart-item {
+      background: #000;
+      border: 2px solid #FFD700;
       border-radius: 10px;
+      padding: 20px;
       margin-bottom: 20px;
-      padding: 15px;
+      box-shadow: 0 0 15px #FFD700;
       display: flex;
-      flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
       transition: all 0.3s ease;
     }
 
-    .cart-items div:hover {
-      box-shadow: 0 0 10px #FFD700;
-      transform: scale(1.01);
+    .cart-items .cart-item:hover {
+      box-shadow: 0 0 20px #FFD700, 0 0 30px #FFD700;
+      transform: scale(1.02);
     }
 
     .cart-items h3 {
@@ -176,7 +176,7 @@
 
     .cart-items p {
       color: #ccc;
-      margin-bottom: 5px;
+      margin: 2px 0;
     }
 
     .cart-items img {
@@ -184,7 +184,25 @@
       height: auto;
       border-radius: 8px;
     }
-</style>
+
+    .checkout-button {
+      background: linear-gradient(90deg, #FFD700 0%, #e6c200 100%);
+      color: black;
+      font-weight: bold;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 16px;
+      box-shadow: 0 0 10px #FFD700;
+      transition: all 0.3s ease;
+    }
+
+    .checkout-button:hover {
+      background: linear-gradient(90deg, #e6c200 0%, #FFD700 100%);
+      box-shadow: 0 0 15px #FFD700, 0 0 25px #FFD700;
+    }
+  </style>
 </head>
 
 <body>
@@ -225,11 +243,11 @@
     <h1 style="text-align:center; margin: 20px;">Your Cart</h1>
 
     <section id="cartItems" class="cart-items" style="max-width:900px; margin:0 auto; padding:20px;">
-      <!-- Cart items auto-inserted here -->
+      <!-- Cart items auto-injected here -->
     </section>
 
-    <div style="text-align:center; margin-top:20px;">
-      <a href="checkout.html" class="checkout-button" style="background:gold; padding:10px 20px; color:black; font-weight:bold; text-decoration:none; border-radius:8px;">Proceed to Checkout</a>
+    <div style="text-align:center; margin-top:30px;">
+      <a href="checkout.html" class="checkout-button">Proceed to Checkout</a>
     </div>
   </main>
 
