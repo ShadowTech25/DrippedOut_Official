@@ -7,6 +7,7 @@
   <title>Dripped Out Apparel</title>
   <link rel="stylesheet" href="style.css" />
   <style>
+    /* Navbar and Basic Styles */
     .navbar {
       display: flex;
       flex-direction: column;
@@ -14,139 +15,119 @@
       background-color: #000;
       padding: 10px;
       position: relative;
-    }.logo {
-  color: #FFD700;
-  font-weight: bold;
-  font-size: 24px;
-  text-align: center;
-}
-
-.hamburger {
-  display: flex;
-  flex-direction: column;
-  cursor: pointer;
-  position: absolute;
-  right: 15px;
-  top: 22px;
-  gap: 3px;
-}
-
-.hamburger span {
-  background: #fff;
-  height: 2px;
-  width: 20px;
-}
-
-.account-icon {
-  position: absolute;
-  left: 15px;
-  top: 18px;
-  cursor: pointer;
-  font-size: 20px;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  height: 24px;
-}
-
-.account-dropdown {
-  display: none;
-  position: absolute;
-  top: 50px;
-  left: 15px;
-  background: #111;
-  border: 1px solid #333;
-  border-radius: 4px;
-  z-index: 999;
-  width: 140px;
-}
-
-.account-dropdown a {
-  display: block;
-  color: white;
-  text-decoration: none;
-  padding: 8px 12px;
-  font-size: 13px;
-}
-
-.account-dropdown a:hover {
-  background: #222;
-}
-
-.nav-section {
-  display: none;
-  flex-direction: column;
-  background-color: #000;
-  width: 100%;
-}
-
-.nav-section.show {
-  display: flex;
-}
-
-.nav-links {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.nav-links li {
-  position: relative;
-}
-
-.nav-links a {
-  color: #fff;
-  text-decoration: none;
-  padding: 6px 10px;
-  display: block;
-  font-size: 13px;
-}
-
-.dropdown-content {
-  display: none;
-  position: relative;
-  background: #111;
-  z-index: 999;
-  min-width: 100%;
-  padding: 0;
-  margin-top: 0;
-}
-
-.dropdown-content a {
-  padding: 5px 10px;
-  font-size: 13px;
-  border-top: 1px solid #222;
-}
-
-.dropdown-content a:hover {
-  background: #222;
-}
-
-.dropdown-open .dropdown-content {
-  display: block;
-}
-
-@media (min-width: 768px) {
-  .nav-section {
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-  }
-  .nav-links {
-    flex-direction: row;
-  }
-  .dropdown:hover .dropdown-content {
-    display: block;
-    position: absolute;
-    top: 100%;
-    left: 0;
-  }
-}
-
-.arrow {
-  font-size: 0.7em;
-}
-
+    }
+    .logo {
+      color: #FFD700;
+      font-weight: bold;
+      font-size: 24px;
+      text-align: center;
+    }
+    .hamburger {
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      position: absolute;
+      right: 15px;
+      top: 22px;
+      gap: 3px;
+    }
+    .hamburger span {
+      background: #fff;
+      height: 2px;
+      width: 20px;
+    }
+    .account-icon {
+      position: absolute;
+      left: 15px;
+      top: 18px;
+      cursor: pointer;
+      font-size: 20px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      height: 24px;
+    }
+    .account-dropdown {
+      display: none;
+      position: absolute;
+      top: 50px;
+      left: 15px;
+      background: #111;
+      border: 1px solid #333;
+      border-radius: 4px;
+      z-index: 999;
+      width: 140px;
+    }
+    .account-dropdown a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 8px 12px;
+      font-size: 13px;
+    }
+    .account-dropdown a:hover {
+      background: #222;
+    }
+    .nav-section {
+      display: none;
+      flex-direction: column;
+      background-color: #000;
+      width: 100%;
+    }
+    .nav-section.show {
+      display: flex;
+    }
+    .nav-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .nav-links li {
+      position: relative;
+    }
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      padding: 6px 10px;
+      display: block;
+      font-size: 13px;
+    }
+    .dropdown-content {
+      display: none;
+      position: relative;
+      background: #111;
+      z-index: 999;
+      min-width: 100%;
+      padding: 0;
+      margin-top: 0;
+    }
+    .dropdown-content a {
+      padding: 5px 10px;
+      font-size: 13px;
+      border-top: 1px solid #222;
+    }
+    .dropdown-content a:hover {
+      background: #222;
+    }
+    .dropdown-open .dropdown-content {
+      display: block;
+    }
+    @media (min-width: 768px) {
+      .nav-section {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+      }
+      .nav-links {
+        flex-direction: row;
+      }
+      .dropdown:hover .dropdown-content {
+        display: block;
+        position: absolute;
+        top: 100%;
+        left: 0;
+      }
+    }/* Promo Box */
 .promo-box {
   border: 3px solid #FFD700;
   padding: 25px;
@@ -157,19 +138,43 @@
   box-shadow: 0 0 15px #FFD700;
   transition: all 0.3s ease;
 }
-
-.promo-box h1 {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #FFFFFF;
-  margin: 0;
-}
-
 .promo-box:hover {
   transform: scale(1.02);
   box-shadow: 0 0 25px #FFD700;
 }
 
+/* Product Slider and Cards */
+.featured-slider-box {
+  border: 3px solid #FFD700;
+  padding: 20px;
+  margin: 40px auto;
+  border-radius: 10px;
+  box-shadow: 0 0 15px #FFD700;
+  width: 95%;
+  max-width: 1200px;
+  background-color: #000;
+}
+.product-slider {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  scroll-snap-type: x mandatory;
+  padding: 10px 0;
+}
+.product-card {
+  min-width: 250px;
+  background: #111;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 0 8px #FFD700;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  text-align: center;
+  transition: transform 0.3s;
+}
+.product-card:hover {
+  transform: scale(1.05);
+}
 .buy-button {
   background: linear-gradient(90deg, #FFD700 0%, #e6c200 100%);
   color: black;
@@ -182,115 +187,123 @@
   font-size: 16px;
   box-shadow: 0 0 10px #FFD700;
 }
-
 .buy-button:hover {
   background: linear-gradient(90deg, #e6c200 0%, #FFD700 100%);
   box-shadow: 0 0 15px #FFD700, 0 0 25px #FFD700;
 }
 
-.product-slider {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  margin-top: 20px;
-}
-
-.product-card {
-  background: #111;
-  border: 1px solid #FFD700;
-  padding: 20px;
-  border-radius: 10px;
-  width: 220px;
-  text-align: center;
-  box-shadow: 0 0 10px #FFD700;
-  transition: all 0.3s ease;
-}
-
-.product-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px #FFD700;
-}
-
-.product-card img {
-  width: 100%;
-  border-radius: 8px;
-  margin-bottom: 10px;
-}
-
   </style>
-</head>
-<body><!-- NAVBAR --><header>
-  <nav class="navbar">
-    <div class="account-icon" id="accountIcon">&#128100;</div>
-    <div class="account-dropdown" id="accountDropdownMenu">
-      <a href="signup.html">Sign Up</a>
-      <a href="login.html">Login</a>
-      <a href="#">Sign Out</a>
-      <a href="dashboard.html">Dashboard</a>
-    </div>
-    <a href="index.html" class="logo">Dripped Out Apparel</a>
-    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
-    <div class="nav-section" id="navSection">
-      <ul class="nav-links">
-        <li><a href="index.html" class="active">Home</a></li>
-        <li class="dropdown">
-          <a href="products.html" class="dropbtn">Shop <span class="arrow">▼</span></a>
-          <ul class="dropdown-content">
-            <li><a href="products.html">All Products</a></li>
-            <li><a href="cart.html">Cart</a></li>
-            <li><a href="checkout.html">Checkout</a></li>
-          </ul>
-        </li>
-        <li><a href="about.html">About</a></li>
-      </ul>
-    </div>
-  </nav>
-</header><!-- MAIN CONTENT --><main>
-  <section class="hero" style="text-align: center;">
-    <h1>WELCOME TO D.O.A</h1>
-    <p>Luxury streetwear built for legends.</p>
-  </section>  <section class="hero-banner" style="text-align:center; margin:20px 0;">
-    <img src="images/drip-ad.jpg" alt="Drip Ad" style="max-width:100%; border:2px solid gold; border-radius:8px;" />
-  </section>  <section class="certified-banner">
-    <div class="promo-box">
-      <h1>OWN THE STYLE.<br>BUY THE DRIP.</h1>
-    </div>
-  </section>  <h2 class="featured-title" style="text-align:center; color:gold; margin-top:40px;">Featured Products</h2>  <section class="product-slider">
+</head><body>
+  <header>
+    <nav class="navbar">
+      <div class="account-icon" id="accountIcon">&#128100;</div>
+      <div class="account-dropdown" id="accountDropdownMenu">
+        <a href="signup.html">Sign Up</a>
+        <a href="login.html">Login</a>
+        <a href="#">Sign Out</a>
+        <a href="dashboard.html">Dashboard</a>
+      </div>
+      <a href="index.html" class="logo">Dripped Out Apparel</a>
+      <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+      <div class="nav-section" id="navSection">
+        <ul class="nav-links">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li class="dropdown">
+            <a href="products.html" class="dropbtn">Shop <span class="arrow">▼</span></a>
+            <ul class="dropdown-content">
+              <li><a href="products.html">All Products</a></li>
+              <li><a href="cart.html">Cart</a></li>
+              <li><a href="checkout.html">Checkout</a></li>
+            </ul>
+          </li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>  <main>
+    <section class="hero" style="text-align: center;">
+      <h1>WELCOME TO D.O.A</h1>
+      <p>Luxury streetwear built for legends.</p>
+    </section><section class="hero-banner" style="text-align:center; margin:20px 0;">
+  <img src="images/drip-ad.jpg" alt="Drip Ad" style="max-width:100%; border:2px solid gold; border-radius:8px;" />
+</section>
+
+<section class="certified-banner">
+  <div class="promo-box">
+    <h1>OWN THE STYLE.<br>BUY THE DRIP.</h1>
+  </div>
+</section>
+
+<h2 class="featured-title" style="text-align:center; color:gold; margin-top:40px;">Featured Products</h2>
+
+<section class="featured-slider-box">
+  <div class="product-slider">
     <div class="product-card">
       <img src="images/CarbonBlack.jpg" alt="Carbon Black">
       <h3>Carbon Black</h3>
-      <button class="buy-button" onclick="addToCart('Carbon Black', 59.99, 'images/CarbonBlack.jpg')">Add to Cart</button>
+      <button class="buy-button">Add to Cart</button>
     </div>
     <div class="product-card">
       <img src="images/GreyDrip.jpg" alt="Grey Drip">
       <h3>Grey Drip</h3>
-      <button class="buy-button" onclick="addToCart('Grey Drip', 59.99, 'images/GreyDrip.jpg')">Add to Cart</button>
+      <button class="buy-button">Add to Cart</button>
     </div>
     <div class="product-card">
       <img src="images/MoltenCurrent.jpg" alt="Molten Current">
       <h3>Molten Current</h3>
-      <button class="buy-button" onclick="addToCart('Molten Current', 59.99, 'images/MoltenCurrent.jpg')">Add to Cart</button>
+      <button class="buy-button">Add to Cart</button>
     </div>
     <div class="product-card">
       <img src="images/PurpleTurpuoiseRetro.jpg" alt="Purple Turquoise Retro">
       <h3>Purple Turquoise Retro</h3>
-      <button class="buy-button" onclick="addToCart('Purple Turquoise Retro', 59.99, 'images/PurpleTurpuoiseRetro.jpg')">Add to Cart</button>
+      <button class="buy-button">Add to Cart</button>
     </div>
     <div class="product-card">
       <img src="images/DuneBeige.jpg" alt="Dune Beige">
       <h3>Dune Beige</h3>
-      <button class="buy-button" onclick="addToCart('Dune Beige', 59.99, 'images/DuneBeige.jpg')">Add to Cart</button>
+      <button class="buy-button">Add to Cart</button>
     </div>
-  </section>
-</main><!-- FOOTER --><footer class="site-footer">
-  <p>&copy; 2025 Dripped Out Apparel. All rights reserved.</p>
-  <div>
-    <a href="index.html">Home</a> |
-    <a href="products.html">Shop</a> |
-    <a href="about.html">About</a> |
-    <a href="cart.html">Cart</a> |
-    <a href="checkout.html">Checkout</a>
   </div>
-</footer><!-- SCRIPTS --><script src="script.js"></script></body>
+</section>
+
+  </main>  <footer class="site-footer" style="text-align:center; margin-top:40px;">
+    <p>&copy; 2025 Dripped Out Apparel. All rights reserved.</p>
+    <div>
+      <a href="index.html">Home</a> |
+      <a href="products.html">Shop</a> |
+      <a href="about.html">About</a> |
+      <a href="cart.html">Cart</a> |
+      <a href="checkout.html">Checkout</a>
+    </div>
+  </footer>  <script src="script.js"></script>  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const hamburger = document.getElementById("hamburger");
+      const navSection = document.getElementById("navSection");
+      hamburger.addEventListener("click", () => {
+        navSection.classList.toggle("show");
+      });
+
+      document.querySelectorAll(".dropbtn").forEach(button => {
+        button.addEventListener("click", function (e) {
+          e.preventDefault();
+          const parent = this.parentElement;
+          parent.classList.toggle("dropdown-open");
+          document.querySelectorAll(".dropdown").forEach(drop => {
+            if (drop !== parent) drop.classList.remove("dropdown-open");
+          });
+        });
+      });
+
+      const accountIcon = document.getElementById("accountIcon");
+      const accountDropdownMenu = document.getElementById("accountDropdownMenu");
+      accountIcon.addEventListener("click", () => {
+        accountDropdownMenu.style.display = accountDropdownMenu.style.display === "block" ? "none" : "block";
+      });
+      document.addEventListener("click", function (event) {
+        if (!accountIcon.contains(event.target) && !accountDropdownMenu.contains(event.target)) {
+          accountDropdownMenu.style.display = "none";
+        }
+      });
+    });
+  </script></body>
 </html>
