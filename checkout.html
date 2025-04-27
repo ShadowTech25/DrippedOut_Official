@@ -7,7 +7,7 @@
   <link rel="manifest" href="manifest.json">
   <title>Checkout - Dripped Out Apparel</title>
   <link rel="stylesheet" href="style.css">
-<style>
+  <style>
     .navbar {
       display: flex;
       flex-direction: column;
@@ -135,11 +135,9 @@
         justify-content: center;
         align-items: center;
       }
-
       .nav-links {
         flex-direction: row;
       }
-
       .dropdown:hover .dropdown-content {
         display: block;
         position: absolute;
@@ -151,8 +149,39 @@
     .arrow {
       font-size: 0.7em;
     }
-</style>
+
+    /* --- Checkout Cart Styles Upgrade --- */
+    .checkout-box {
+      background: #000;
+      border: 2px solid #FFD700;
+      padding: 20px;
+      margin: 20px auto;
+      border-radius: 10px;
+      box-shadow: 0 0 15px #FFD700;
+      max-width: 700px;
+    }
+
+    .checkout-box div {
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #444;
+    }
+
+    .checkout-box strong {
+      font-size: 18px;
+      color: #FFD700;
+    }
+
+    .checkout-total {
+      margin-top: 20px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #FFD700;
+      text-align: center;
+    }
+  </style>
 </head>
+
 <body>
   <!-- NAVBAR -->
   <header>
@@ -191,7 +220,7 @@
     <h1 style="text-align:center; margin:20px;">Checkout</h1>
 
     <!-- Checkout Cart Summary -->
-    <section id="checkoutList" style="max-width:800px; margin:0 auto; padding:20px;">
+    <section id="checkoutList" class="checkout-box">
       <!-- Cart summary will auto-inject here -->
     </section>
 
