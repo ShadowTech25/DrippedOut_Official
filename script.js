@@ -158,7 +158,7 @@ function updateProductButtons() {
     if (btn) {
       btn.textContent = inCart ? "Remove from Cart" : "Add to Cart";
 
-      // Clear old classes first
+      // Clear old classes
       btn.classList.remove("buy-button", "remove-button");
 
       if (inCart) {
@@ -210,7 +210,7 @@ function displayCartItems() {
         <h3 style="color:gold; margin-bottom:5px;">${item.name}</h3>
         <p>Quantity: ${item.quantity}</p>
         <p>Price: $${(item.price * item.quantity).toFixed(2)}</p>
-        <button onclick="removeItem(${index})" style="margin-top:8px; background:black; color:gold; border:none; padding:5px 10px; border-radius:5px; cursor:pointer;">Remove</button>
+        <button onclick="removeItem(${index})" class="remove-button" style="margin-top:8px;">Remove</button>
       </div>
       <div style="flex: 0 0 80px; text-align:right;">
         <img src="${item.image}" alt="${item.name}" style="width:80px; height:auto; border-radius:8px;">
