@@ -151,6 +151,56 @@
     .arrow {
       font-size: 0.7em;
     }
+   .contact-box {
+  border: 2px solid #FFD700;
+  padding: 20px;
+  margin: 20px auto;
+  border-radius: 8px;
+  background-color: #000;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 0 10px #FFD700;
+}
+
+.contact-box form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-box input,
+.contact-box textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #FFD700;
+  background: #111;
+  color: white;
+  border-radius: 4px;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.contact-box input:focus,
+.contact-box textarea:focus {
+  outline: none;
+  box-shadow: 0 0 8px 2px #FFD700;
+  border-color: #FFD700;
+}
+
+.contact-box button {
+  background-color: #FFD700;
+  color: black;
+  font-weight: bold;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.contact-box button:hover {
+  background-color: #e6c200;
+  box-shadow: 0 0 8px 2px #FFD700;
+} 
   </style>
 </head>
 
