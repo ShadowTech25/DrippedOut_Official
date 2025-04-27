@@ -1,12 +1,13 @@
 <!DOCTYPE html><html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#FFD700" />
-  <link rel="manifest" href="manifest.json" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#FFD700">
+  <link rel="manifest" href="manifest.json">
   <title>Dripped Out Apparel</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
   <style>
+    /* Navbar Styles */
     .navbar {
       display: flex;
       flex-direction: column;
@@ -14,141 +15,119 @@
       background-color: #000;
       padding: 10px;
       position: relative;
-    }.logo {
-  color: #FFD700;
-  font-weight: bold;
-  font-size: 24px;
-  text-align: center;
-}
-
-.hamburger {
-  display: flex;
-  flex-direction: column;
-  cursor: pointer;
-  position: absolute;
-  right: 15px;
-  top: 22px;
-  gap: 3px;
-}
-
-.hamburger span {
-  background: #fff;
-  height: 2px;
-  width: 20px;
-}
-
-.account-icon {
-  position: absolute;
-  left: 15px;
-  top: 18px;
-  cursor: pointer;
-  font-size: 20px;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  height: 24px;
-}
-
-.account-dropdown {
-  display: none;
-  position: absolute;
-  top: 50px;
-  left: 15px;
-  background: #111;
-  border: 1px solid #333;
-  border-radius: 4px;
-  z-index: 999;
-  width: 140px;
-}
-
-.account-dropdown a {
-  display: block;
-  color: white;
-  text-decoration: none;
-  padding: 8px 12px;
-  font-size: 13px;
-}
-
-.account-dropdown a:hover {
-  background: #222;
-}
-
-.nav-section {
-  display: none;
-  flex-direction: column;
-  background-color: #000;
-  width: 100%;
-}
-
-.nav-section.show {
-  display: flex;
-}
-
-.nav-links {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.nav-links li {
-  position: relative;
-}
-
-.nav-links a {
-  color: #fff;
-  text-decoration: none;
-  padding: 6px 10px;
-  display: block;
-  font-size: 13px;
-}
-
-.dropdown-content {
-  display: none;
-  position: relative;
-  background: #111;
-  z-index: 999;
-  min-width: 100%;
-  padding: 0;
-  margin-top: 0;
-}
-
-.dropdown-content a {
-  padding: 5px 10px;
-  font-size: 13px;
-  border-top: 1px solid #222;
-}
-
-.dropdown-content a:hover {
-  background: #222;
-}
-
-.dropdown-open .dropdown-content {
-  display: block;
-}
-
-@media (min-width: 768px) {
-  .nav-section {
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .nav-links {
-    flex-direction: row;
-  }
-
-  .dropdown:hover .dropdown-content {
-    display: block;
-    position: absolute;
-    top: 100%;
-    left: 0;
-  }
-}
-
-.arrow {
-  font-size: 0.7em;
-}
-
+    }
+    .logo {
+      color: #FFD700;
+      font-weight: bold;
+      font-size: 24px;
+      text-align: center;
+    }
+    .hamburger {
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      position: absolute;
+      right: 15px;
+      top: 22px;
+      gap: 3px;
+    }
+    .hamburger span {
+      background: #fff;
+      height: 2px;
+      width: 20px;
+    }
+    .account-icon {
+      position: absolute;
+      left: 15px;
+      top: 18px;
+      cursor: pointer;
+      font-size: 20px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      height: 24px;
+    }
+    .account-dropdown {
+      display: none;
+      position: absolute;
+      top: 50px;
+      left: 15px;
+      background: #111;
+      border: 1px solid #333;
+      border-radius: 4px;
+      z-index: 999;
+      width: 140px;
+    }
+    .account-dropdown a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 8px 12px;
+      font-size: 13px;
+    }
+    .account-dropdown a:hover {
+      background: #222;
+    }
+    .nav-section {
+      display: none;
+      flex-direction: column;
+      background-color: #000;
+      width: 100%;
+    }
+    .nav-section.show {
+      display: flex;
+    }
+    .nav-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .nav-links li {
+      position: relative;
+    }
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      padding: 6px 10px;
+      display: block;
+      font-size: 13px;
+    }
+    .dropdown-content {
+      display: none;
+      position: relative;
+      background: #111;
+      z-index: 999;
+      min-width: 100%;
+      padding: 0;
+      margin-top: 0;
+    }
+    .dropdown-content a {
+      padding: 5px 10px;
+      font-size: 13px;
+      border-top: 1px solid #222;
+    }
+    .dropdown-content a:hover {
+      background: #222;
+    }
+    .dropdown-open .dropdown-content {
+      display: block;
+    }
+    @media (min-width: 768px) {
+      .nav-section {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+      }
+      .nav-links {
+        flex-direction: row;
+      }
+      .dropdown:hover .dropdown-content {
+        display: block;
+        position: absolute;
+        top: 100%;
+        left: 0;
+      }
+    }/* Promo Box Glow */
 .promo-box {
   border: 3px solid #FFD700;
   padding: 25px;
@@ -159,46 +138,50 @@
   box-shadow: 0 0 15px #FFD700;
   transition: all 0.3s ease;
 }
-
 .promo-box:hover {
   transform: scale(1.02);
   box-shadow: 0 0 25px #FFD700;
 }
-
 .promo-box h1 {
   font-size: 2rem;
   font-weight: bold;
-  color: #FFFFFF;
+  color: #FFF;
   margin: 0;
 }
 
-.featured-wrapper {
-  border: 3px solid #FFD700;
-  padding: 15px;
-  border-radius: 12px;
-  margin: 40px auto;
-  box-shadow: 0 0 20px #FFD700;
-  max-width: 400px;
-}
-
+/* Featured Products Outer Glow */
 .product-slider {
-  display: flex;
+  border: 3px solid #FFD700;
+  padding: 20px;
+  margin: 30px auto;
+  max-width: 90%;
   overflow-x: auto;
+  display: flex;
   gap: 20px;
-  padding: 10px 0;
-  background: transparent;
+  border-radius: 10px;
+  box-shadow: 0 0 20px #FFD700;
+  background: #000;
 }
 
+/* Product Card Glow */
 .product-card {
   background: #000;
-  border-radius: 12px;
-  text-align: center;
   padding: 15px;
+  border-radius: 10px;
+  border: 2px solid #FFD700;
   box-shadow: 0 0 10px #FFD700;
   flex: 0 0 auto;
+  width: 250px;
+  text-align: center;
+}
+.product-card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
 }
 
-.buy-button, .remove-button {
+/* Buy Button */
+.buy-button {
   background: linear-gradient(90deg, #FFD700 0%, #e6c200 100%);
   color: black;
   font-weight: bold;
@@ -207,18 +190,18 @@
   border-radius: 50px;
   cursor: pointer;
   font-size: 16px;
-  margin-top: 10px;
+  transition: all 0.3s ease;
   box-shadow: 0 0 10px #FFD700;
-  transition: all 0.3s ease-in-out;
 }
-
-.buy-button:hover, .remove-button:hover {
+.buy-button:hover {
   background: linear-gradient(90deg, #e6c200 0%, #FFD700 100%);
   box-shadow: 0 0 15px #FFD700, 0 0 25px #FFD700;
 }
 
   </style>
-</head><body>
+</head>
+<body>
+  <!-- NAVBAR -->
   <header>
     <nav class="navbar">
       <div class="account-icon" id="accountIcon">&#128100;</div>
@@ -227,30 +210,31 @@
         <a href="login.html">Login</a>
         <a href="#">Sign Out</a>
         <a href="dashboard.html">Dashboard</a>
-      </div>
-      <a href="index.html" class="logo">Dripped Out Apparel</a>
-      <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
-      <div class="nav-section" id="navSection">
-        <ul class="nav-links">
-          <li><a href="index.html" class="active">Home</a></li>
-          <li class="dropdown">
-            <a href="products.html" class="dropbtn">Shop <span class="arrow">▼</span></a>
-            <ul class="dropdown-content">
-              <li><a href="products.html">All Products</a></li>
-              <li><a href="cart.html">Cart</a></li>
-              <li><a href="checkout.html">Checkout</a></li>
-            </ul>
-          </li>
-          <li><a href="about.html">About</a></li>
+      </div><a href="index.html" class="logo">Dripped Out Apparel</a>
+  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+
+  <div class="nav-section" id="navSection">
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li class="dropdown">
+        <a href="products.html" class="dropbtn">Shop <span class="arrow">▼</span></a>
+        <ul class="dropdown-content">
+          <li><a href="products.html">All Products</a></li>
+          <li><a href="cart.html">Cart</a></li>
+          <li><a href="checkout.html">Checkout</a></li>
         </ul>
-      </div>
-    </nav>
-  </header>  <main>
-    <section class="hero" style="text-align: center;">
+      </li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+  </header>  <!-- MAIN CONTENT -->  <main>
+    <section class="hero" style="text-align:center;">
       <h1>WELCOME TO D.O.A</h1>
       <p>Luxury streetwear built for legends.</p>
     </section><section class="hero-banner" style="text-align:center; margin:20px 0;">
-  <img src="images/drip-ad.jpg" alt="Drip Ad" style="max-width:100%; border:2px solid gold; border-radius:8px;" />
+  <img src="images/drip-ad.jpg" alt="Drip Ad" style="max-width:100%; border:2px solid gold; border-radius:8px;"/>
 </section>
 
 <section class="certified-banner">
@@ -261,37 +245,35 @@
 
 <h2 class="featured-title" style="text-align:center; color:gold; margin-top:40px;">Featured Products</h2>
 
-<div class="featured-wrapper">
-  <section class="product-slider">
-    <div class="product-card">
-      <img src="images/CarbonBlack.jpg" alt="Carbon Black">
-      <h3>Carbon Black</h3>
-      <button class="buy-button">Add to Cart</button>
-    </div>
-    <div class="product-card">
-      <img src="images/GreyDrip.jpg" alt="Grey Drip">
-      <h3>Grey Drip</h3>
-      <button class="buy-button">Add to Cart</button>
-    </div>
-    <div class="product-card">
-      <img src="images/MoltenCurrent.jpg" alt="Molten Current">
-      <h3>Molten Current</h3>
-      <button class="buy-button">Add to Cart</button>
-    </div>
-    <div class="product-card">
-      <img src="images/PurpleTurpuoiseRetro.jpg" alt="Purple Turquoise Retro">
-      <h3>Purple Turquoise Retro</h3>
-      <button class="buy-button">Add to Cart</button>
-    </div>
-    <div class="product-card">
-      <img src="images/DuneBeige.jpg" alt="Dune Beige">
-      <h3>Dune Beige</h3>
-      <button class="buy-button">Add to Cart</button>
-    </div>
-  </section>
-</div>
+<section class="product-slider">
+  <div class="product-card">
+    <img src="images/CarbonBlack.jpg" alt="Carbon Black">
+    <h3>Carbon Black</h3>
+    <button class="buy-button">Add to Cart</button>
+  </div>
+  <div class="product-card">
+    <img src="images/GreyDrip.jpg" alt="Grey Drip">
+    <h3>Grey Drip</h3>
+    <button class="buy-button">Add to Cart</button>
+  </div>
+  <div class="product-card">
+    <img src="images/MoltenCurrent.jpg" alt="Molten Current">
+    <h3>Molten Current</h3>
+    <button class="buy-button">Add to Cart</button>
+  </div>
+  <div class="product-card">
+    <img src="images/PurpleTurpuoiseRetro.jpg" alt="Purple Turquoise Retro">
+    <h3>Purple Turquoise Retro</h3>
+    <button class="buy-button">Add to Cart</button>
+  </div>
+  <div class="product-card">
+    <img src="images/DuneBeige.jpg" alt="Dune Beige">
+    <h3>Dune Beige</h3>
+    <button class="buy-button">Add to Cart</button>
+  </div>
+</section>
 
-  </main>  <footer class="site-footer" style="text-align:center; margin-top:40px;">
+  </main>  <!-- FOOTER -->  <footer class="site-footer" style="text-align:center; margin-top:40px;">
     <p>&copy; 2025 Dripped Out Apparel. All rights reserved.</p>
     <div>
       <a href="index.html">Home</a> |
@@ -300,43 +282,5 @@
       <a href="cart.html">Cart</a> |
       <a href="checkout.html">Checkout</a>
     </div>
-  </footer>  <script src="script.js"></script>  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const hamburger = document.getElementById("hamburger");
-      const navSection = document.getElementById("navSection");
-
-      hamburger.addEventListener("click", () => {
-        navSection.classList.toggle("show");
-      });
-
-      document.querySelectorAll(".dropbtn").forEach(button => {
-        button.addEventListener("click", function (e) {
-          e.preventDefault();
-          const parent = this.parentElement;
-          parent.classList.toggle("dropdown-open");
-
-          document.querySelectorAll(".dropdown").forEach(drop => {
-            if (drop !== parent) drop.classList.remove("dropdown-open");
-          });
-        });
-      });
-
-      const accountIcon = document.getElementById("accountIcon");
-      const accountDropdownMenu = document.getElementById("accountDropdownMenu");
-
-      accountIcon.addEventListener("click", () => {
-        accountDropdownMenu.style.display =
-          accountDropdownMenu.style.display === "block" ? "none" : "block";
-      });
-
-      document.addEventListener("click", function (event) {
-        if (
-          !accountIcon.contains(event.target) &&
-          !accountDropdownMenu.contains(event.target)
-        ) {
-          accountDropdownMenu.style.display = "none";
-        }
-      });
-    });
-  </script></body>
+  </footer>  <!-- SCRIPTS -->  <script src="script.js"></script></body>
 </html>
