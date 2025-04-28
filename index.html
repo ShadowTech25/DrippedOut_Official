@@ -137,11 +137,29 @@
     .arrow {
       font-size: 0.7em;
     }
+    /* Hero Section + Background Glow */
     .hero {
+      position: relative;
       text-align: center;
       margin: 40px 0;
       animation: fadeInScale 3.5s ease forwards;
       opacity: 0;
+      overflow: hidden;
+    }
+    .glow-background {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(255,215,0,0.4) 0%, rgba(0,0,0,0) 70%);
+      transform: translate(-50%, -50%);
+      z-index: 0;
+      filter: blur(80px);
+    }
+    .hero h1, .hero p, .hero-line {
+      position: relative;
+      z-index: 1;
     }
     @keyframes fadeInScale {
       from { opacity: 0; transform: scale(0.95); }
@@ -152,13 +170,11 @@
       font-weight: bold;
       color: #FFD700;
       margin-bottom: 10px;
-      text-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700, 0 0 30px #FFD700;
     }
     .hero p {
       font-size: 1.2rem;
       color: #ccc;
       margin-bottom: 20px;
-      text-shadow: 0 0 8px #FFD700;
     }
     .hero-line {
       width: 120px;
@@ -180,7 +196,7 @@
       transform: scale(1.02);
       box-shadow: 0 0 25px #FFD700;
     }
-    /* Updated Product Slider with True Center */
+    /* Product Slider Center Snap */
     .product-slider {
       display: flex;
       justify-content: flex-start;
@@ -280,6 +296,7 @@
 
   <main>
     <section class="hero">
+      <div class="glow-background"></div> <!-- Glow background behind text -->
       <h1>WELCOME TO D.O.A</h1>
       <p>Luxury Streetwear Built for Legends</p>
       <div class="hero-line"></div>
