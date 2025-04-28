@@ -137,7 +137,7 @@
     .arrow {
       font-size: 0.7em;
     }
-    /* Hero Section */
+    /* Hero Section + Glow */
     .hero {
       position: relative;
       text-align: center;
@@ -186,7 +186,7 @@
     .promo-box {
       border: 3px solid #FFD700;
       padding: 25px;
-      margin: 20px auto 10px auto; /* tightened */
+      margin: 20px auto 10px auto;
       width: fit-content;
       text-align: center;
       border-radius: 10px;
@@ -197,12 +197,12 @@
       transform: scale(1.02);
       box-shadow: 0 0 25px #FFD700;
     }
-    /* Product Slider Center Snap */
+    /* Product Slider - True Center */
     .product-slider {
       display: flex;
       overflow-x: auto;
       scroll-snap-type: x mandatory;
-      scroll-padding-left: 50%;
+      scroll-padding-left: calc(50% - 140px); /* <<< TRUE CENTER */
       padding: 40px 0;
       margin: 10px auto;
       gap: 30px;
@@ -253,6 +253,7 @@
       background: linear-gradient(90deg, #e6c200 0%, #FFD700 100%);
       box-shadow: 0 0 15px #FFD700, 0 0 25px #FFD700;
     }
+    /* Footer */
     .site-footer {
       text-align: center;
       padding: 20px;
