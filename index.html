@@ -180,31 +180,29 @@
     }
     .product-slider {
       overflow-x: auto;
-      overflow-y: hidden; /* Hide vertical scrollbars */
+      overflow-y: hidden;
       display: flex;
       gap: 30px;
       padding: 40px;
       margin: 20px auto;
       background: transparent;
-      border: 3px solid #FFD700;
       border-radius: 12px;
-      box-shadow: 0 0 20px #FFD700;
       scroll-snap-type: x mandatory;
       justify-content: center;
       align-items: stretch;
-      max-width: 100vw; /* Lock width inside screen */
+      max-width: 100vw;
       box-sizing: border-box;
     }
     .product-card {
       flex: 0 0 auto;
-      width: 280px; /* Fixed width */
+      width: 280px;
       background: #111;
       padding: 20px;
       border-radius: 15px;
       box-shadow: 0 0 15px #FFD700;
       text-align: center;
       scroll-snap-align: center;
-      margin: 0; /* No random margins */
+      margin: 0;
       display: flex;
       flex-direction: column;
       align-items: center;
