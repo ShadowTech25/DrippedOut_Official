@@ -189,7 +189,7 @@ details p {
   font-weight: bold;
 }
 
-/* Slider on Index (Supports Centering + Multiple Items) */
+/* Slider on Index (Corrected - NO Outer Glow Box Anymore) */
 .product-slider {
   display: flex;
   justify-content: center;
@@ -198,9 +198,6 @@ details p {
   scroll-snap-type: x mandatory;
   gap: 1rem;
   padding: 1rem;
-  border: 2px solid #FFD700;
-  border-radius: 8px;
-  background: #111;
   margin: 20px auto;
   max-width: 90%;
   width: 100%;
@@ -292,20 +289,20 @@ details p {
   cursor: pointer;
   font-weight: bold;
 }
+
+/* Account Menu (Dropdown) */
 .account-wrapper {
   position: relative;
 }
-
 .account-icon {
   cursor: pointer;
   font-size: 22px;
   color: white;
 }
-
 .account-dropdown {
   display: none;
   position: absolute;
-  top: 35px; /* Push the dropdown right below icon */
+  top: 35px;
   left: 50%;
   transform: translateX(-50%);
   background: #111;
@@ -317,11 +314,9 @@ details p {
   z-index: 999;
   text-align: center;
 }
-
 .account-dropdown.show {
   display: block;
 }
-
 .account-dropdown a {
   display: block;
   padding: 8px 10px;
@@ -329,7 +324,6 @@ details p {
   text-decoration: none;
   font-size: 14px;
 }
-
 .account-dropdown a:hover {
   background: #222;
 }
