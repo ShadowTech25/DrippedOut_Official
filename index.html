@@ -201,7 +201,6 @@
     .product-slider {
       overflow-x: auto;
       scroll-snap-type: x mandatory;
-      padding: 40px 0;
       margin: 10px auto;
       max-width: 100vw;
       box-sizing: border-box;
@@ -212,7 +211,8 @@
     .slider-track {
       display: flex;
       gap: 30px;
-      padding: 0 50vw;
+      padding-left: calc(50vw - 140px);
+      padding-right: calc(50vw - 140px);
       box-sizing: content-box;
     }
     .product-card {
