@@ -7,7 +7,6 @@
   <title>Dripped Out Apparel</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    /* Full in-page style expansions */
     body {
       margin: 0;
       background-color: #000;
@@ -136,104 +135,98 @@
     }
     .arrow {
       font-size: 0.7em;
-    }/* HERO SECTION */
-.hero {
-  text-align: center;
-  margin: 40px 0;
-  animation: fadeInScale 3.5s ease forwards;
-  opacity: 0;
-}
-@keyframes fadeInScale {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
-}
-.hero h1 {
-  font-size: 3rem;
-  font-weight: bold;
-  color: #FFD700;
-  margin-bottom: 10px;
-}
-.hero p {
-  font-size: 1.2rem;
-  color: #ccc;
-  margin-bottom: 20px;
-}
-.hero-line {
-  width: 120px;
-  height: 3px;
-  background-color: #FFD700;
-  margin: 0 auto;
-}
-
-/* Promo box */
-.promo-box {
-  border: 3px solid #FFD700;
-  padding: 25px;
-  margin: 30px auto;
-  width: fit-content;
-  text-align: center;
-  border-radius: 10px;
-  box-shadow: 0 0 15px #FFD700;
-  transition: all 0.3s ease;
-}
-.promo-box:hover {
-  transform: scale(1.02);
-  box-shadow: 0 0 25px #FFD700;
-}
-
-/* Slider */
-.product-slider {
-  overflow-x: auto;
-  display: flex;
-  gap: 20px;
-  padding: 20px;
-  margin: 20px auto;
-  background: transparent;
-  border: 3px solid #FFD700;
-  border-radius: 12px;
-  box-shadow: 0 0 20px #FFD700;
-}
-.product-card {
-  background: #111;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 0 12px #FFD700;
-  flex: 0 0 auto;
-  width: 250px;
-  text-align: center;
-}
-.product-card img {
-  width: 100%;
-  border-radius: 10px;
-  margin-bottom: 10px;
-}
-
-/* Buttons */
-.buy-button {
-  background: linear-gradient(90deg, #FFD700 0%, #e6c200 100%);
-  color: black;
-  font-weight: bold;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-  font-size: 16px;
-  box-shadow: 0 0 10px #FFD700;
-}
-.buy-button:hover {
-  background: linear-gradient(90deg, #e6c200 0%, #FFD700 100%);
-  box-shadow: 0 0 15px #FFD700, 0 0 25px #FFD700;
-}
-
-.site-footer {
-  text-align: center;
-  padding: 20px;
-  background: #000;
-  border-top: 1px solid #FFD700;
-  margin-top: 40px;
-}
-
+    }
+    .hero {
+      text-align: center;
+      margin: 40px 0;
+      animation: fadeInScale 3.5s ease forwards;
+      opacity: 0;
+    }
+    @keyframes fadeInScale {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: bold;
+      color: #FFD700;
+      margin-bottom: 10px;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      color: #ccc;
+      margin-bottom: 20px;
+    }
+    .hero-line {
+      width: 120px;
+      height: 3px;
+      background-color: #FFD700;
+      margin: 0 auto;
+    }
+    .promo-box {
+      border: 3px solid #FFD700;
+      padding: 25px;
+      margin: 30px auto;
+      width: fit-content;
+      text-align: center;
+      border-radius: 10px;
+      box-shadow: 0 0 15px #FFD700;
+      transition: all 0.3s ease;
+    }
+    .promo-box:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 25px #FFD700;
+    }
+    .product-slider {
+      overflow-x: auto;
+      display: flex;
+      gap: 30px;
+      padding: 40px;
+      margin: 20px auto;
+      background: transparent;
+      border: 3px solid #FFD700;
+      border-radius: 12px;
+      box-shadow: 0 0 20px #FFD700;
+      scroll-snap-type: x mandatory;
+    }
+    .product-card {
+      background: #111;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 12px #FFD700;
+      flex: 0 0 auto;
+      width: 250px;
+      text-align: center;
+      scroll-snap-align: center;
+    }
+    .product-card img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+    .buy-button {
+      background: linear-gradient(90deg, #FFD700 0%, #e6c200 100%);
+      color: black;
+      font-weight: bold;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      font-size: 16px;
+      box-shadow: 0 0 10px #FFD700;
+    }
+    .buy-button:hover {
+      background: linear-gradient(90deg, #e6c200 0%, #FFD700 100%);
+      box-shadow: 0 0 15px #FFD700, 0 0 25px #FFD700;
+    }
+    .site-footer {
+      text-align: center;
+      padding: 20px;
+      background: #000;
+      border-top: 1px solid #FFD700;
+      margin-top: 40px;
+    }
   </style>
 </head>
 <body>
