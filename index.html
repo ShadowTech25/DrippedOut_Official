@@ -190,7 +190,7 @@
       box-shadow: 0 0 20px #FFD700;
       scroll-snap-type: x mandatory;
       justify-content: center;
-      align-items: center;
+      align-items: stretch; /* --- CHANGED THIS TO STRETCH children properly --- */
     }
     .product-card {
       flex: 0 0 auto;
@@ -206,11 +206,15 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between; /* --- Updated to use space fully --- */
+      height: 100%; /* --- FORCE FULL HEIGHT --- */
+      box-sizing: border-box;
     }
     .product-card img {
       width: 100%;
       height: auto;
+      max-height: 300px;
+      object-fit: contain;
       border-radius: 10px;
       margin-bottom: 10px;
     }
@@ -240,8 +244,8 @@
     }
   </style>
 </head>
-<body>
 
+<body>
   <header>
     <nav class="navbar">
       <div class="account-icon" id="accountIcon">&#128100;</div>
@@ -328,6 +332,5 @@
   </footer>
 
   <script src="script.js"></script>
-
 </body>
 </html>
