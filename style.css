@@ -189,7 +189,7 @@ details p {
   font-weight: bold;
 }
 
-/* Slider on Index (Corrected - No Outer Glow Box) */
+/* Slider on Index (Center Snap Fix Applied) */
 .product-slider {
   display: flex;
   justify-content: center;
@@ -197,23 +197,25 @@ details p {
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   gap: 1rem;
-  padding: 1rem;
+  padding: 2rem 0;
   margin: 20px auto;
   max-width: 90%;
   width: 100%;
   box-sizing: border-box;
+  scroll-padding: 0 50%; /* CENTER MAGIC */
 }
 
-/* Shop/Product Listing (Styled Cards) */
+/* Shop/Product Listing (Styled Cards with Center Snap) */
 .product-card {
   flex: 0 0 300px;
-  scroll-snap-align: start;
+  scroll-snap-align: center; /* CENTER MAGIC */
   background: #111;
   border: 2px solid #FFD700;
   border-radius: 8px;
   padding: 1rem;
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin: 0 1rem; /* margin helps space when scrolling */
 }
 
 /* Buy Button (Add to Cart) */
