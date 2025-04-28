@@ -189,7 +189,7 @@ details p {
   font-weight: bold;
 }
 
-/* Slider on Index (Corrected - NO Outer Glow Box Anymore) */
+/* Slider on Index (Corrected - No Outer Glow Box) */
 .product-slider {
   display: flex;
   justify-content: center;
@@ -216,7 +216,7 @@ details p {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Buy Button */
+/* Buy Button (Add to Cart) */
 .buy-button {
   background: #FFD700;
   color: #000;
@@ -229,6 +229,23 @@ details p {
 }
 .buy-button:hover {
   background: #e6c200;
+}
+
+/* Remove Button (Remove from Cart) */
+.remove-button {
+  background: #FF5555;
+  color: #FFF;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  margin-top: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
+  box-shadow: 0 0 10px rgba(255, 85, 85, 0.7);
+}
+.remove-button:hover {
+  background: #FF2222;
 }
 
 /* Footer */
@@ -290,7 +307,7 @@ details p {
   font-weight: bold;
 }
 
-/* Account Menu (Dropdown) */
+/* Account Menu */
 .account-wrapper {
   position: relative;
 }
