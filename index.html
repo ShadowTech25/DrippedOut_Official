@@ -12,7 +12,8 @@
       background-color: #000;
       color: #fff;
       font-family: Arial, sans-serif;
-    }.navbar {
+    }/* NAVBAR STYLES */
+.navbar {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -60,7 +61,7 @@
   display: none;
   position: absolute;
   top: 50px;
-  left: 15px;
+  left: 5px;
   background: #111;
   border: 1px solid #333;
   border-radius: 4px;
@@ -133,10 +134,11 @@
   font-size: 0.7em;
 }
 
+/* HERO SECTION */
 .hero {
   text-align: center;
   margin: 40px 0;
-  animation: fadeInScale 2s ease forwards;
+  animation: fadeInScale 3s ease forwards;
   opacity: 0;
 }
 
@@ -165,14 +167,7 @@
   margin: 0 auto;
 }
 
-.site-footer {
-  text-align: center;
-  padding: 20px;
-  background: #000;
-  border-top: 1px solid #FFD700;
-  margin-top: 40px;
-}
-
+/* PROMO BOX */
 .promo-box {
   border: 3px solid #FFD700;
   padding: 25px;
@@ -189,6 +184,39 @@
   box-shadow: 0 0 25px #FFD700;
 }
 
+/* PRODUCT SLIDER */
+.product-slider {
+  display: flex;
+  overflow-x: auto;
+  padding: 20px;
+  gap: 20px;
+  border: 3px solid #FFD700;
+  border-radius: 10px;
+  margin: 20px auto;
+  box-shadow: 0 0 20px #FFD700;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  max-width: 90%;
+}
+
+.product-card {
+  flex: 0 0 auto;
+  scroll-snap-align: center;
+  background: #000;
+  border: 2px solid #FFD700;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 0 15px #FFD700;
+  text-align: center;
+  width: 250px;
+}
+
+.product-card img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+/* BUY BUTTON */
 .buy-button {
   background: linear-gradient(90deg, #FFD700 0%, #e6c200 100%);
   color: black;
@@ -199,6 +227,7 @@
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   font-size: 16px;
+  margin-top: 10px;
   box-shadow: 0 0 10px #FFD700;
 }
 
@@ -207,10 +236,25 @@
   box-shadow: 0 0 15px #FFD700, 0 0 25px #FFD700;
 }
 
+/* FOOTER */
+.site-footer {
+  text-align: center;
+  padding: 20px;
+  background: #000;
+  border-top: 1px solid #FFD700;
+  margin-top: 40px;
+}
+
+/* General Adjustments */
+.featured-title {
+  text-align: center;
+  color: gold;
+  margin-top: 40px;
+}
+
   </style>
 </head>
-<body>
-  <header>
+<body>  <header>
     <nav class="navbar">
       <div class="account-icon" id="accountIcon">&#128100;</div>
       <div class="account-dropdown" id="accountDropdownMenu">
@@ -249,10 +293,34 @@
   <h1>OWN THE STYLE.<br>BUY THE DRIP.</h1>
 </section>
 
-<h2 style="text-align:center; color:gold; margin-top:40px;">Featured Products</h2>
+<h2 class="featured-title">Featured Products</h2>
 
-<section class="product-slider" style="text-align:center;">
-  <!-- Products inserted here -->
+<section class="product-slider">
+  <div class="product-card">
+    <img src="images/CarbonBlack.jpg" alt="Carbon Black">
+    <h3>Carbon Black</h3>
+    <button class="buy-button">Add to Cart</button>
+  </div>
+  <div class="product-card">
+    <img src="images/GreyDrip.jpg" alt="Grey Drip">
+    <h3>Grey Drip</h3>
+    <button class="buy-button">Add to Cart</button>
+  </div>
+  <div class="product-card">
+    <img src="images/MoltenCurrent.jpg" alt="Molten Current">
+    <h3>Molten Current</h3>
+    <button class="buy-button">Add to Cart</button>
+  </div>
+  <div class="product-card">
+    <img src="images/PurpleTurpuoiseRetro.jpg" alt="Purple Turquoise Retro">
+    <h3>Purple Turquoise Retro</h3>
+    <button class="buy-button">Add to Cart</button>
+  </div>
+  <div class="product-card">
+    <img src="images/DuneBeige.jpg" alt="Dune Beige">
+    <h3>Dune Beige</h3>
+    <button class="buy-button">Add to Cart</button>
+  </div>
 </section>
 
   </main>  <footer class="site-footer">
