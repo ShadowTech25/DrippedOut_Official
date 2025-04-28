@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -188,19 +189,28 @@
       border-radius: 12px;
       box-shadow: 0 0 20px #FFD700;
       scroll-snap-type: x mandatory;
+      justify-content: center;
+      align-items: center;
     }
     .product-card {
+      flex: 0 0 auto;
+      width: 90%;
+      max-width: 300px;
       background: #111;
       padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 0 12px #FFD700;
-      flex: 0 0 auto;
-      width: 250px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px #FFD700;
       text-align: center;
       scroll-snap-align: center;
+      margin: 20px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
     .product-card img {
       width: 100%;
+      height: auto;
       border-radius: 10px;
       margin-bottom: 10px;
     }
@@ -215,6 +225,7 @@
       transition: all 0.3s ease-in-out;
       font-size: 16px;
       box-shadow: 0 0 10px #FFD700;
+      margin-top: 10px;
     }
     .buy-button:hover {
       background: linear-gradient(90deg, #e6c200 0%, #FFD700 100%);
@@ -230,6 +241,7 @@
   </style>
 </head>
 <body>
+
   <header>
     <nav class="navbar">
       <div class="account-icon" id="accountIcon">&#128100;</div>
@@ -256,50 +268,55 @@
         </ul>
       </div>
     </nav>
-  </header>  <main>
+  </header>
+
+  <main>
     <section class="hero">
       <h1>WELCOME TO D.O.A</h1>
       <p>Luxury Streetwear Built for Legends</p>
       <div class="hero-line"></div>
-    </section><section class="hero-banner" style="text-align:center; margin:20px 0;">
-  <img src="images/drip-ad.jpg" alt="Drip Ad" style="max-width:100%; border:2px solid gold; border-radius:8px;">
-</section>
+    </section>
 
-<section class="promo-box">
-  <h1>OWN THE STYLE.<br>BUY THE DRIP.</h1>
-</section>
+    <section class="hero-banner" style="text-align:center; margin:20px 0;">
+      <img src="images/drip-ad.jpg" alt="Drip Ad" style="max-width:100%; border:2px solid gold; border-radius:8px;">
+    </section>
 
-<h2 style="text-align:center; color:gold; margin-top:40px;">Featured Products</h2>
+    <section class="promo-box">
+      <h1>OWN THE STYLE.<br>BUY THE DRIP.</h1>
+    </section>
 
-<section class="product-slider">
-  <div class="product-card">
-    <img src="images/CarbonBlack.jpg" alt="Carbon Black">
-    <h3>Carbon Black</h3>
-    <button class="buy-button">Add to Cart</button>
-  </div>
-  <div class="product-card">
-    <img src="images/GreyDrip.jpg" alt="Grey Drip">
-    <h3>Grey Drip</h3>
-    <button class="buy-button">Add to Cart</button>
-  </div>
-  <div class="product-card">
-    <img src="images/MoltenCurrent.jpg" alt="Molten Current">
-    <h3>Molten Current</h3>
-    <button class="buy-button">Add to Cart</button>
-  </div>
-  <div class="product-card">
-    <img src="images/PurpleTurpuoiseRetro.jpg" alt="Purple Turquoise Retro">
-    <h3>Purple Turquoise Retro</h3>
-    <button class="buy-button">Add to Cart</button>
-  </div>
-  <div class="product-card">
-    <img src="images/DuneBeige.jpg" alt="Dune Beige">
-    <h3>Dune Beige</h3>
-    <button class="buy-button">Add to Cart</button>
-  </div>
-</section>
+    <h2 style="text-align:center; color:gold; margin-top:40px;">Featured Products</h2>
 
-  </main>  <footer class="site-footer">
+    <section class="product-slider">
+      <div class="product-card">
+        <img src="images/CarbonBlack.jpg" alt="Carbon Black">
+        <h3>Carbon Black</h3>
+        <button class="buy-button">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="images/GreyDrip.jpg" alt="Grey Drip">
+        <h3>Grey Drip</h3>
+        <button class="buy-button">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="images/MoltenCurrent.jpg" alt="Molten Current">
+        <h3>Molten Current</h3>
+        <button class="buy-button">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="images/PurpleTurpuoiseRetro.jpg" alt="Purple Turquoise Retro">
+        <h3>Purple Turquoise Retro</h3>
+        <button class="buy-button">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="images/DuneBeige.jpg" alt="Dune Beige">
+        <h3>Dune Beige</h3>
+        <button class="buy-button">Add to Cart</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
     <p>&copy; 2025 Dripped Out Apparel. All rights reserved.</p>
     <div>
       <a href="index.html">Home</a> |
@@ -308,5 +325,9 @@
       <a href="cart.html">Cart</a> |
       <a href="checkout.html">Checkout</a>
     </div>
-  </footer>  <script src="script.js"></script></body>
+  </footer>
+
+  <script src="script.js"></script>
+
+</body>
 </html>
