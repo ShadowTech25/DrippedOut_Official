@@ -137,7 +137,7 @@
     .arrow {
       font-size: 0.7em;
     }
-    /* Hero Section + Background Glow */
+    /* Hero Section */
     .hero {
       position: relative;
       text-align: center;
@@ -152,7 +152,7 @@
       left: 50%;
       width: 500px;
       height: 500px;
-      background: radial-gradient(circle, rgba(255,215,0,0.4) 0%, rgba(0,0,0,0) 70%);
+      background: radial-gradient(circle, rgba(255,215,0,0.3) 0%, rgba(0,0,0,0) 70%);
       transform: translate(-50%, -50%);
       z-index: 0;
       filter: blur(80px);
@@ -182,10 +182,11 @@
       background-color: #FFD700;
       margin: 0 auto;
     }
+    /* Promo Box */
     .promo-box {
       border: 3px solid #FFD700;
       padding: 25px;
-      margin: 30px auto;
+      margin: 20px auto 10px auto; /* tightened */
       width: fit-content;
       text-align: center;
       border-radius: 10px;
@@ -199,19 +200,16 @@
     /* Product Slider Center Snap */
     .product-slider {
       display: flex;
-      justify-content: flex-start;
-      align-items: center;
       overflow-x: auto;
-      overflow-y: hidden;
       scroll-snap-type: x mandatory;
-      scroll-padding: 0 50%;
-      gap: 30px;
+      scroll-padding-left: 50%;
       padding: 40px 0;
-      margin: 20px auto;
-      background: transparent;
-      border-radius: 12px;
+      margin: 10px auto;
+      gap: 30px;
       max-width: 100vw;
       box-sizing: border-box;
+      justify-content: flex-start;
+      align-items: center;
     }
     .product-card {
       flex: 0 0 auto;
@@ -296,7 +294,7 @@
 
   <main>
     <section class="hero">
-      <div class="glow-background"></div> <!-- Glow background behind text -->
+      <div class="glow-background"></div>
       <h1>WELCOME TO D.O.A</h1>
       <p>Luxury Streetwear Built for Legends</p>
       <div class="hero-line"></div>
@@ -310,7 +308,7 @@
       <h1>OWN THE STYLE.<br>BUY THE DRIP.</h1>
     </section>
 
-    <h2 style="text-align:center; color:gold; margin-top:40px;">Featured Products</h2>
+    <h2 style="text-align:center; color:gold; margin-top:20px;">Featured Products</h2>
 
     <section class="product-slider">
       <div class="product-card">
