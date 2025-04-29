@@ -86,18 +86,23 @@
       background: #222;
     }
     
-    .nav-section {
+  .nav-section {
   display: none;
   flex-direction: column;
   background-color: #111;
-  width: auto;
   position: absolute;
   top: 60px;
-  right: 7.5px;
+  right: 15px;
+  width: fit-content;
+  min-width: 180px;
   border: 1px solid #FFD700;
-  border-radius: 8px;
-  box-shadow: 0 0 10px #FFD700;
+  border-radius: 10px;
+  box-shadow: 0 0 12px #FFD700;
+  padding: 10px 0;
   z-index: 999;
+  align-items: center;
+  left: 50%;
+  transform: translateX(-50%);
     }
     
     .nav-section.show {
