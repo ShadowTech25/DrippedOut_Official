@@ -13,198 +13,173 @@
       color: #fff;
       font-family: Arial, sans-serif;
       line-height: 1.5;
-    }.navbar {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #000;
-  padding: 10px;
-  position: relative;
-  z-index: 10;
-}
-
-.logo {
-  color: #FFD700;
-  font-weight: bold;
-  font-size: 24px;
-  text-align: center;
-  text-decoration: none;
-}
-
-.hamburger {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-  cursor: pointer;
-  position: absolute;
-  right: 15px;
-  top: 22px;
-  z-index: 20;
-}
-
-.hamburger span {
-  background: #FFD700;
-  height: 2px;
-  width: 20px;
-}
-
-.hamburger:hover span {
-  background: #e6c200;
-}
-
-.account-icon {
-  position: absolute;
-  left: 15px;
-  top: 18px;
-  font-size: 20px;
-  color: #FFD700;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  height: 24px;
-  z-index: 20;
-}
-
-.account-icon:hover {
-  color: #e6c200;
-}
-
-.account-dropdown {
-  display: none;
-  position: absolute;
-  top: 50px;
-  left: 40px;
-  background: #111;
-  border: 1px solid #FFD700;
-  border-radius: 5px;
-  padding: 10px 0;
-  z-index: 999;
-  width: 150px;
-  box-shadow: 0 0 12px #FFD700;
-}
-
-.account-dropdown a {
-  display: block;
-  color: white;
-  text-decoration: none;
-  padding: 10px;
-  font-size: 14px;
-}
-
-.account-dropdown a:hover {
-  background: #222;
-}
-
-.nav-section {
-  display: none;
-  flex-direction: column;
-  background-color: #111;
-  position: absolute;
-  top: 60px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: fit-content;
-  min-width: 180px;
-  border: 1px solid #FFD700;
-  border-radius: 10px;
-  box-shadow: 0 0 12px #FFD700;
-  padding: 10px 0;
-  z-index: 999;
-  align-items: center;
-}
-
-.nav-section.show {
-  display: flex;
-}
-
-.nav-links {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.nav-links li {
-  position: relative;
-}
-
-.nav-links a {
-  color: #fff;
-  text-decoration: none;
-  padding: 6px 10px;
-  display: block;
-  font-size: 13px;
-}
-
-.dropdown-content {
-  display: none;
-  position: relative;
-  background: #111;
-  z-index: 999;
-  min-width: 100%;
-  padding: 0;
-  margin-top: 0;
-}
-
-.dropdown-content a {
-  padding: 5px 10px;
-  font-size: 13px;
-  border-top: 1px solid #222;
-  color: white;
-  text-decoration: none;
-}
-
-.dropdown-content a:hover {
-  background: #222;
-}
-
-.dropdown-open .dropdown-content {
-  display: block;
-}
-
-@media (min-width: 768px) {
-  .nav-section {
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .nav-links {
-    flex-direction: row;
-  }
-
-  .dropdown:hover .dropdown-content {
-    display: block;
-    position: absolute;
-    top: 100%;
-    left: 0;
-  }
-}
-
-.arrow {
-  font-size: 0.7em;
-}
-
-.dashboard-container {
-  padding: 40px;
-  text-align: center;
-  color: #fff;
-  background: #000;
-}
-
-.site-footer {
-  margin-top: 40px;
-  padding: 20px;
-  text-align: center;
-  font-size: 13px;
-  color: #aaa;
-}
-
-.site-footer a {
-  color: gold;
-  text-decoration: none;
-  margin: 0 8px;
-}
-
+    }
+    .navbar {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #000;
+      padding: 10px;
+      position: relative;
+      z-index: 10;
+    }
+    .logo {
+      color: #FFD700;
+      font-weight: bold;
+      font-size: 24px;
+      text-align: center;
+      text-decoration: none;
+    }
+    .hamburger {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      cursor: pointer;
+      position: absolute;
+      right: 15px;
+      top: 22px;
+      z-index: 20;
+    }
+    .hamburger span {
+      background: #FFD700;
+      height: 2px;
+      width: 20px;
+    }
+    .hamburger:hover span {
+      background: #e6c200;
+    }
+    .account-icon {
+      position: absolute;
+      left: 15px;
+      top: 18px;
+      font-size: 20px;
+      color: #FFD700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      height: 24px;
+      z-index: 20;
+    }
+    .account-icon:hover {
+      color: #e6c200;
+    }
+    .account-dropdown {
+      display: none;
+      position: absolute;
+      top: 50px;
+      left: 40px;
+      background: #111;
+      border: 1px solid #FFD700;
+      border-radius: 5px;
+      padding: 10px 0;
+      z-index: 999;
+      width: 150px;
+      box-shadow: 0 0 12px #FFD700;
+    }
+    .account-dropdown a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 10px;
+      font-size: 14px;
+    }
+    .account-dropdown a:hover {
+      background: #222;
+    }
+    .nav-section {
+      display: none;
+      flex-direction: column;
+      background-color: #111;
+      position: absolute;
+      top: 60px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: fit-content;
+      min-width: 180px;
+      border: 1px solid #FFD700;
+      border-radius: 10px;
+      box-shadow: 0 0 12px #FFD700;
+      padding: 10px 0;
+      z-index: 999;
+      align-items: center;
+    }
+    .nav-section.show {
+      display: flex !important;
+    }
+    .nav-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .nav-links li {
+      position: relative;
+    }
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      padding: 6px 10px;
+      display: block;
+      font-size: 13px;
+    }
+    .dropdown-content {
+      display: none;
+      position: relative;
+      background: #111;
+      z-index: 999;
+      min-width: 100%;
+      padding: 0;
+      margin-top: 0;
+    }
+    .dropdown-content a {
+      padding: 5px 10px;
+      font-size: 13px;
+      border-top: 1px solid #222;
+      color: white;
+      text-decoration: none;
+    }
+    .dropdown-content a:hover {
+      background: #222;
+    }
+    .dropdown-open .dropdown-content {
+      display: block;
+    }
+    @media (min-width: 768px) {
+      .nav-section {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+      }
+      .nav-links {
+        flex-direction: row;
+      }
+      .dropdown:hover .dropdown-content {
+        display: block;
+        position: absolute;
+        top: 100%;
+        left: 0;
+      }
+    }
+    .arrow {
+      font-size: 0.7em;
+    }
+    .dashboard-container {
+      padding: 40px;
+      text-align: center;
+      color: #fff;
+      background: #000;
+    }
+    .site-footer {
+      margin-top: 40px;
+      padding: 20px;
+      text-align: center;
+      font-size: 13px;
+      color: #aaa;
+    }
+    .site-footer a {
+      color: gold;
+      text-decoration: none;
+      margin: 0 8px;
+    }
   </style>
 </head>
 <body>
@@ -216,32 +191,33 @@
         <a href="login.html">Login</a>
         <a href="#">Sign Out</a>
         <a href="dashboard.html" class="active">Dashboard</a>
-      </div><a href="index.html" class="logo">Dripped Out Apparel</a>
-  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
-
-  <div class="nav-section" id="navSection">
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li class="dropdown">
-        <a href="products.html" class="dropbtn">Shop <span class="arrow">▼</span></a>
-        <ul class="dropdown-content">
-          <li><a href="products.html">All Products</a></li>
-          <li><a href="cart.html">Cart</a></li>
-          <li><a href="checkout.html">Checkout</a></li>
+      </div>
+      <a href="index.html" class="logo">Dripped Out Apparel</a>
+      <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+      <div class="nav-section" id="navSection">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li class="dropdown">
+            <a href="products.html" class="dropbtn">Shop <span class="arrow">▼</span></a>
+            <ul class="dropdown-content">
+              <li><a href="products.html">All Products</a></li>
+              <li><a href="cart.html">Cart</a></li>
+              <li><a href="checkout.html">Checkout</a></li>
+            </ul>
+          </li>
+          <li><a href="about.html">About</a></li>
         </ul>
-      </li>
-      <li><a href="about.html">About</a></li>
-    </ul>
-  </div>
-</nav>
-
-  </header>  <main>
+      </div>
+    </nav>
+  </header>
+  <main>
     <div class="dashboard-container">
       <h1>Welcome to Your Dashboard</h1>
       <p>Manage your orders, track your rewards points, and update your account settings.</p>
       <p>More features coming soon.</p>
     </div>
-  </main>  <footer class="site-footer">
+  </main>
+  <footer class="site-footer">
     <p>&copy; 2025 Dripped Out Apparel. All rights reserved.</p>
     <div>
       <a href="index.html">Home</a> |
@@ -250,31 +226,30 @@
       <a href="cart.html">Cart</a> |
       <a href="checkout.html">Checkout</a>
     </div>
-  </footer>  <script>
+  </footer>
+  <script>
     document.addEventListener("DOMContentLoaded", function() {
       const hamburger = document.getElementById("hamburger");
       const navSection = document.getElementById("navSection");
-
+      console.log("Hamburger script loaded");
       // Hamburger toggle
       hamburger.addEventListener("click", function(event) {
+        console.log("Hamburger clicked");
         event.stopPropagation();
         navSection.classList.toggle("show");
       });
-
       // Close nav when clicking outside
       document.addEventListener("click", function(event) {
         if (!hamburger.contains(event.target) && !navSection.contains(event.target)) {
           navSection.classList.remove("show");
         }
       });
-
       // Auto-close on link click
       document.querySelectorAll(".nav-links a").forEach(function(link) {
         link.addEventListener("click", function() {
           navSection.classList.remove("show");
         });
       });
-
       // Shop dropdown toggle
       document.querySelectorAll(".dropbtn").forEach(function(button) {
         button.addEventListener("click", function(e) {
@@ -286,7 +261,6 @@
           });
         });
       });
-
       // Account dropdown toggle
       const accountIcon = document.getElementById("accountIcon");
       const accountDropdownMenu = document.getElementById("accountDropdownMenu");
@@ -301,5 +275,7 @@
         }
       });
     });
-  </script>  <script src="script.js"></script></body>
+  </script>
+  <script src="script.js"></script>
+</body>
 </html>
