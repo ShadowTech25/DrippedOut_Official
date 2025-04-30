@@ -110,7 +110,7 @@
   transform: translateX(-50%);
     }
     
-    .nav-section.show {
+    .nav-section.active {
       display: flex;
     }
     
@@ -354,7 +354,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const navSection = document.getElementById("navSection");
 
   hamburger.addEventListener("click", () => {
-    navSection.classList.toggle("show");
+    navSection.classList.toggle("active");
   });
 
   document.querySelectorAll(".dropbtn").forEach(button => {
