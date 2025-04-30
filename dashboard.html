@@ -48,10 +48,11 @@
     .hamburger:hover span {
       background: #e6c200;
     }
+    .account-wrapper {
+      position: relative;
+      display: inline-block;
+    }
     .account-icon {
-      position: absolute;
-      left: 15px;
-      top: 18px;
       font-size: 20px;
       color: #FFD700;
       cursor: pointer;
@@ -66,8 +67,9 @@
     .account-dropdown {
       display: none;
       position: absolute;
-      top: 50px;
-      left: 40px;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
       background: #111;
       border: 1px solid #FFD700;
       border-radius: 5px;
@@ -185,12 +187,14 @@
 <body>
   <header>
     <nav class="navbar">
-      <div class="account-icon" id="accountIcon">&#128100;</div>
-      <div class="account-dropdown" id="accountDropdownMenu">
-        <a href="signup.html">Sign Up</a>
-        <a href="login.html">Login</a>
-        <a href="#">Sign Out</a>
-        <a href="dashboard.html" class="active">Dashboard</a>
+      <div class="account-wrapper">
+        <div class="account-icon" id="accountIcon">&#128100;</div>
+        <div class="account-dropdown" id="accountDropdownMenu">
+          <a href="signup.html">Sign Up</a>
+          <a href="login.html">Login</a>
+          <a href="#">Sign Out</a>
+          <a href="dashboard.html" class="active">Dashboard</a>
+        </div>
       </div>
       <a href="index.html" class="logo">Dripped Out Apparel</a>
       <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
@@ -232,24 +236,28 @@
       const hamburger = document.getElementById("hamburger");
       const navSection = document.getElementById("navSection");
       console.log("Hamburger script loaded");
+
       // Hamburger toggle
       hamburger.addEventListener("click", function(event) {
         console.log("Hamburger clicked");
         event.stopPropagation();
         navSection.classList.toggle("active");
       });
+
       // Close nav when clicking outside
       document.addEventListener("click", function(event) {
         if (!hamburger.contains(event.target) && !navSection.contains(event.target)) {
           navSection.classList.remove("show");
         }
       });
+
       // Auto-close on link click
       document.querySelectorAll(".nav-links a").forEach(function(link) {
         link.addEventListener("click", function() {
           navSection.classList.remove("active");
         });
       });
+
       // Shop dropdown toggle
       document.querySelectorAll(".dropbtn").forEach(function(button) {
         button.addEventListener("click", function(e) {
@@ -261,6 +269,7 @@
           });
         });
       });
+
       // Account dropdown toggle
       const accountIcon = document.getElementById("accountIcon");
       const accountDropdownMenu = document.getElementById("accountDropdownMenu");
