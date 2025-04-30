@@ -103,7 +103,7 @@
       z-index: 999;
       align-items: center;
     }
-    .nav-section.show {
+    .nav-section.active {
       display: flex !important;
     }
     .nav-links {
@@ -236,7 +236,7 @@
       hamburger.addEventListener("click", function(event) {
         console.log("Hamburger clicked");
         event.stopPropagation();
-        navSection.classList.toggle("show");
+        navSection.classList.toggle("active");
       });
       // Close nav when clicking outside
       document.addEventListener("click", function(event) {
@@ -247,7 +247,7 @@
       // Auto-close on link click
       document.querySelectorAll(".nav-links a").forEach(function(link) {
         link.addEventListener("click", function() {
-          navSection.classList.remove("show");
+          navSection.classList.remove("active");
         });
       });
       // Shop dropdown toggle
