@@ -48,11 +48,10 @@
     .hamburger:hover span {
       background: #e6c200;
     }
-    .account-wrapper {
-      position: relative;
-      display: inline-block;
-    }
     .account-icon {
+      position: absolute;
+      left: 15px;
+      top: 18px;
       font-size: 20px;
       color: #FFD700;
       cursor: pointer;
@@ -67,16 +66,17 @@
     .account-dropdown {
       display: none;
       position: absolute;
-      top: 100%;
+      top: 60px;
       left: 50%;
       transform: translateX(-50%);
       background: #111;
       border: 1px solid #FFD700;
-      border-radius: 5px;
+      border-radius: 10px;
       padding: 10px 0;
       z-index: 999;
-      width: 150px;
+      width: 160px;
       box-shadow: 0 0 12px #FFD700;
+      text-align: center;
     }
     .account-dropdown a {
       display: block;
@@ -187,14 +187,12 @@
 <body>
   <header>
     <nav class="navbar">
-      <div class="account-wrapper">
-        <div class="account-icon" id="accountIcon">&#128100;</div>
-        <div class="account-dropdown" id="accountDropdownMenu">
-          <a href="signup.html">Sign Up</a>
-          <a href="login.html">Login</a>
-          <a href="#">Sign Out</a>
-          <a href="dashboard.html" class="active">Dashboard</a>
-        </div>
+      <div class="account-icon" id="accountIcon">&#128100;</div>
+      <div class="account-dropdown" id="accountDropdownMenu">
+        <a href="signup.html">Sign Up</a>
+        <a href="login.html">Login</a>
+        <a href="#">Sign Out</a>
+        <a href="dashboard.html" class="active">Dashboard</a>
       </div>
       <a href="index.html" class="logo">Dripped Out Apparel</a>
       <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
@@ -235,11 +233,9 @@
     document.addEventListener("DOMContentLoaded", function() {
       const hamburger = document.getElementById("hamburger");
       const navSection = document.getElementById("navSection");
-      console.log("Hamburger script loaded");
 
       // Hamburger toggle
       hamburger.addEventListener("click", function(event) {
-        console.log("Hamburger clicked");
         event.stopPropagation();
         navSection.classList.toggle("active");
       });
