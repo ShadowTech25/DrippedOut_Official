@@ -85,9 +85,13 @@
       flex-direction: column;
       background-color: #000;
       width: 100%;
+      border: 1px solid #FFD700;
+      border-radius: 10px;
+      box-shadow: 0 0 12px #FFD700;
+      z-index: 999;
     }
 
-    .nav-section.show {
+    .nav-section.active {
       display: flex;
     }
 
@@ -216,7 +220,7 @@
       const navSection = document.getElementById("navSection");
 
       hamburger.addEventListener("click", () => {
-        navSection.classList.toggle("show");
+        navSection.classList.toggle("active");
       });
 
       document.querySelectorAll(".dropbtn").forEach(button => {
