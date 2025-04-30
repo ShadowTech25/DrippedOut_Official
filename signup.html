@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#FFD700">
-  <link rel="manifest" href="manifest.json">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#FFD700" />
+  <link rel="manifest" href="manifest.json" />
   <title>Sign Up - Dripped Out Apparel</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
   <style>
     .navbar {
       display: flex;
@@ -35,10 +35,10 @@
     }
 
     .hamburger span {
-  background: #FFD700; /* gold color */
-  height: 2px;
-  width: 20px;
-}
+      background: #FFD700;
+      height: 2px;
+      width: 20px;
+    }
 
     .account-icon {
       position: absolute;
@@ -55,20 +55,24 @@
     .account-dropdown {
       display: none;
       position: absolute;
-      top: 50px;
-      left: 50px;
+      top: 60px;
+      left: 50%;
+      transform: translateX(-50%);
       background: #111;
-      border: 1px solid #333;
-      border-radius: 4px;
+      border: 1px solid #FFD700;
+      border-radius: 10px;
       z-index: 999;
-      width: 140px;
+      width: 160px;
+      box-shadow: 0 0 12px #FFD700;
+      text-align: center;
+      padding: 10px 0;
     }
 
     .account-dropdown a {
       display: block;
       color: white;
       text-decoration: none;
-      padding: 8px 12px;
+      padding: 10px;
       font-size: 13px;
     }
 
@@ -80,10 +84,21 @@
       display: none;
       flex-direction: column;
       background-color: #000;
-      width: 100%;
+      position: absolute;
+      top: 60px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: fit-content;
+      min-width: 180px;
+      border: 1px solid #FFD700;
+      border-radius: 10px;
+      box-shadow: 0 0 12px #FFD700;
+      padding: 10px 0;
+      z-index: 999;
+      align-items: center;
     }
 
-    .nav-section.show {
+    .nav-section.active {
       display: flex;
     }
 
@@ -187,11 +202,10 @@
   </header>
 
   <main style="padding: 40px;">
-    <h1>Create Your Account</h1>
+    <h1>Sign Up</h1>
     <form id="signup-form">
-      <input type="text" id="signup-username" placeholder="Username" required>
+      <input type="text" id="signup-name" placeholder="Name" required>
       <input type="email" id="signup-email" placeholder="Email" required>
-      <input type="text" id="signup-shipping" placeholder="Shipping Address" required>
       <input type="password" id="signup-password" placeholder="Password" required>
       <button type="submit">Sign Up</button>
     </form>
@@ -214,7 +228,7 @@
       const navSection = document.getElementById("navSection");
 
       hamburger.addEventListener("click", () => {
-        navSection.classList.toggle("show");
+        navSection.classList.toggle("active");
       });
 
       document.querySelectorAll(".dropbtn").forEach(button => {
@@ -250,15 +264,13 @@
 
       document.getElementById("signup-form").addEventListener("submit", function(e) {
         e.preventDefault();
-        const newUser = {
-          username: document.getElementById("signup-username").value,
-          email: document.getElementById("signup-email").value,
-          shipping: document.getElementById("signup-shipping").value,
-          password: document.getElementById("signup-password").value,
-          points: 0
-        };
+        const name = document.getElementById("signup-name").value;
+        const email = document.getElementById("signup-email").value;
+        const password = document.getElementById("signup-password").value;
+
+        const newUser = { name, email, password };
         localStorage.setItem("drip_user", JSON.stringify(newUser));
-        alert("Signup successful. Redirecting to dashboard...");
+        alert("Sign up successful.");
         window.location.href = "dashboard.html";
       });
     });
