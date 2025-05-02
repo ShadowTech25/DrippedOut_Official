@@ -32,9 +32,9 @@
       gap: 3px;
     }
     .hamburger span {
-  background: #FFD700; /* gold color */
-  height: 2px;
-  width: 20px;
+      background: #FFD700;
+      height: 2px;
+      width: 20px;
     }
     .account-icon {
       position: absolute;
@@ -47,7 +47,7 @@
       align-items: center;
       height: 24px;
     }
-     .account-dropdown {
+    .account-dropdown {
       display: none;
       position: absolute;
       top: 60px;
@@ -62,7 +62,6 @@
       text-align: center;
       padding: 10px 0;
     }
-
     .account-dropdown a {
       display: block;
       color: white;
@@ -74,24 +73,23 @@
       background: #222;
     }
     .nav-section {
-  display: none;
-  flex-direction: column;
-  background-color: #111;
-  position: absolute;
-  top: 60px;
-  right: 15px;
-  width: fit-content;
-  min-width: 180px;
-  border: 1px solid #FFD700;
-  border-radius: 10px;
-  box-shadow: 0 0 12px #FFD700;
-  padding: 10px 0;
-  z-index: 999;
-  align-items: center;
-  left: 50%;
-  transform: translateX(-50%);
+      display: none;
+      flex-direction: column;
+      background-color: #111;
+      position: absolute;
+      top: 60px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: fit-content;
+      min-width: 180px;
+      border: 1px solid #FFD700;
+      border-radius: 10px;
+      box-shadow: 0 0 12px #FFD700;
+      padding: 10px 0;
+      z-index: 999;
+      align-items: center;
     }
-    .nav-section.show {
+    .nav-section.active {
       display: flex;
     }
     .nav-links {
@@ -209,8 +207,6 @@
     #faq details, #articles details {
       text-align: left;
     }
-
-    /* Smooth Dropdown Animation Fix */
     details summary {
       cursor: pointer;
       transition: color 0.3s;
@@ -269,7 +265,14 @@
 
   <main style="padding:40px; background:#000; color:#FFF;">
     <h1 style="text-align:center;">About D.O.A</h1>
-    <p style="text-align:center;">Dripped Out Apparel is where style meets street. Every thread we drop is stitched with purpose, heat, and legacy.</p>
+    <p style="text-align:center;">
+      <strong>Dripped Out Apparel</strong> is where style meets street.<br>
+      Every thread we drop is stitched with purpose, heat, and legacy.<br><br>
+      Proudly Canadian. Globally inspired.<br>
+      We blend bold fabrics, fearless designs, and high-end execution — built for the ones who move different.<br><br>
+      This isn’t fast fashion.<br>
+      This is <strong>crafted confidence</strong>, one drop at a time.
+    </p>
 
     <!-- FAQ Section -->
     <section id="faq">
@@ -334,7 +337,7 @@
       const navSection = document.getElementById("navSection");
 
       hamburger.addEventListener("click", () => {
-        navSection.classList.toggle("show");
+        navSection.classList.toggle("active");
       });
 
       document.querySelectorAll(".dropbtn").forEach(button => {
