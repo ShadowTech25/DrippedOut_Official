@@ -22,6 +22,7 @@
       font-weight: bold;
       font-size: 24px;
       text-align: center;
+      text-decoration: none;
     }
 
     .hamburger {
@@ -33,11 +34,13 @@
       top: 22px;
       gap: 3px;
     }
-.hamburger span {
-  background: #FFD700; /* gold color */
-  height: 2px;
-  width: 20px;
-}
+
+    .hamburger span {
+      background: #FFD700;
+      height: 2px;
+      width: 20px;
+    }
+
     .account-icon {
       position: absolute;
       left: 15px;
@@ -53,47 +56,49 @@
     .account-dropdown {
       display: none;
       position: absolute;
-      top: 50px;
-      left: 40px;
+      top: 55px;
+      left: 15px;
+      transform: translateX(0);
       background: #111;
       border: 1px solid #FFD700;
-      border-radius: 5px;
+      border-radius: 12px;
       padding: 10px 0;
       z-index: 999;
-      width: 150px;
+      width: 160px;
       box-shadow: 0 0 12px #FFD700;
+      text-align: center;
     }
 
     .account-dropdown a {
       display: block;
       color: white;
       text-decoration: none;
-      padding: 8px 12px;
-      font-size: 13px;
+      padding: 10px;
+      font-size: 14px;
     }
 
     .account-dropdown a:hover {
       background: #222;
     }
 
-   .nav-section {
-  display: none;
-  flex-direction: column;
-  background-color: #111;
-  position: absolute;
-  top: 60px;
-  right: 15px;
-  width: fit-content;
-  min-width: 180px;
-  border: 1px solid #FFD700;
-  border-radius: 10px;
-  box-shadow: 0 0 12px #FFD700;
-  padding: 10px 0;
-  z-index: 999;
-  align-items: center;
-  left: 50%;
-  transform: translateX(-50%);
-   } 
+    .nav-section {
+      display: none;
+      flex-direction: column;
+      background-color: #111;
+      position: absolute;
+      top: 60px;
+      right: 15px;
+      width: fit-content;
+      min-width: 180px;
+      border: 1px solid #FFD700;
+      border-radius: 10px;
+      box-shadow: 0 0 12px #FFD700;
+      padding: 10px 0;
+      z-index: 999;
+      align-items: center;
+      left: 50%;
+      transform: translateX(-50%);
+    }
 
     .nav-section.show {
       display: flex;
@@ -162,7 +167,6 @@
       font-size: 0.7em;
     }
 
-    /* Cart Item Clean Glow */
     .cart-items .cart-item {
       background: #000;
       border: 2px solid #FFD700;
@@ -218,7 +222,6 @@
 </head>
 
 <body>
-  <!-- NAVBAR -->
   <header>
     <nav class="navbar">
       <div class="account-icon" id="accountIcon">&#128100;</div>
@@ -250,7 +253,6 @@
     </nav>
   </header>
 
-  <!-- MAIN CONTENT -->
   <main>
     <h1 style="text-align:center; margin: 20px;">Your Cart</h1>
 
@@ -263,7 +265,6 @@
     </div>
   </main>
 
-  <!-- FOOTER -->
   <footer class="site-footer" style="text-align:center; margin-top:40px;">
     <p>&copy; 2025 Dripped Out Apparel. All rights reserved.</p>
     <div>
@@ -275,6 +276,49 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const hamburger = document.getElementById("hamburger");
+      const navSection = document.getElementById("navSection");
+
+      hamburger.addEventListener("click", () => {
+        navSection.classList.toggle("show");
+      });
+
+      document.querySelectorAll(".dropbtn").forEach(button => {
+        button.addEventListener("click", function (e) {
+          e.preventDefault();
+          const parent = this.parentElement;
+          const isOpen = parent.classList.contains("dropdown-open");
+
+          document.querySelectorAll(".dropdown").forEach(drop => drop.classList.remove("dropdown-open"));
+
+          if (!isOpen) {
+            parent.classList.add("dropdown-open");
+          }
+        });
+      });
+
+      const accountIcon = document.getElementById("accountIcon");
+      const accountDropdownMenu = document.getElementById("accountDropdownMenu");
+
+      accountIcon.addEventListener("click", () => {
+        accountDropdownMenu.style.display =
+          accountDropdownMenu.style.display === "block" ? "none" : "block";
+      });
+
+      document.addEventListener("click", function (event) {
+        if (!accountIcon.contains(event.target) && !accountDropdownMenu.contains(event.target)) {
+          accountDropdownMenu.style.display = "none";
+        }
+      });
+
+      document.querySelectorAll(".nav-links a").forEach(link => {
+        link.addEventListener("click", () => {
+          navSection.classList.remove("show");
+        });
+      });
+    });
+  </script>
 </body>
 </html>
