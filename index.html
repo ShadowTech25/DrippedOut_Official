@@ -283,15 +283,19 @@
     }
 
     .fancy-underline-image {
-      margin: 12px auto 0;
+      margin: 5px auto -5px;
       display: flex;
       justify-content: center;
       align-items: center;
-      max-width: 220px;
+      max-width: 180px;
+      height: auto;
     }
 
     .fancy-underline-image img {
       width: 100%;
+      height: auto;
+      max-height: 30px;
+      object-fit: contain;
       filter: drop-shadow(0 0 6px #FFD700) brightness(1.2);
     }
   </style>
