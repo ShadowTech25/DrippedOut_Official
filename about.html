@@ -232,6 +232,22 @@
       opacity: 1;
     }
 
+    .glow-container,
+    .see-more-box {
+      background: radial-gradient(circle, rgba(255,215,0,0.15) 0%, rgba(0,0,0,1) 80%);
+      box-shadow: 0 0 30px rgba(255, 215, 0, 0.4);
+      border-radius: 12px;
+      padding: 15px 20px;
+      max-width: 700px;
+      margin: 20px auto 10px;
+      color: white;
+    }
+
+    .glow-container p {
+      margin: 0;
+      text-align: center;
+    }
+
     .see-more-wrapper {
       text-align: center;
       margin-top: 10px;
@@ -240,12 +256,7 @@
     .see-more-box {
       display: inline-block;
       text-align: left;
-      background-color: #000;
       border: 1px solid #FFD700;
-      border-radius: 10px;
-      padding: 10px 15px;
-      margin: 5px auto 5px;
-      max-width: 700px;
       width: auto;
     }
 
@@ -294,10 +305,12 @@
   </header>
   <main style="padding:40px; background:#000; color:#FFF;">
     <h1 style="text-align:center;">About D.O.A</h1>
-    <p style="text-align:center;">
-      <strong>Dripped Out Apparel</strong> is where style meets street.<br>
-      Every thread we drop is stitched with purpose, heat, and legacy.
-    </p>
+    <div class="glow-container">
+      <p>
+        <strong>Dripped Out Apparel</strong> is where style meets street.<br>
+        Every thread we drop is stitched with purpose, heat, and legacy.
+      </p>
+    </div>
 
     <div class="see-more-wrapper">
       <details class="see-more-box">
