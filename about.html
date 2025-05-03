@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -12,6 +13,7 @@
       font-family: 'UnifrakturCook', cursive;
       letter-spacing: 1px;
     }
+
     .navbar {
       display: flex;
       flex-direction: column;
@@ -20,12 +22,14 @@
       padding: 10px;
       position: relative;
     }
+
     .logo {
       color: #FFD700;
       font-weight: bold;
       font-size: 24px;
       text-align: center;
     }
+
     .hamburger {
       display: flex;
       flex-direction: column;
@@ -35,11 +39,13 @@
       top: 22px;
       gap: 3px;
     }
+
     .hamburger span {
       background: #FFD700;
       height: 2px;
       width: 20px;
     }
+
     .account-icon {
       position: absolute;
       left: 15px;
@@ -51,6 +57,7 @@
       align-items: center;
       height: 24px;
     }
+
     .account-dropdown {
       display: none;
       position: absolute;
@@ -66,6 +73,7 @@
       text-align: center;
       padding: 10px 0;
     }
+
     .account-dropdown a {
       display: block;
       color: white;
@@ -73,9 +81,11 @@
       padding: 8px 12px;
       font-size: 13px;
     }
+
     .account-dropdown a:hover {
       background: #222;
     }
+
     .nav-section {
       display: none;
       flex-direction: column;
@@ -93,17 +103,21 @@
       z-index: 999;
       align-items: center;
     }
+
     .nav-section.active {
       display: flex;
     }
+
     .nav-links {
       list-style: none;
       padding: 0;
       margin: 0;
     }
+
     .nav-links li {
       position: relative;
     }
+
     .nav-links a {
       color: #fff;
       text-decoration: none;
@@ -111,6 +125,7 @@
       display: block;
       font-size: 13px;
     }
+
     .dropdown-content {
       display: none;
       position: relative;
@@ -122,25 +137,31 @@
       box-shadow: 0 0 8px #FFD700;
       border: none;
     }
+
     .dropdown-content a {
       padding: 5px 10px;
       font-size: 13px;
     }
+
     .dropdown-content a:hover {
       background: #222;
     }
+
     .dropdown-open .dropdown-content {
       display: block;
     }
+
     @media (min-width: 768px) {
       .nav-section {
         flex-direction: row;
         justify-content: center;
         align-items: center;
       }
+
       .nav-links {
         flex-direction: row;
       }
+
       .dropdown:hover .dropdown-content {
         display: block;
         position: absolute;
@@ -148,9 +169,11 @@
         left: 0;
       }
     }
+
     .arrow {
       font-size: 0.7em;
     }
+
     .contact-box {
       border: 2px solid #FFD700;
       padding: 20px;
@@ -161,10 +184,12 @@
       width: 90%;
       box-shadow: 0 0 10px #FFD700;
     }
+
     .contact-box form {
       display: flex;
       flex-direction: column;
     }
+
     .contact-box input,
     .contact-box textarea {
       width: 100%;
@@ -177,12 +202,14 @@
       transition: box-shadow 0.3s ease-in-out;
       font-size: 14px;
     }
+
     .contact-box input:focus,
     .contact-box textarea:focus {
       outline: none;
       box-shadow: 0 0 8px 2px #FFD700;
       border-color: #FFD700;
     }
+
     .contact-box button {
       background: linear-gradient(90deg, #FFD700 0%, #e6c200 100%);
       color: black;
@@ -195,49 +222,60 @@
       font-size: 16px;
       box-shadow: 0 0 10px #FFD700;
     }
+
     .contact-box button:hover {
       background: linear-gradient(90deg, #e6c200 0%, #FFD700 100%);
       box-shadow: 0 0 15px #FFD700, 0 0 25px #FFD700;
     }
+
     main h2 {
       color: #FFD700;
       margin-top: 2em;
       text-align: center;
     }
+
     #faq, #articles, #contact {
       max-width: 700px;
       margin: 0 auto;
       text-align: center;
     }
+
     #faq details, #articles details {
       text-align: left;
     }
+
     details summary {
       cursor: pointer;
       transition: color 0.3s;
     }
+
     details[open] summary {
       color: #FFD700;
     }
+
     details summary::after {
       content: " ▼";
       font-size: 0.8em;
     }
+
     details[open] summary::after {
       content: " ▲";
     }
+
     details p {
       overflow: hidden;
       max-height: 0;
       opacity: 0;
       transition: max-height 0.5s ease, opacity 0.5s ease;
     }
+
     details[open] p {
       max-height: 500px;
       opacity: 1;
     }
   </style>
 </head>
+
 <body>
   <header>
     <nav class="navbar">
@@ -266,48 +304,110 @@
       </div>
     </nav>
   </header>
+
   <main style="padding:40px; background:#000; color:#FFF;">
     <h1 style="text-align:center;">About D.O.A</h1>
-    <p style="text-align:center; box-shadow: 0 0 6px #FFD700; padding: 20px; border-radius: 10px;">
+    <p style="text-align:center;">
       <strong>Dripped Out Apparel</strong> is where style meets street.<br>
       Every thread we drop is stitched with purpose, heat, and legacy.
     </p>
-    <details style="max-width:700px; margin:40px auto 20px; color:#FFF; text-align:center; box-shadow: 0 0 6px #FFD700; padding: 20px; border-radius: 10px; border: none; background-color: #000;">
+
+    <!-- See More Dropdown with no border -->
+    <details style="max-width:700px; margin:40px auto 20px; color:#FFF; text-align:center; padding:20px; border-radius:10px; background:#000;">
       <summary style="cursor:pointer; color:#FFD700; font-weight:bold; font-size:1.1em; text-shadow: 0 0 4px #FFD700;">
         See More
       </summary>
-      <p style="margin-top:10px; box-shadow: 0 0 6px #FFD700; padding: 15px; border-radius: 10px;">
+      <p style="margin-top:10px;">
         Proudly Canadian. Globally inspired.<br>
         We blend bold fabrics, fearless designs, and high-end execution — built for the ones who move different.<br><br>
         This isn’t fast fashion.<br>
         This is <strong>crafted confidence</strong>, one drop at a time.
       </p>
-    </details><!-- The rest of your content remains unchanged -->
+    </details>
 
+    <section id="faq">
+      <h2>FAQ</h2>
+      <details>
+        <summary>Shipping &amp; Returns Policy</summary>
+        <p>We ship worldwide within 7 business days. Free shipping over $150. Not satisfied? Return your gear in 14 days.</p>
+      </details>
+      <details>
+        <summary>Why Shop at D.O.A</summary>
+        <p>Dripped Out means standing out. Exclusive drops, premium quality, community-driven fashion.</p>
+      </details>
+      <details>
+        <summary>Collaborate With Us</summary>
+        <p>Artists, brands, creators — we’re always open to bold collabs. Hit our contact form or email us.</p>
+      </details>
+    </section>
+
+    <section id="articles">
+      <h2>Articles</h2>
+      <details>
+        <summary>Spring Collection Launch</summary>
+        <p>Check out our latest spring releases featuring bold graphics and fresh cuts.</p>
+      </details>
+      <details>
+        <summary>Streetwear Trends 2025</summary>
+        <p>Our take on the biggest trends dominating the streets this year.</p>
+      </details>
+    </section>
+
+    <section id="contact">
+      <h2>Get in Touch</h2>
+      <div class="contact-box">
+        <form>
+          <input type="text" placeholder="Your Name" required>
+          <input type="email" placeholder="Your Email" required>
+          <input type="text" placeholder="Phone Number" required>
+          <input type="text" placeholder="Subject" required>
+          <textarea placeholder="Your Message" rows="5" required></textarea>
+          <button type="submit" class="buy-button">Send</button>
+        </form>
+      </div>
+    </section>
   </main>
+
+  <footer class="site-footer">
+    <p style="text-align:center; color:#FFF;">&copy; 2025 Dripped Out Apparel. All rights reserved.</p>
+    <div style="text-align:center;">
+      <a href="index.html">Home</a> |
+      <a href="products.html">Shop</a> |
+      <a href="about.html">About</a> |
+      <a href="cart.html">Cart</a> |
+      <a href="checkout.html">Checkout</a>
+    </div>
+  </footer>
+
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const hamburger = document.getElementById("hamburger");
       const navSection = document.getElementById("navSection");
+
       hamburger.addEventListener("click", () => {
         navSection.classList.toggle("active");
       });
+
       document.querySelectorAll(".dropbtn").forEach(button => {
         button.addEventListener("click", function (e) {
           e.preventDefault();
           const parent = this.parentElement;
           parent.classList.toggle("dropdown-open");
+
           document.querySelectorAll(".dropdown").forEach(drop => {
             if (drop !== parent) drop.classList.remove("dropdown-open");
           });
         });
       });
+
       const accountIcon = document.getElementById("accountIcon");
       const accountDropdownMenu = document.getElementById("accountDropdownMenu");
+
       accountIcon.addEventListener("click", () => {
         accountDropdownMenu.style.display =
           accountDropdownMenu.style.display === "block" ? "none" : "block";
       });
+
       document.addEventListener("click", function (event) {
         if (
           !accountIcon.contains(event.target) &&
