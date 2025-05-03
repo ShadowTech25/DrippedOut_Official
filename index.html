@@ -266,7 +266,7 @@
     }
 
     .hero {
-      padding: 15px 10px 20px;
+      padding: 15px 10px 0;
       margin-top: 5px;
       text-align: center;
     }
@@ -298,8 +298,12 @@
       height: auto;
       max-height: 30px;
       object-fit: contain;
-      transform: scaleX(3);
+      transform: scaleX(6);
       filter: drop-shadow(0 0 8px #FFD700) brightness(1.25);
+    }
+
+    .hero-banner {
+      margin-top: 0 !important;
     }
   </style>
 </head>
@@ -343,7 +347,7 @@
     </div>
   </section>
 
-  <section class="hero-banner" style="text-align:center; margin:20px 0;">
+  <section class="hero-banner" style="text-align:center; margin-top:0;">
     <img src="images/drip-ad.jpg" alt="Drip Ad" style="max-width:100%; border:2px solid gold; border-radius:8px;">
   </section>
 
