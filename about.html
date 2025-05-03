@@ -7,7 +7,13 @@
   <link rel="manifest" href="manifest.json"/>
   <title>About Us – Dripped Out Apparel</title>
   <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet" />
   <style>
+    .old-english {
+      font-family: 'UnifrakturCook', cursive;
+      letter-spacing: 1px;
+    }
+
     .navbar {
       display: flex;
       flex-direction: column;
@@ -16,12 +22,14 @@
       padding: 10px;
       position: relative;
     }
+
     .logo {
       color: #FFD700;
       font-weight: bold;
       font-size: 24px;
       text-align: center;
     }
+
     .hamburger {
       display: flex;
       flex-direction: column;
@@ -31,11 +39,13 @@
       top: 22px;
       gap: 3px;
     }
+
     .hamburger span {
       background: #FFD700;
       height: 2px;
       width: 20px;
     }
+
     .account-icon {
       position: absolute;
       left: 15px;
@@ -47,6 +57,7 @@
       align-items: center;
       height: 24px;
     }
+
     .account-dropdown {
       display: none;
       position: absolute;
@@ -62,6 +73,7 @@
       text-align: center;
       padding: 10px 0;
     }
+
     .account-dropdown a {
       display: block;
       color: white;
@@ -69,9 +81,11 @@
       padding: 8px 12px;
       font-size: 13px;
     }
+
     .account-dropdown a:hover {
       background: #222;
     }
+
     .nav-section {
       display: none;
       flex-direction: column;
@@ -89,17 +103,21 @@
       z-index: 999;
       align-items: center;
     }
+
     .nav-section.active {
       display: flex;
     }
+
     .nav-links {
       list-style: none;
       padding: 0;
       margin: 0;
     }
+
     .nav-links li {
       position: relative;
     }
+
     .nav-links a {
       color: #fff;
       text-decoration: none;
@@ -107,6 +125,7 @@
       display: block;
       font-size: 13px;
     }
+
     .dropdown-content {
       display: none;
       position: relative;
@@ -116,26 +135,32 @@
       padding: 0;
       margin-top: 0;
     }
+
     .dropdown-content a {
       padding: 5px 10px;
       font-size: 13px;
       border-top: 1px solid #222;
     }
+
     .dropdown-content a:hover {
       background: #222;
     }
+
     .dropdown-open .dropdown-content {
       display: block;
     }
+
     @media (min-width: 768px) {
       .nav-section {
         flex-direction: row;
         justify-content: center;
         align-items: center;
       }
+
       .nav-links {
         flex-direction: row;
       }
+
       .dropdown:hover .dropdown-content {
         display: block;
         position: absolute;
@@ -143,9 +168,11 @@
         left: 0;
       }
     }
+
     .arrow {
       font-size: 0.7em;
     }
+
     .contact-box {
       border: 2px solid #FFD700;
       padding: 20px;
@@ -156,10 +183,12 @@
       width: 90%;
       box-shadow: 0 0 10px #FFD700;
     }
+
     .contact-box form {
       display: flex;
       flex-direction: column;
     }
+
     .contact-box input,
     .contact-box textarea {
       width: 100%;
@@ -172,12 +201,14 @@
       transition: box-shadow 0.3s ease-in-out;
       font-size: 14px;
     }
+
     .contact-box input:focus,
     .contact-box textarea:focus {
       outline: none;
       box-shadow: 0 0 8px 2px #FFD700;
       border-color: #FFD700;
     }
+
     .contact-box button {
       background: linear-gradient(90deg, #FFD700 0%, #e6c200 100%);
       color: black;
@@ -190,43 +221,53 @@
       font-size: 16px;
       box-shadow: 0 0 10px #FFD700;
     }
+
     .contact-box button:hover {
       background: linear-gradient(90deg, #e6c200 0%, #FFD700 100%);
       box-shadow: 0 0 15px #FFD700, 0 0 25px #FFD700;
     }
+
     main h2 {
       color: #FFD700;
       margin-top: 2em;
       text-align: center;
     }
+
     #faq, #articles, #contact {
       max-width: 700px;
       margin: 0 auto;
       text-align: center;
     }
+
     #faq details, #articles details {
       text-align: left;
     }
+
     details summary {
       cursor: pointer;
       transition: color 0.3s;
     }
+
     details[open] summary {
       color: #FFD700;
     }
+
     details summary::after {
       content: " ▼";
       font-size: 0.8em;
     }
+
     details[open] summary::after {
       content: " ▲";
     }
+
     details p {
       overflow: hidden;
       max-height: 0;
       opacity: 0;
       transition: max-height 0.5s ease, opacity 0.5s ease;
     }
+
     details[open] p {
       max-height: 500px;
       opacity: 1;
@@ -244,7 +285,7 @@
         <a href="#">Sign Out</a>
         <a href="dashboard.html">Dashboard</a>
       </div>
-      <a href="index.html" class="logo">Dripped Out Apparel</a>
+      <a href="index.html" class="logo old-english">Dripped Out Apparel</a>
       <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
       <div class="nav-section" id="navSection">
         <ul class="nav-links">
