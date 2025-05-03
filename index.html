@@ -280,35 +280,13 @@
     .hero p {
       font-size: 1em;
       color: #ccc;
-      margin: 2px 0 0;
-    }
-
-    .glow-underline-wrapper {
-      display: flex;
-      justify-content: center;
-      margin-top: -2px;
-    }
-
-    .glow-underline {
-      height: 2px;
-      width: 280px;
-      background: #FFD700;
-      border-radius: 1px;
-      box-shadow: 0 0 6px #FFD700;
-      animation: pulseGlow 2s infinite ease-in-out;
-    }
-
-    @keyframes pulseGlow {
-      0%, 100% {
-        box-shadow: 0 0 6px #FFD700;
-      }
-      50% {
-        box-shadow: 0 0 12px #FFD700;
-      }
+      margin: 0;
+      text-shadow: 0 0 5px #FFD700;
     }
 
     .hero-banner {
-      margin-top: 0 !important;
+      margin-top: 10px;
+      text-align: center;
     }
   </style>
 </head>
@@ -347,13 +325,10 @@
   <section class="hero">
     <h1>WELCOME TO D.O.A</h1>
     <p>Luxury streetwear built for legends.</p>
-    <div class="glow-underline-wrapper">
-      <div class="glow-underline"></div>
-    </div>
   </section>
 
-  <section class="hero-banner" style="text-align:center; margin-top:0;">
-    <img src="images/drip-ad.jpg" alt="Drip Ad" style="max-width:100%; border:2px solid gold; border-radius:8px;">
+  <section class="hero-banner">
+    <img src="images/drip-ad2.jpg" alt="Drip Ad" style="max-width:100%; border:2px solid gold; border-radius:8px;">
   </section>
 
   <section class="certified-banner">
