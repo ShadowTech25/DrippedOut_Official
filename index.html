@@ -283,23 +283,28 @@
       margin: 0;
     }
 
-    .fancy-underline-image {
-      margin: 0 auto;
-      padding: 0;
+    .glow-underline-wrapper {
       display: flex;
       justify-content: center;
-      align-items: center;
-      max-width: 100%;
-      overflow: hidden;
+      margin-top: 6px;
     }
 
-    .fancy-underline-image img {
-      width: 100%;
-      height: auto;
-      max-height: 30px;
-      object-fit: contain;
-      transform: scaleX(6);
-      filter: drop-shadow(0 0 8px #FFD700) brightness(1.25);
+    .glow-underline {
+      height: 6px;
+      width: 280px;
+      background: #FFD700;
+      border-radius: 3px;
+      box-shadow: 0 0 10px #FFD700;
+      animation: pulseGlow 2s infinite ease-in-out;
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% {
+        box-shadow: 0 0 10px #FFD700;
+      }
+      50% {
+        box-shadow: 0 0 20px #FFD700;
+      }
     }
 
     .hero-banner {
@@ -342,8 +347,8 @@
   <section class="hero">
     <h1>WELCOME TO D.O.A</h1>
     <p>Luxury streetwear built for legends.</p>
-    <div class="fancy-underline-image">
-      <img src="images/Decorative underline gold.png" alt="Fancy Gold Underline" />
+    <div class="glow-underline-wrapper">
+      <div class="glow-underline"></div>
     </div>
   </section>
 
